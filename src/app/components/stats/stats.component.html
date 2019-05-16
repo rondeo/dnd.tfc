@@ -1,0 +1,420 @@
+<!-- <p>
+  stats works!
+</p>
+<div>
+  <table>
+    <tr>
+      <td>Fuerza</td>
+    </tr>
+    <tr>
+      <td>Destreza</td>
+    </tr>
+    <tr>
+      <td>Constitución</td>
+    </tr>
+    <tr>
+      <td>Inteligencia</td>
+    </tr>
+    <tr>
+      <td>Sabiduría</td>
+    </tr>
+    <tr>
+      <td>Carisma</td>
+    </tr>
+  </table>
+</div> -->
+<main>
+  <section>
+    <section class="attributes">
+      <div class="scores">
+        <ul>
+          <li>
+            <div class="score">
+              <label for="Strengthscore">Fuerza</label>
+              <input name="Strengthscore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Strengthmod" class="statmod" />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Dexterityscore">Destreza</label>
+              <input name="Dexterityscore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Dexteritymod" class="statmod" />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Constitutionscore">Constitución</label>
+              <input name="Constitutionscore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Constitutionmod" class="statmod" />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Wisdomscore">Sabiduría</label>
+              <input name="Wisdomscore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Wisdommod" />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Intelligencescore">Inteligencia</label>
+              <input name="Intelligencescore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Intelligencemod" class="statmod" />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Charismascore">Carisma</label>
+              <input name="Charismascore" class="stat" />
+            </div>
+            <div class="modifier">
+              <input name="Charismamod" class="statmod" />
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="attr-applications">
+        <div class="inspiration box">
+          <div class="label-container">
+            <label for="inspiration">Inspiración</label>
+          </div>
+          <input name="inspiration" type="checkbox" />
+        </div>
+        <div class="proficiencybonus box">
+          <div class="label-container">
+            <label for="proficiencybonus">Bono competencia</label>
+          </div>
+          <input name="proficiencybonus" />
+        </div>
+        <div class="saves list-section box">
+          <ul>
+            <li>
+              <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" /><input
+                name="Strength-save-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Dexterity-save">Destreza</label><input name="Dexterity-save" type="text" /><input
+                name="Dexterity-save-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Constitution-save">Constitución</label><input name="Constitution-save" type="text" /><input
+                name="Constitution-save-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Wisdom-save">Sabiduría</label><input name="Wisdom-save" type="text" /><input
+                name="Wisdom-save-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Intelligence-save">Inteligencia</label><input name="Intelligence-save" type="text" /><input
+                name="Intelligence-save-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Charisma-save">Carisma</label><input name="Charisma-save" type="text" /><input
+                name="Charisma-save-prof" type="checkbox" />
+            </li>
+          </ul>
+          <div class="label">
+            Tiradas de Salvación
+          </div>
+        </div>
+        <div class="skills list-section box">
+          <ul>
+            <li>
+              <label for="Acrobatics">Acrobacias <span class="skill">(Des)</span></label><input name="Acrobatics"
+                type="text" /><input name="Acrobatics-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Athletics">Atletismo <span class="skill">(Fue)</span></label><input name="Athletics"
+                type="text" /><input name="Athletics-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Arcana">C. Arcano <span class="skill">(Int)</span></label><input name="Arcana"
+                type="text" /><input name="Arcana-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Deception">Engaño <span class="skill">(Car)</span></label><input name="Deception"
+                type="text" /><input name="Deception-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="History">Historia <span class="skill">(Int)</span></label><input name="History"
+                type="text" /><input name="History-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Performance">Interpretación <span class="skill">(Car)</span></label><input name="Performance"
+                type="text" /><input name="Performance-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Intimidation">Intimidation <span class="skill">(Car)</span></label><input name="Intimidation"
+                type="text" /><input name="Intimidation-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Investigation">Investigación <span class="skill">(Int)</span></label><input
+                name="Investigation" type="text" /><input name="Investigation-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Sleight of Hand">Juego de manos <span class="skill">(Des)</span></label><input
+                name="Sleight of Hand" type="text" /><input name="Sleight of Hand-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Medicine">Medicina <span class="skill">(Sab)</span></label><input name="Medicine"
+                type="text" /><input name="Medicine-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Nature">Naturaleza <span class="skill">(Int)</span></label><input name="Nature"
+                type="text" /><input name="Nature-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Perception">Percepción <span class="skill">(Sab)</span></label><input name="Perception"
+                type="text" /><input name="Perception-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Insight">Perspicacia <span class="skill">(Sab)</span></label><input name="Insight"
+                type="text" /><input name="Insight-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Persuasion">Persuasión <span class="skill">(Car)</span></label><input name="Persuasion"
+                type="text" /><input name="Persuasion-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Religion">Religión <span class="skill">(Int)</span></label><input name="Religion"
+                type="text" /><input name="Religion-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Stealth">Sigilo <span class="skill">(Des)</span></label><input name="Stealth"
+                type="text" /><input name="Stealth-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Survival">Surpervivencia <span class="skill">(Sab)</span></label><input name="Survival"
+                type="text" /><input name="Survival-prof" type="checkbox" />
+            </li>
+            <li>
+              <label for="Animal Handling">T. con Animales <span class="skill">(Sab)</span></label><input
+                name="Animal Handling" type="text" /><input name="Animal Handling-prof" type="checkbox" />
+            </li>
+          </ul>
+          <div class="label">
+            Habilidades
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="passive-perception box">
+      <div class="label-container">
+        <label for="passiveperception">Sabiduría (Percepción) Pasiva </label>
+      </div>
+      <input name="passiveperception" />
+    </div>
+    <div class="otherprofs box textblock">
+      <label for="otherprofs">Otras competencias e idiomas</label>
+      <textarea name="otherprofs"></textarea>
+    </div>
+  </section>
+
+  <section>
+    <section class="combat">
+      <div class="armorclass">
+        <div>
+          <label for="ac">Clase de Armadura</label>
+          <input name="ac" type="text" />
+        </div>
+      </div>
+      <div class="initiative">
+        <div>
+          <label for="initiative">Iniciativa</label>
+          <input name="initiative" type="text" />
+        </div>
+      </div>
+      <div class="speed">
+        <div>
+          <label for="speed">Velocidad</label>
+          <input name="speed" type="text" />
+        </div>
+      </div>
+      <div class="hp">
+        <div class="regular">
+          <div class="max">
+            <label for="maxhp">Puntos de golpe máximos</label>
+            <input name="maxhp" type="text" />
+          </div>
+          <div class="current">
+            <label for="currenthp">Puntos de golpe actuales</label>
+            <input name="currenthp" type="text" />
+          </div>
+        </div>
+        <div class="temporary">
+          <label for="temphp">Puntos de golpe temporales</label>
+          <input name="temphp" type="text" />
+        </div>
+      </div>
+      <div class="hitdice">
+        <div>
+          <div class="total">
+            <label onclick="totalhd_clicked()" for="totalhd">Total</label>
+            <input name="totalhd" type="text" />
+          </div>
+          <div class="remaining">
+            <label for="remaininghd">Dados de golpe</label>
+            <input name="remaininghd" type="text" />
+          </div>
+        </div>
+      </div>
+      <div class="deathsaves">
+        <div>
+          <div class="label">
+            <label>Salvaciones contra muerte</label>
+          </div>
+          <div class="marks">
+            <div class="deathsuccesses">
+              <label>Éxitos</label>
+              <div class="bubbles">
+                <input name="deathsuccess1" type="checkbox" />
+                <input name="deathsuccess2" type="checkbox" />
+                <input name="deathsuccess3" type="checkbox" />
+              </div>
+            </div>
+            <div class="deathfails">
+              <label>Fallos</label>
+              <div class="bubbles">
+                <input name="deathfail1" type="checkbox" />
+                <input name="deathfail2" type="checkbox" />
+                <input name="deathfail3" type="checkbox" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="attacksandspellcasting">
+      <div>
+        <label>Ataques & Lanzamiento de conjuros</label>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Nombre
+              </th>
+              <th>
+                Bonificador
+              </th>
+              <th>
+                Daño/Tipo
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input name="atkname1" type="text" />
+              </td>
+              <td>
+                <input name="atkbonus1" type="text" />
+              </td>
+              <td>
+                <input name="atkdamage1" type="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input name="atkname2" type="text" />
+              </td>
+              <td>
+                <input name="atkbonus2" type="text" />
+              </td>
+              <td>
+                <input name="atkdamage2" type="text" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <input name="atkname3" type="text" />
+              </td>
+              <td>
+                <input name="atkbonus3" type="text" />
+              </td>
+              <td>
+                <input name="atkdamage3" type="text" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <textarea></textarea>
+      </div>
+    </section>
+
+    <section class="equipment">
+      <div>
+        <label>Equipo</label>
+        <div class="money">
+          <ul>
+            <li>
+              <label for="cp">pc</label>
+              <input name="cp" />
+            </li>
+            <li>
+              <label for="sp">pp</label>
+              <input name="sp" />
+            </li>
+            <li>
+              <label for="ep">pe</label>
+              <input name="ep" />
+            </li>
+            <li>
+              <label for="gp">po</label>
+              <input name="gp" />
+            </li>
+            <li>
+              <label for="pp">ppt</label>
+              <input name="pp" />
+            </li>
+          </ul>
+        </div>
+        <textarea></textarea>
+      </div>
+    </section>
+  </section>
+  <section>
+    <section class="flavor">
+      <div class="personality">
+        <label for="personality">Rasgos de personalidad</label>
+        <textarea name="personality"></textarea>
+      </div>
+      <div class="ideals">
+        <label for="ideals">Ideales</label>
+        <textarea name="ideals"></textarea>
+      </div>
+      <div class="bonds">
+        <label for="bonds">Vínculos</label>
+        <textarea name="bonds"></textarea>
+      </div>
+      <div class="flaws">
+        <label for="flaws">Defectos</label>
+        <textarea name="flaws"></textarea>
+      </div>
+    </section>
+    <section class="features">
+      <div>
+        <label for="features">Rasgos & Atributos</label>
+        <textarea name="features"></textarea>
+      </div>
+    </section>
+  </section>
+</main>
