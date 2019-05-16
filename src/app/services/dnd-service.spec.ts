@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DndService } from './dnd.service';
+import { DndService } from './dnd-service';
 
 describe('DndService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

@@ -8,6 +8,7 @@ import { CrearTrasfondoComponent } from './components/crear-trasfondo/crear-tras
 import { CrearStatsComponent } from './components/crear-stats/crear-stats.component';
 import { CrearClaseComponent } from './components/crear-clase/crear-clase.component';
 import { MagiaComponent } from './components/magia/magia.component';
+import { RasgosComponent } from './components/rasgos/rasgos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/personaje', pathMatch: 'full' },
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'personaje', component: DatosComponent, children: [
     //{ path: '', redirectTo: '/character', pathMatch: 'full' },
     { path: 'datos', component: StatsComponent },
-    { path: 'magia', component: MagiaComponent }
+    { path: 'magia', component: MagiaComponent },
+    { path: 'rasgos', component: RasgosComponent }
   ]}
 ];
 

@@ -1,3 +1,44 @@
 <p>
   Responde a la pregunta: ¿Quién es tu personaje?
 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Raza</th>
+      <th>Descripción</th>
+      <th>Elegir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let raza of razas" ng-click="mostrar = !mostrar">
+      <td>{{raza.nombreRaza}}</td>
+      <td>{{raza.descripcionRaza}}</td>
+      <td>
+        <button (click)="getRasgosRaza(raza.idRaza)">
+          Elegir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="mostrar">
+  <table>
+    <thead>
+        <tr>
+          <th>Rasgo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rasgo of rasgoRaza">
+          <td>{{rasgo.nombreRasgoRaza}}</td>
+          <td>{{rasgo.descripcionRasgoRaza}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <button routerLink="/creacion/clase" >
+    Confirmar
+  </button>
+</div>

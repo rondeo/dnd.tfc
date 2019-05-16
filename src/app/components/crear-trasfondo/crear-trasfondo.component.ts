@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Trasfondo } from 'src/app/objects/trasfondo';
+import { DndService } from 'src/app/services/dnd-service';
 
 @Component({
   selector: 'app-crear-trasfondo',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearTrasfondoComponent implements OnInit {
 
-  constructor() { }
+  mostrar = false;
+
+  trasfondos: Trasfondo[];
+
+  constructor(private dndService: DndService) { }
 
   ngOnInit() {
+    this.getTrasfondos();
+  }
+
+  getTrasfondos() {
+    this.dndService.getTrasfondos()
+     .subscribe(trasfondos => this.trasfondos = trasfondos);
+  }
+
+  siguiente(){
+    this.mostrar = true;
   }
 
 }

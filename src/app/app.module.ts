@@ -15,6 +15,7 @@ import { CrearClaseComponent } from './components/crear-clase/crear-clase.compon
 import { CrearStatsComponent } from './components/crear-stats/crear-stats.component';
 import { CrearTrasfondoComponent } from './components/crear-trasfondo/crear-trasfondo.component';
 import { MagiaComponent } from './components/magia/magia.component';
+import { RasgosComponent } from './components/rasgos/rasgos.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MagiaComponent } from './components/magia/magia.component';
     CrearClaseComponent,
     CrearStatsComponent,
     CrearTrasfondoComponent,
-    MagiaComponent
+    MagiaComponent,
+    RasgosComponent
   ],
   imports: [
     CommonModule,

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Clase } from 'src/app/objects/clase';
+import { RasgoClase } from 'src/app/objects/rasgoClase';
+import { DndService } from 'src/app/services/dnd-service';
 
 @Component({
   selector: 'app-crear-clase',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearClaseComponent implements OnInit {
 
-  constructor() { }
+  mostrar = false;
+
+  clases: Clase[];
+
+  rasgoClase: RasgoClase[];
+
+  constructor(private dndService: DndService) { }
 
   ngOnInit() {
+    this.getClases();
+  }
+  getClases() {
+    this.dndService.getClases()
+      .subscribe(clases => this.clases = clases);
+  }
+
+  getRasgosClase(id: Number){
+    this.dndService.getRasgosClase(id)
+      .subscribe(rasgo => this.rasgoClase = rasgo);
+    this.mostrar = true;
   }
 
 }

@@ -1,3 +1,48 @@
 <p>
   Responde a la pregunta, ¿de qué trabaja tu personaje?
 </p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Clase</th>
+      <th>Dados de golpe</th>
+      <th>Descripción</th>
+      <th>Elegir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clase of clases" ng-click="mostrar = !mostrar">
+      <td>{{clase.nombreClase}}</td>
+      <td>d{{clase.hitDice}}</td>
+      <td>{{clase.descripcionClase}}</td>
+      <td>
+        <button (click)="getRasgosClase(clase.idClase)">
+          Elegir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="mostrar">
+    <table>
+      <thead>
+          <tr>
+            <th>Rasgo</th>
+            <th>Nivel</th>
+            <th>Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rasgo of rasgoClase">
+            <td>{{rasgo.nombreRasgoClase}}</td>
+            <td>{{rasgo.nivelClase}}</td>
+            <td>{{rasgo.descripcionRasgoClase}}</td>
+          </tr>
+        </tbody>
+    </table>
+    <button routerLink="/creacion/trasfondo" >
+      Confirmar
+    </button>
+  </div>
