@@ -7,13 +7,26 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 
 import { AppComponent } from './app.component';
 import { StatsComponent } from './components/stats/stats.component';
-import { HojaComponent } from './components/hoja/hoja.component';
+import { DatosComponent } from './components/datos/datos.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CreacionComponent } from './components/creacion/creacion.component';
+import { CrearRazaComponent } from './components/crear-raza/crear-raza.component';
+import { CrearClaseComponent } from './components/crear-clase/crear-clase.component';
+import { CrearStatsComponent } from './components/crear-stats/crear-stats.component';
+import { CrearTrasfondoComponent } from './components/crear-trasfondo/crear-trasfondo.component';
+import { MagiaComponent } from './components/magia/magia.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StatsComponent,
-    HojaComponent
+    DatosComponent,
+    CreacionComponent,
+    CrearRazaComponent,
+    CrearClaseComponent,
+    CrearStatsComponent,
+    CrearTrasfondoComponent,
+    MagiaComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +34,8 @@ import { HojaComponent } from './components/hoja/hoja.component';
     MatSelectModule,
     MatInputModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

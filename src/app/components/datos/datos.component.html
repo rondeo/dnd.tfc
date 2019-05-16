@@ -1,0 +1,61 @@
+<form class="charsheet">
+  <header>
+    <section class="charname">
+      <label for="charname">Nombre del personaje</label><input name="charname" />
+    </section>
+    <section class="misc">
+      <ul>
+        <li>
+          <div class="classlevel">
+            <div class="divclass">
+              <input name="class" placeholder="clase"/>
+              <label for="class">Clase</label>
+            </div>
+            <div class="divlevel">
+              <input name="level"  placeholder="nivel"/>
+              <label for="level">Nivel</label>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input name="background" />
+            <label for="background">Trasfondo</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input name="playername" />
+            <label for="playername">Nombre del Jugador</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input name="race" />
+            <label for="race">Raza</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input name="alignment" />
+            <label for="alignment">Alineamiento</label>
+          </div>
+        </li>
+        <li>
+          <div>
+            <input name="experiencepoints" />
+            <label for="experiencepoints">Puntos de experiencia</label>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </header>
+
+  <nav>
+    <a routerLink="/personaje/datos">Datos</a>
+    <a routerLink="/personaje/magia">Magia</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+</form>
