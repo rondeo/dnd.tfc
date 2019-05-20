@@ -1,3 +1,115 @@
 <p>
   Responde la pregunta, ¿cómo de bien se le da hacer cosas a tu personaje?
 </p>
+
+<button (click)="seleccionArray()">Estandar</button>
+<button (click)="seleccionPuntos()">Puntos</button>
+<button (click)="seleccionRandom()">Random</button>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Caracteristica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let caracteristica of caracteristicas">
+      <td>{{caracteristica.nombreCaracteristica}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="mostrarArray">
+  <table *ngIf="mostrarArray">
+    <thead>
+      <tr>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let puntos of puntosArray">
+        <td>{{puntos.array}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button routerLink="/personaje/datos">
+    Confirmar
+  </button>
+</div>
+
+<div *ngIf="mostrarPuntos">
+  <table>
+    <thead>
+      <tr>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let puntos of puntosArray">
+        <td>{{puntos.pointBuy}}</td>
+      </tr>
+      <tr>
+        <td>
+          <button (click)="sumar(0)">+</button>
+          <button (click)="restar(0)">-</button>
+        </td>
+        <td>
+          <button (click)="sumar(1)">+</button>
+          <button (click)="restar(1)">-</button>
+        </td>
+        <td>
+          <button (click)="sumar(2)">+</button>
+          <button (click)="restar(2)">-</button>
+        </td>
+        <td>
+          <button (click)="sumar(3)">+</button>
+          <button (click)="restar(3)">-</button>
+        </td>
+        <td>
+          <button (click)="sumar(4)">+</button>
+          <button (click)="restar(4)">-</button>
+        </td>
+        <td>
+          <button (click)="sumar(5)">+</button>
+          <button (click)="restar(5)">-</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <label>{{totalPuntos}}</label>
+
+  <button routerLink="/personaje/datos">
+    Confirmar
+  </button>
+</div>
+
+<div *ngIf="mostrarRandom">
+  <!-- <table>
+    <thead>
+      <tr>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let puntos of puntosRandom">
+        <td>{{puntos.random}}</td>
+      </tr>
+    </tbody>
+  </table> -->
+  <label>
+    Puntos
+  </label><br /><br />
+  <label>{{random1}}</label><br />
+  <label>{{random2}}</label><br />
+  <label>{{random3}}</label><br />
+  <label>{{random4}}</label><br />
+  <label>{{random5}}</label><br />
+  <label>{{random6}}</label><br />
+
+  <button routerLink="/personaje/datos">
+    Confirmar
+  </button>
+</div>

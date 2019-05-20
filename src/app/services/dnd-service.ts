@@ -10,6 +10,8 @@ import { Clase } from '../objects/clase';
 import { RasgoClase } from '../objects/rasgoClase';
 import { TRASFONDOS } from '../objects/mock-trasfondo';
 import { Trasfondo } from '../objects/trasfondo';
+import { Caracteristica } from '../objects/caracteristica';
+import { CARACTERISTICAS } from '../objects/mock-caracteristica';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +25,8 @@ export class DndService {
   rasgosClase = RASGOSCLASE;
 
   trasfondos = TRASFONDOS;
+
+  caracteristicas = CARACTERISTICAS;
 
   constructor() { }
 
@@ -55,6 +59,10 @@ export class DndService {
 
   getTrasfondos(): Observable<Trasfondo[]>{
     return of(this.trasfondos);
+  }
+
+  getCaracteristicas(): Observable<Caracteristica[]>{
+    return of(this.caracteristicas);
   }
 
 }
