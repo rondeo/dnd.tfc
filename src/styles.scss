@@ -71,18 +71,6 @@ form.charsheet ul li {
     display: block;
 }
 
-form.charsheet ::-webkit-input-placeholder {
-    color: #bbb;
-}
-
-form.charsheet :-ms-input-placeholder {
-    color: #bbb;
-}
-
-form.charsheet ::-ms-input-placeholder {
-    color: #bbb;
-}
-
 form.charsheet ::placeholder {
     color: #bbb;
 }
@@ -195,7 +183,6 @@ form.charsheet main div.label-container>label {
     position: absolute;
     left: 0;
     top: 1px;
-    -webkit-transform: translate(0%, 50%);
     transform: translate(0%, 50%);
     width: 100%;
     font-size: 8px;
@@ -279,8 +266,6 @@ form.charsheet main>section section.attributes div.attr-applications div.inspira
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.inspiration input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     border: 1px solid black;
     padding: 15px;
@@ -346,8 +331,6 @@ form.charsheet main>section section.attributes div.attr-applications div.list-se
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.list-section ul li input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     width: 10px;
     height: 10px;
@@ -602,7 +585,7 @@ form.charsheet main section.combat>div.deathsaves>div>div.marks div.deathsuccess
 form.charsheet main section.combat>div.deathsaves>div>div.marks div.deathfails label {
     font-size: 8px;
     text-align: right;
-    flex: 1 50%;
+    flex: 1 25%;
 }
 
 form.charsheet main section.combat>div.deathsaves>div div.bubbles {
@@ -611,8 +594,6 @@ form.charsheet main section.combat>div.deathsaves>div div.bubbles {
 }
 
 form.charsheet main section.combat>div.deathsaves>div div.bubbles input[type="checkbox"] {
-    -webkit-appearance: none;
-    -moz-appearance: none;
     appearance: none;
     width: 10px;
     height: 10px;
