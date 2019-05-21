@@ -2,29 +2,29 @@
   Responde a la pregunta, ¿cuál es el pasado de tu personaje?
 </p>
 
-<table>
-    <thead>
-      <tr>
-        <th>Trasfondo</th>
-        <th>Descripción</th>
-        <th>Elegir</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let trasfondo of trasfondos">
-        <td>{{trasfondo.nombreTrasfondo}}</td>
-        <td>{{trasfondo.descripcionTrasfondo}}</td>
-        <td>
-          <button (click)="siguiente()">
-            Elegir
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-  <div *ngIf="mostrar">
-    <button routerLink="/creacion/stats" >
-      Confirmar
-    </button>
-  </div>
+<table class="table table-hover text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th>Trasfondo</th>
+      <th>Descripción</th>
+      <th>Elegir</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trasfondo of trasfondos">
+      <td>{{trasfondo.nombreTrasfondo}}</td>
+      <td>{{trasfondo.descripcionTrasfondo}}</td>
+      <td>
+        <button (click)="siguiente()">
+          Elegir
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="mostrar">
+  <button routerLink="/creacion/stats">
+    Confirmar
+  </button>
+</div>

@@ -7,8 +7,8 @@
 <button (click)="seleccionRandom()">Random</button>
 
 
-<table>
-  <thead>
+<table class="table table-hover text-center">
+  <thead class="thead-dark">
     <tr>
       <th>Caracteristica</th>
     </tr>
@@ -21,8 +21,8 @@
 </table>
 
 <div *ngIf="mostrarArray">
-  <table *ngIf="mostrarArray">
-    <thead>
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
       <tr>
         <th>Puntos</th>
       </tr>
@@ -40,8 +40,8 @@
 </div>
 
 <div *ngIf="mostrarPuntos">
-  <table>
-    <thead>
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
       <tr>
         <th>Puntos</th>
       </tr>
