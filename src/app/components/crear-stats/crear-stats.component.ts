@@ -10,74 +10,94 @@ import { DndService } from 'src/app/services/dnd-service';
 export class CrearStatsComponent implements OnInit {
 
   mostrar = false;
-  mostrarArray = false;
+  mostrarArray = true;
   mostrarPuntos = false;
   mostrarRandom = false;
 
-  totalPuntos= 27;
+  totalPuntos = 27;
 
-  random1 = 0;
-  random2 = 0;
-  random3 = 0;
-  random4 = 0;
-  random5 = 0;
-  random6 = 0;
+  randomArray: any[] = [
+    {
+      "random": 0
+    },
+    {
+      "random": 0
+    },
+    {
+      "random": 0
+    },
+    {
+      "random": 0
+    },
+    {
+      "random": 0
+    },
+    {
+      "random": 0
+    }
+  ]
+
+  arrayFixed: any[] = [
+    {
+      "id": 0,
+      "array": 15
+    },
+    {
+      "id": 1,
+      "array": 14
+    },
+    {
+      "id": 2,
+      "array": 13
+    },
+    {
+      "id": 3,
+      "array": 12
+    },
+    {
+      "id": 4,
+      "array": 10
+    },
+    {
+      "id": 5,
+      "array": 8
+    }
+  ]
 
   caracteristicas: Caracteristica[];
 
   puntosArray: any[] = [
     {
+      "id": 0,
       "array": 15,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     },
     {
+      "id": 1,
       "array": 14,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     },
     {
+      "id": 2,
       "array": 13,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     },
     {
+      "id": 3,
       "array": 12,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     },
     {
+      "id": 4,
       "array": 10,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     },
     {
+      "id": 5,
       "array": 8,
-      "pointBuy": 8,
-      "random": this.aleatorio()
+      "pointBuy": 8
     }
   ]
-/* 
-  puntosRandom: any[] = [
-    {
-      "random": this.aleatorio()
-    },
-    {
-      "random": this.aleatorio()
-    },
-    {
-      "random": this.aleatorio()
-    },
-    {
-      "random": this.aleatorio()
-    },
-    {
-      "random": this.aleatorio()
-    },
-    {
-      "random": this.aleatorio()
-    }
-  ] */
 
   constructor(private dndService: DndService) { }
 
@@ -85,26 +105,32 @@ export class CrearStatsComponent implements OnInit {
     this.getCaracteristicas();
   }
 
-  getCaracteristicas(){
+  getCaracteristicas() {
     this.dndService.getCaracteristicas()
-     .subscribe(caracteristicas => this.caracteristicas = caracteristicas);
+      .subscribe(caracteristicas => this.caracteristicas = caracteristicas);
   }
 
-  seleccionArray(){
+  seleccionArray() {
     console.log("seleccionArray");
+    if (this.mostrarArray == false) {
+      this.resetArray();
+    }
     this.mostrarArray = true;
     this.mostrarPuntos = false;
     this.mostrarRandom = false;
   }
 
-  seleccionPuntos(){
+  seleccionPuntos() {
     console.log("seleccionPuntos");
+    if (this.mostrarPuntos == false) {
+      this.resetPuntos();
+    }
     this.mostrarArray = false;
     this.mostrarPuntos = true;
     this.mostrarRandom = false;
   }
 
-  seleccionRandom(){
+  seleccionRandom() {
     console.log("seleccionRandom");
     this.aleatorio();
     /* this.puntosRandom.forEach(element => {
@@ -116,68 +142,129 @@ export class CrearStatsComponent implements OnInit {
     this.mostrarRandom = true;
   }
 
-  aleatorio(){
-    this.random1 = this.randomizado(8, 18);
-    this.random2 = this.randomizado(8, 18);
-    this.random3 = this.randomizado(8, 18);
-    this.random4 = this.randomizado(8, 18);
-    this.random5 = this.randomizado(8, 18);
-    this.random6 = this.randomizado(8, 18);
+  aleatorio() {
+    this.randomArray[0].random = this.randomizado(8, 18);
+    this.randomArray[1].random = this.randomizado(8, 18);
+    this.randomArray[2].random = this.randomizado(8, 18);
+    this.randomArray[3].random = this.randomizado(8, 18);
+    this.randomArray[4].random = this.randomizado(8, 18);
+    this.randomArray[5].random = this.randomizado(8, 18);
   }
 
-  randomizado(max: number, min:number){
-    let numeroRandom = Math.floor(Math.random() * (max - min +1)) + min;
+  randomizado(max: number, min: number) {
+    let numeroRandom = Math.floor(Math.random() * (max - min + 1)) + min;
     return numeroRandom;
   }
 
-  sumar(j: number){
-    if(this.puntosArray[j].pointBuy == 8 ){
-      this.puntosArray[j].pointBuy++;
-    }else if(this.puntosArray[j].pointBuy == 15 ){
-      
-    }else if(this.puntosArray[j].pointBuy <= 15 || this.puntosArray[j].pointBuy >= 8 ){
-      this.puntosArray[j].pointBuy++;
+  sumar(i: number) {
 
-      if(this.puntosArray[j].pointBuy > 12){
-        this.totalPuntos = this.totalPuntos-2;
-      }else{
+    if (this.totalPuntos > 0) {
+
+      if (this.puntosArray[i].pointBuy == 8) {
+        this.puntosArray[i].pointBuy++;
         this.totalPuntos--;
+      } else if (this.puntosArray[i].pointBuy == 15) {
+
+      } else if (this.puntosArray[i].pointBuy <= 15 || this.puntosArray[i].pointBuy >= 8) {
+
+        if (this.puntosArray[i].pointBuy >= 13) {
+          this.totalPuntos = this.totalPuntos - 2;
+        } else {
+          this.totalPuntos--;
+        }
+
+        this.puntosArray[i].pointBuy++;
+
       }
     }
+    /* if(this.puntosArray[i].pointBuy >= 15 || this.puntosArray[i].pointBuy <= 8 ){
 
-    /* if(this.puntosArray[j].pointBuy >= 15 || this.puntosArray[j].pointBuy <= 8 ){
-
-    }else if(this.puntosArray[j].pointBuy > 12){
+    }else if(this.puntosArray[i].pointBuy > 12){
       this.totalPuntos = this.totalPuntos-2;
     }else{
       this.totalPuntos--;
     } */
   }
 
-  restar(j: number){
-    if(this.puntosArray[j].pointBuy == 8 ){
-      
-    }else if(this.puntosArray[j].pointBuy == 15 ){
-      this.puntosArray[j].pointBuy--;
+  restar(i: number) {
+    if (this.puntosArray[i].pointBuy == 8) {
 
-    }else if(this.puntosArray[j].pointBuy <= 15 || this.puntosArray[j].pointBuy >= 8 ){
-      this.puntosArray[j].pointBuy--;
+    } else if (this.puntosArray[i].pointBuy == 15) {
+      this.puntosArray[i].pointBuy--;
+      this.totalPuntos = this.totalPuntos + 2;
+    } else if (this.puntosArray[i].pointBuy <= 15 || this.puntosArray[i].pointBuy >= 8) {
 
-      if(this.puntosArray[j].pointBuy >= 12){
-        this.totalPuntos = this.totalPuntos+2;
-      }else{
+
+      if (this.puntosArray[i].pointBuy > 13) {
+        this.totalPuntos = this.totalPuntos + 2;
+      } else {
         this.totalPuntos++;
       }
 
-    }
-    
-    /* if(this.puntosArray[j].pointBuy >= 15 || this.puntosArray[j].pointBuy <= 8 ){
+      this.puntosArray[i].pointBuy--;
 
-    }else if(this.puntosArray[j].pointBuy >= 12){
+    }
+
+    /* if(this.puntosArray[i].pointBuy >= 15 || this.puntosArray[i].pointBuy <= 8 ){
+
+    }else if(this.puntosArray[i].pointBuy >= 12){
       this.totalPuntos = this.totalPuntos+2;
     }else{
       this.totalPuntos++;
     } */
+  }
+
+  arriba(i: number) {
+
+  }
+
+  abajo(i: number, j: number) {
+    //let j=i;
+    switch (i) {
+      case 0:
+        this.puntosArray[i].array = this.arrayFixed[i+1].array;
+        this.puntosArray[j].array = this.arrayFixed[i].array;
+        break;
+      
+      case 1:
+        this.puntosArray[i].array = this.arrayFixed[i+1].array;
+        this.puntosArray[i+1].array = this.arrayFixed[i].array;
+        break;
+
+      case 2:
+
+        break;
+
+      case 3:
+
+        break;
+
+      case 4:
+
+        break;
+
+      case 5:
+
+        break;
+
+      default:
+        break;
+    }
+  }
+
+  resetPuntos() {
+    this.totalPuntos = 27;
+    this.puntosArray.forEach(reseteado => {
+      reseteado.pointBuy = 8;
+    })
+  }
+  resetArray() {
+    this.puntosArray[0].array = 15;
+    this.puntosArray[1].array = 14;
+    this.puntosArray[2].array = 13;
+    this.puntosArray[3].array = 12;
+    this.puntosArray[4].array = 10;
+    this.puntosArray[5].array = 8;
   }
 
 }
