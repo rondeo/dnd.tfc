@@ -21,8 +21,8 @@
 
       <td *ngIf="mostrarArray">{{puntosArray[i].array}}</td>
       <td *ngIf="mostrarArray">
-        <button (click)="arriba(puntosArray[i].id, puntosArray[i].array)">&uarr;</button>
-        <button (click)="abajo(puntosArray[i].id, puntosArray[i].array)">&darr;</button>
+        <button (click)="arriba(puntosArray[i].id)">&uarr;</button>
+        <button (click)="abajo(puntosArray[i].id)">&darr;</button>
       </td>
 
       <td *ngIf="mostrarPuntos">{{puntosArray[i].pointBuy}}</td>
@@ -47,8 +47,14 @@
 <button routerLink="/personaje/datos">
   Confirmar
 </button>
+<button *ngIf="mostrarArray" (click)="resetArray()">
+  Reset
+</button>
 <button *ngIf="mostrarPuntos" (click)="resetPuntos()">
   Reset
+</button>
+<button *ngIf="mostrarRandom" (click)="aleatorio()">
+  Random
 </button>
 
 <!-- 

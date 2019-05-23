@@ -64,6 +64,7 @@ export class CrearStatsComponent implements OnInit {
     }
   ]
 
+
   caracteristicas: Caracteristica[];
 
   puntosArray: any[] = [
@@ -98,6 +99,7 @@ export class CrearStatsComponent implements OnInit {
       "pointBuy": 8
     }
   ]
+
 
   constructor(private dndService: DndService) { }
 
@@ -216,39 +218,26 @@ export class CrearStatsComponent implements OnInit {
 
   arriba(i: number) {
 
+    if (i === 0) {
+
+    } else {
+      this.puntosArray[i].array = this.arrayFixed[i - 1].array;
+      this.puntosArray[i - 1].array = this.arrayFixed[i].array;
+      this.arrayFixed[i].array = this.puntosArray[i].array;
+      this.arrayFixed[i - 1].array = this.puntosArray[i - 1].array;
+    }
+
   }
 
-  abajo(i: number, j: number) {
+  abajo(i: number) {
     //let j=i;
-    switch (i) {
-      case 0:
-        this.puntosArray[i].array = this.arrayFixed[i+1].array;
-        this.puntosArray[j].array = this.arrayFixed[i].array;
-        break;
-      
-      case 1:
-        this.puntosArray[i].array = this.arrayFixed[i+1].array;
-        this.puntosArray[i+1].array = this.arrayFixed[i].array;
-        break;
+    if (i === 5) {
 
-      case 2:
-
-        break;
-
-      case 3:
-
-        break;
-
-      case 4:
-
-        break;
-
-      case 5:
-
-        break;
-
-      default:
-        break;
+    } else {
+      this.puntosArray[i].array = this.arrayFixed[i + 1].array;
+      this.puntosArray[i + 1].array = this.arrayFixed[i].array;
+      this.arrayFixed[i].array = this.puntosArray[i].array;
+      this.arrayFixed[i + 1].array = this.puntosArray[i + 1].array;
     }
   }
 
@@ -265,6 +254,13 @@ export class CrearStatsComponent implements OnInit {
     this.puntosArray[3].array = 12;
     this.puntosArray[4].array = 10;
     this.puntosArray[5].array = 8;
+
+    this.arrayFixed[0].array = 15;
+    this.arrayFixed[1].array = 14;
+    this.arrayFixed[2].array = 13;
+    this.arrayFixed[3].array = 12;
+    this.arrayFixed[4].array = 10;
+    this.arrayFixed[5].array = 8;
   }
 
 }

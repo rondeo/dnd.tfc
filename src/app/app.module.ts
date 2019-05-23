@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -16,6 +17,7 @@ import { CrearStatsComponent } from './components/crear-stats/crear-stats.compon
 import { CrearTrasfondoComponent } from './components/crear-trasfondo/crear-trasfondo.component';
 import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
+import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,12 @@ import { RasgosComponent } from './components/rasgos/rasgos.component';
     CrearStatsComponent,
     CrearTrasfondoComponent,
     MagiaComponent,
-    RasgosComponent
+    RasgosComponent,
+    OnlyNumbersDirective
   ],
   imports: [
     CommonModule,
+    FormsModule,
     BrowserModule,
     MatSelectModule,
     MatInputModule,
