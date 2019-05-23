@@ -12,7 +12,7 @@
               <label for="class">Clase</label>
             </div>
             <div class="divlevel">
-              <input name="level"  placeholder="nivel"/>
+              <input name="level" [ngModel]="calcularNivel()" disabled/>
               <label for="level">Nivel</label>
             </div>
           </div>
@@ -43,7 +43,7 @@
         </li>
         <li>
           <div>
-            <input name="experiencepoints" />
+            <input appExperienceLimit name="experiencepoints" [(ngModel)]="experiencia" />
             <label for="experiencepoints">Puntos de experiencia</label>
           </div>
         </li>

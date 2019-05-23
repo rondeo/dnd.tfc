@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 @import url(https://fonts.googleapis.com/css?family=Lato);
 
+input {
+  background: white;
+}
+
 table thead th {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #00557F));
   background: -moz-linear-gradient(center top, #000000 5%, #000000 100%);
@@ -358,6 +362,7 @@ form.charsheet main>section section.attributes div.attr-applications div.profici
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus input {
+  background: white;
   width: 30px;
   height: 28px;
   border: 1px solid black;

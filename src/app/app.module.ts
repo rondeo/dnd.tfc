@@ -18,6 +18,7 @@ import { CrearTrasfondoComponent } from './components/crear-trasfondo/crear-tras
 import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
+import { ExperienceLimitDirective } from './directives/experience-limit.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { OnlyNumbersDirective } from './directives/only-numbers.directive';
     CrearTrasfondoComponent,
     MagiaComponent,
     RasgosComponent,
-    OnlyNumbersDirective
+    OnlyNumbersDirective,
+    ExperienceLimitDirective
   ],
   imports: [
     CommonModule,

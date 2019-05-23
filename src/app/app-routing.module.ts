@@ -11,19 +11,20 @@ import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/personaje', pathMatch: 'full' },
+  { path: '', redirectTo: '/creacion', pathMatch: 'full' },
   { path: 'creacion', component: CreacionComponent, children: [
     { path: 'raza', component: CrearRazaComponent },
     { path: 'clase', component: CrearClaseComponent},
     { path: 'trasfondo', component: CrearTrasfondoComponent},
     { path: 'stats', component: CrearStatsComponent}
   ]},
+  //{ path: 'personaje/:id', component: DatosComponent, children: [
   { path: 'personaje', component: DatosComponent, children: [
     //{ path: '', redirectTo: '/character', pathMatch: 'full' },
     { path: 'datos', component: StatsComponent },
     { path: 'magia', component: MagiaComponent },
     { path: 'rasgos', component: RasgosComponent }
-  ]}
+  ], data : { experiencia : 'experiencia'}}
 ];
 
 @NgModule({

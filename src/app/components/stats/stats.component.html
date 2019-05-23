@@ -7,60 +7,60 @@
           <li>
             <div class="score">
               <label for="Strengthscore">Fuerza</label>
-              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="fue" value="fue" />
+              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="fue" />
             </div>
             <div class="modifier">
-              <input name="Strengthmod" class="statmod" [(ngModel)]="fueMod" value="fueMod" disabled/>
+              <input name="Strengthmod" class="statmod" [ngModel]="calcularFue()" disabled/>
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Dexterityscore">Destreza</label>
-              <input name="Dexterityscore" class="stat" />
+              <input appOnlyNumbers name="Dexterityscore" class="stat" [(ngModel)]="dex" />
             </div>
             <div class="modifier">
-              <input name="Dexteritymod" class="statmod" disabled />
+              <input name="Dexteritymod" class="statmod" [ngModel]="calcularDex()" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Constitutionscore">Constitución</label>
-              <input name="Constitutionscore" class="stat" />
+              <input appOnlyNumbers name="Constitutionscore" class="stat" [(ngModel)]="con" />
             </div>
             <div class="modifier">
-              <input name="Constitutionmod" class="statmod" disabled />
-            </div>
-          </li>
-
-          <li>
-            <div class="score">
-              <label for="Wisdomscore">Sabiduría</label>
-              <input name="Wisdomscore" class="stat" />
-            </div>
-            <div class="modifier">
-              <input name="Wisdommod" class="statmod" disabled />
+              <input name="Constitutionmod" class="statmod" [ngModel]="calcularCon()" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Intelligencescore">Inteligencia</label>
-              <input name="Intelligencescore" class="stat" />
+              <input appOnlyNumbers name="Intelligencescore" class="stat" [(ngModel)]="int" />
             </div>
             <div class="modifier">
-              <input name="Intelligencemod" class="statmod" disabled />
+              <input name="Intelligencemod" class="statmod" [ngModel]="calcularInt()" disabled />
+            </div>
+          </li>
+
+          <li>
+            <div class="score">
+              <label for="Wisdomscore">Sabiduría</label>
+              <input appOnlyNumbers name="Wisdomscore" class="stat" [(ngModel)]="sab" />
+            </div>
+            <div class="modifier">
+              <input name="Wisdommod" class="statmod" [ngModel]="calcularSab()" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Charismascore">Carisma</label>
-              <input name="Charismascore" class="stat" />
+              <input name="Charismascore" class="stat" [(ngModel)]="car" />
             </div>
             <div class="modifier">
-              <input name="Charismamod" class="statmod" disabled />
+              <input name="Charismamod" class="statmod" [ngModel]="calcularCar()" disabled />
             </div>
           </li>
         </ul>
@@ -77,32 +77,32 @@
           <div class="label-container">
             <label for="proficiencybonus">Bono competencia</label>
           </div>
-          <input name="proficiencybonus" />
+          <input name="proficiencybonus" [ngModel]="calcularCompetencia()" disabled />
         </div>
         <div class="saves list-section box">
           <ul>
             <li>
-              <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" disabled /><input
+              <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" [ngModel]="calcularFue()" disabled /><input
                 name="Strength-save-prof" type="checkbox" />
             </li>
             <li>
-              <label for="Dexterity-save">Destreza</label><input name="Dexterity-save" type="text" disabled /><input
+              <label for="Dexterity-save">Destreza</label><input name="Dexterity-save" type="text" [ngModel]="calcularDex()" disabled /><input
                 name="Dexterity-save-prof" type="checkbox" />
             </li>
             <li>
-              <label for="Constitution-save">Constitución</label><input name="Constitution-save" type="text" disabled /><input
+              <label for="Constitution-save">Constitución</label><input name="Constitution-save" [ngModel]="calcularCon()" type="text" disabled /><input
                 name="Constitution-save-prof" type="checkbox" />
             </li>
             <li>
-              <label for="Wisdom-save">Sabiduría</label><input name="Wisdom-save" type="text" disabled /><input
+              <label for="Wisdom-save">Sabiduría</label><input name="Wisdom-save" type="text" [ngModel]="calcularInt()" disabled /><input
                 name="Wisdom-save-prof" type="checkbox" />
             </li>
             <li>
-              <label for="Intelligence-save">Inteligencia</label><input name="Intelligence-save" type="text" disabled /><input
+              <label for="Intelligence-save">Inteligencia</label><input name="Intelligence-save" [ngModel]="calcularSab()" type="text" disabled /><input
                 name="Intelligence-save-prof" type="checkbox" />
             </li>
             <li>
-              <label for="Charisma-save">Carisma</label><input name="Charisma-save" type="text" disabled /><input
+              <label for="Charisma-save">Carisma</label><input name="Charisma-save" type="text" [ngModel]="calcularCar()" disabled /><input
                 name="Charisma-save-prof" type="checkbox" />
             </li>
           </ul>
@@ -114,75 +114,75 @@
           <ul>
             <li>
               <label for="Acrobatics">Acrobacias <span class="skill">(Des)</span></label><input name="Acrobatics"
-                type="text" disabled /><input name="Acrobatics-prof" type="checkbox" />
+                type="text" [ngModel]="calcularDex()" disabled /><input name="Acrobatics-prof" type="checkbox" />
             </li>
             <li>
               <label for="Athletics">Atletismo <span class="skill">(Fue)</span></label><input name="Athletics"
-                type="text" disabled /><input name="Athletics-prof" type="checkbox" />
+                type="text" [ngModel]="calcularFue()" disabled /><input name="Athletics-prof" type="checkbox" />
             </li>
             <li>
               <label for="Arcana">C. Arcano <span class="skill">(Int)</span></label><input name="Arcana"
-                type="text" disabled /><input name="Arcana-prof" type="checkbox" />
+                type="text" [ngModel]="calcularInt()" disabled /><input name="Arcana-prof" type="checkbox" />
             </li>
             <li>
               <label for="Deception">Engaño <span class="skill">(Car)</span></label><input name="Deception"
-                type="text" disabled /><input name="Deception-prof" type="checkbox" />
+                type="text" [ngModel]="calcularCar()" disabled /><input name="Deception-prof" type="checkbox" />
             </li>
             <li>
               <label for="History">Historia <span class="skill">(Int)</span></label><input name="History"
-                type="text" disabled /><input name="History-prof" type="checkbox" />
+                type="text" [ngModel]="calcularInt()" disabled /><input name="History-prof" type="checkbox" />
             </li>
             <li>
               <label for="Performance">Interpretación <span class="skill">(Car)</span></label><input name="Performance"
-                type="text" disabled /><input name="Performance-prof" type="checkbox" />
+                type="text" [ngModel]="calcularCar()" disabled /><input name="Performance-prof" type="checkbox" />
             </li>
             <li>
               <label for="Intimidation">Intimidation <span class="skill">(Car)</span></label><input name="Intimidation"
-                type="text" disabled /><input name="Intimidation-prof" type="checkbox" />
+                type="text" [ngModel]="calcularCar()" disabled /><input name="Intimidation-prof" type="checkbox" />
             </li>
             <li>
               <label for="Investigation">Investigación <span class="skill">(Int)</span></label><input
-                name="Investigation" type="text" disabled /><input name="Investigation-prof" type="checkbox" />
+                name="Investigation" type="text" [ngModel]="calcularInt()" disabled /><input name="Investigation-prof" type="checkbox" />
             </li>
             <li>
               <label for="Sleight of Hand">Juego de manos <span class="skill">(Des)</span></label><input
-                name="Sleight of Hand" type="text" disabled /><input name="Sleight of Hand-prof" type="checkbox" />
+                name="Sleight of Hand" type="text" [ngModel]="calcularDex()" disabled /><input name="Sleight of Hand-prof" type="checkbox" />
             </li>
             <li>
               <label for="Medicine">Medicina <span class="skill">(Sab)</span></label><input name="Medicine"
-                type="text" disabled /><input name="Medicine-prof" type="checkbox" />
+                type="text" [ngModel]="calcularSab()" disabled /><input name="Medicine-prof" type="checkbox" />
             </li>
             <li>
               <label for="Nature">Naturaleza <span class="skill">(Int)</span></label><input name="Nature"
-                type="text" disabled /><input name="Nature-prof" type="checkbox" />
+                type="text" [ngModel]="calcularInt()" disabled /><input name="Nature-prof" type="checkbox" />
             </li>
             <li>
               <label for="Perception">Percepción <span class="skill">(Sab)</span></label><input name="Perception"
-                type="text" disabled /><input name="Perception-prof" type="checkbox" />
+                type="text" [ngModel]="calcularSab()" disabled /><input name="Perception-prof" type="checkbox" />
             </li>
             <li>
               <label for="Insight">Perspicacia <span class="skill">(Sab)</span></label><input name="Insight"
-                type="text" disabled /><input name="Insight-prof" type="checkbox" />
+                type="text" [ngModel]="calcularSab()" disabled /><input name="Insight-prof" type="checkbox" />
             </li>
             <li>
               <label for="Persuasion">Persuasión <span class="skill">(Car)</span></label><input name="Persuasion"
-                type="text" disabled /><input name="Persuasion-prof" type="checkbox" />
+                type="text" [ngModel]="calcularCar()" disabled /><input name="Persuasion-prof" type="checkbox" />
             </li>
             <li>
               <label for="Religion">Religión <span class="skill">(Int)</span></label><input name="Religion"
-                type="text" disabled /><input name="Religion-prof" type="checkbox" />
+                type="text" [ngModel]="calcularInt()" disabled /><input name="Religion-prof" type="checkbox" />
             </li>
             <li>
               <label for="Stealth">Sigilo <span class="skill">(Des)</span></label><input name="Stealth"
-                type="text" disabled /><input name="Stealth-prof" type="checkbox" />
+                type="text" [ngModel]="calcularDex()" disabled /><input name="Stealth-prof" type="checkbox" />
             </li>
             <li>
               <label for="Survival">Surpervivencia <span class="skill">(Sab)</span></label><input name="Survival"
-                type="text" disabled /><input name="Survival-prof" type="checkbox" />
+                type="text" [ngModel]="calcularSab()" disabled /><input name="Survival-prof" type="checkbox" />
             </li>
             <li>
               <label for="Animal Handling">T. con Animales <span class="skill">(Sab)</span></label><input
-                name="Animal Handling" type="text" disabled /><input name="Animal Handling-prof" type="checkbox" />
+                name="Animal Handling" type="text" [ngModel]="calcularSab()" disabled /><input name="Animal Handling-prof" type="checkbox" />
             </li>
           </ul>
           <div class="label">
