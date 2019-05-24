@@ -7,60 +7,61 @@
           <li>
             <div class="score">
               <label for="Strengthscore">Fuerza</label>
-              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="fue" />
+              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="arrayStat[0]" (ngModelChange)="calcularMod(0)" />
             </div>
             <div class="modifier">
-              <input name="Strengthmod" class="statmod" [ngModel]="calcularFue()" disabled/>
+              <!-- <input name="Strengthmod" class="statmod" [ngModel]="calcularMod(0)" disabled/> -->
+              <input name="Strengthmod" class="statmod" [(ngModel)]="arrayMod[0]" disabled/>
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Dexterityscore">Destreza</label>
-              <input appOnlyNumbers name="Dexterityscore" class="stat" [(ngModel)]="dex" />
+              <input appOnlyNumbers name="Dexterityscore" class="stat" [(ngModel)]="arrayStat[1]" (ngModelChange)="calcularMod(1)" />
             </div>
             <div class="modifier">
-              <input name="Dexteritymod" class="statmod" [ngModel]="calcularDex()" disabled />
+              <input name="Dexteritymod" class="statmod" [(ngModel)]="arrayMod[1]" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Constitutionscore">Constitución</label>
-              <input appOnlyNumbers name="Constitutionscore" class="stat" [(ngModel)]="con" />
+              <input appOnlyNumbers name="Constitutionscore" class="stat" [(ngModel)]="arrayStat[2]" (ngModelChange)="calcularMod(2)" />
             </div>
             <div class="modifier">
-              <input name="Constitutionmod" class="statmod" [ngModel]="calcularCon()" disabled />
+              <input name="Constitutionmod" class="statmod" [(ngModel)]="arrayMod[2]" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Intelligencescore">Inteligencia</label>
-              <input appOnlyNumbers name="Intelligencescore" class="stat" [(ngModel)]="int" />
+              <input appOnlyNumbers name="Intelligencescore" class="stat" [(ngModel)]="arrayStat[3]" (ngModelChange)="calcularMod(3)" />
             </div>
             <div class="modifier">
-              <input name="Intelligencemod" class="statmod" [ngModel]="calcularInt()" disabled />
+              <input name="Intelligencemod" class="statmod" [(ngModel)]="arrayMod[3]" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Wisdomscore">Sabiduría</label>
-              <input appOnlyNumbers name="Wisdomscore" class="stat" [(ngModel)]="sab" />
+              <input appOnlyNumbers name="Wisdomscore" class="stat" [(ngModel)]="arrayStat[4]" (ngModelChange)="calcularMod(4)" />
             </div>
             <div class="modifier">
-              <input name="Wisdommod" class="statmod" [ngModel]="calcularSab()" disabled />
+              <input name="Wisdommod" class="statmod" [(ngModel)]="arrayMod[4]" disabled />
             </div>
           </li>
 
           <li>
             <div class="score">
               <label for="Charismascore">Carisma</label>
-              <input name="Charismascore" class="stat" [(ngModel)]="car" />
+              <input appOnlyNumbers name="Charismascore" class="stat" [(ngModel)]="arrayStat[5]" (ngModelChange)="calcularMod(5)" />
             </div>
             <div class="modifier">
-              <input name="Charismamod" class="statmod" [ngModel]="calcularCar()" disabled />
+              <input name="Charismamod" class="statmod" [(ngModel)]="arrayMod[5]" disabled />
             </div>
           </li>
         </ul>
@@ -77,33 +78,35 @@
           <div class="label-container">
             <label for="proficiencybonus">Bono competencia</label>
           </div>
-          <input name="proficiencybonus" [ngModel]="calcularCompetencia()" disabled />
+          <input name="proficiencybonus" [ngModel]="calcularCompetencia()" (change)="revisarCompetencia()" disabled />
         </div>
         <div class="saves list-section box">
           <ul>
             <li>
-              <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" [ngModel]="calcularFue()" disabled /><input
-                name="Strength-save-prof" type="checkbox" />
+              <!-- <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" [(ngModel)]="arraySalv[0]" disabled /><input
+                name="StrengthSaveProf" type="checkbox" (change)="competenteSalvFue(this, 0)"/> -->
+              <label for="Strength-save">Fuerza</label><input name="Strength-save" type="text" [(ngModel)]="arraySalv[0].valor" disabled />
+              <input name="Strength-save-prof" type="checkbox" [checked]="arraySalv[0].comp" (change)="arraySalv[0].comp = !arraySalv[0].comp; competenteSalv(arraySalv[0].comp, 0)"/>
             </li>
             <li>
-              <label for="Dexterity-save">Destreza</label><input name="Dexterity-save" type="text" [ngModel]="calcularDex()" disabled /><input
-                name="Dexterity-save-prof" type="checkbox" />
+              <label for="Dexterity-save">Destreza</label><input name="Dexterity-save" type="text" [(ngModel)]="arraySalv[1].valor" disabled />
+              <input name="Dexterity-save-prof" type="checkbox" [checked]="arraySalv[1].comp" (change)="arraySalv[1].comp = !arraySalv[1].comp; competenteSalv(arraySalv[1].comp, 1)"/>
             </li>
             <li>
-              <label for="Constitution-save">Constitución</label><input name="Constitution-save" [ngModel]="calcularCon()" type="text" disabled /><input
-                name="Constitution-save-prof" type="checkbox" />
+              <label for="Constitution-save">Constitución</label><input name="Constitution-save" [(ngModel)]="arraySalv[2].valor" type="text" disabled />
+              <input name="Constitution-save-prof" type="checkbox" [checked]="arraySalv[2].comp" (change)="arraySalv[2].comp = !arraySalv[2].comp; competenteSalv(arraySalv[2].comp, 2)"/>
             </li>
             <li>
-              <label for="Wisdom-save">Sabiduría</label><input name="Wisdom-save" type="text" [ngModel]="calcularInt()" disabled /><input
-                name="Wisdom-save-prof" type="checkbox" />
+              <label for="Wisdom-save">Sabiduría</label><input name="Wisdom-save" type="text" [(ngModel)]="arraySalv[3].valor" disabled />
+              <input  name="Wisdom-save-prof" type="checkbox" [checked]="arraySalv[3].comp" (change)="arraySalv[3].comp = !arraySalv[3].comp; competenteSalv(arraySalv[3].comp, 3)"/>
             </li>
             <li>
-              <label for="Intelligence-save">Inteligencia</label><input name="Intelligence-save" [ngModel]="calcularSab()" type="text" disabled /><input
-                name="Intelligence-save-prof" type="checkbox" />
+              <label for="Intelligence-save">Inteligencia</label><input name="Intelligence-save" [(ngModel)]="arraySalv[4].valor" type="text" disabled />
+              <input name="Intelligence-save-prof" type="checkbox" [checked]="arraySalv[4].comp" (change)="arraySalv[4].comp = !arraySalv[4].comp; competenteSalv(arraySalv[4].comp, 4)"/>
             </li>
             <li>
-              <label for="Charisma-save">Carisma</label><input name="Charisma-save" type="text" [ngModel]="calcularCar()" disabled /><input
-                name="Charisma-save-prof" type="checkbox" />
+              <label for="Charisma-save">Carisma</label><input name="Charisma-save" type="text" [(ngModel)]="arraySalv[5].valor" disabled />
+              <input name="Charisma-save-prof" type="checkbox" [checked]="arraySalv[5].comp" (change)="arraySalv[5].comp = !arraySalv[5].comp; competenteSalv(arraySalv[5].comp, 5)"/>
             </li>
           </ul>
           <div class="label">
@@ -113,76 +116,94 @@
         <div class="skills list-section box">
           <ul>
             <li>
-              <label for="Acrobatics">Acrobacias <span class="skill">(Des)</span></label><input name="Acrobatics"
-                type="text" [ngModel]="calcularDex()" disabled /><input name="Acrobatics-prof" type="checkbox" />
+              <label for="Acrobatics">Acrobacias <span class="skill">(Des)</span></label>
+              <input name="Acrobatics"type="text" [(ngModel)]="arrayHab[0].valor" disabled />
+              <input name="Acrobatics-prof" type="checkbox" [checked]="arrayHab[0].comp" (change)="arrayHab[0].comp = !arrayHab[0].comp; competenteHab(arrayHab[0].comp, 0)" />
             </li>
             <li>
-              <label for="Athletics">Atletismo <span class="skill">(Fue)</span></label><input name="Athletics"
-                type="text" [ngModel]="calcularFue()" disabled /><input name="Athletics-prof" type="checkbox" />
+              <label for="Athletics">Atletismo <span class="skill">(Fue)</span></label>
+              <input name="Athletics" type="text" [(ngModel)]="arrayHab[1].valor" disabled />
+              <input name="Athletics-prof" type="checkbox" [checked]="arrayHab[1].comp" (change)="arrayHab[1].comp = !arrayHab[1].comp; competenteHab(arrayHab[1].comp, 1)" />
             </li>
             <li>
-              <label for="Arcana">C. Arcano <span class="skill">(Int)</span></label><input name="Arcana"
-                type="text" [ngModel]="calcularInt()" disabled /><input name="Arcana-prof" type="checkbox" />
+              <label for="Arcana">C. Arcano <span class="skill">(Int)</span>
+              </label><input name="Arcana" type="text" [(ngModel)]="arrayHab[2].valor" disabled />
+              <input name="Arcana-prof" type="checkbox" [checked]="arrayHab[2].comp" (change)="arrayHab[2].comp = !arrayHab[2].comp; competenteHab(arrayHab[2].comp, 2)" />
             </li>
             <li>
-              <label for="Deception">Engaño <span class="skill">(Car)</span></label><input name="Deception"
-                type="text" [ngModel]="calcularCar()" disabled /><input name="Deception-prof" type="checkbox" />
+              <label for="Deception">Engaño <span class="skill">(Car)</span></label>
+              <input name="Deception" type="text" [(ngModel)]="arrayHab[3].valor" disabled />
+              <input name="Deception-prof" type="checkbox" [checked]="arrayHab[3].comp" (change)="arrayHab[3].comp = !arrayHab[3].comp; competenteHab(arrayHab[3].comp, 3)" />
             </li>
             <li>
-              <label for="History">Historia <span class="skill">(Int)</span></label><input name="History"
-                type="text" [ngModel]="calcularInt()" disabled /><input name="History-prof" type="checkbox" />
+              <label for="History">Historia <span class="skill">(Int)</span></label>
+              <input name="History" type="text" [(ngModel)]="arrayHab[4].valor" disabled />
+              <input name="History-prof" type="checkbox" [checked]="arrayHab[4].comp" (change)="arrayHab[4].comp = !arrayHab[4].comp; competenteHab(arrayHab[4].comp, 4)" />
             </li>
             <li>
-              <label for="Performance">Interpretación <span class="skill">(Car)</span></label><input name="Performance"
-                type="text" [ngModel]="calcularCar()" disabled /><input name="Performance-prof" type="checkbox" />
+              <label for="Performance">Interpretación <span class="skill">(Car)</span></label>
+              <input name="Performance" type="text" [(ngModel)]="arrayHab[5].valor" disabled />
+              <input name="Performance-prof" type="checkbox" [checked]="arrayHab[5].comp" (change)="arrayHab[5].comp = !arrayHab[5].comp; competenteHab(arrayHab[5].comp, 5)" />
             </li>
             <li>
-              <label for="Intimidation">Intimidation <span class="skill">(Car)</span></label><input name="Intimidation"
-                type="text" [ngModel]="calcularCar()" disabled /><input name="Intimidation-prof" type="checkbox" />
+              <label for="Intimidation">Intimidation <span class="skill">(Car)</span></label>
+              <input name="Intimidation" type="text" [(ngModel)]="arrayHab[6].valor" disabled />
+              <input name="Intimidation-prof" type="checkbox" [checked]="arrayHab[6].comp" (change)="arrayHab[6].comp = !arrayHab[6].comp; competenteHab(arrayHab[6].comp, 6)" />
             </li>
             <li>
-              <label for="Investigation">Investigación <span class="skill">(Int)</span></label><input
-                name="Investigation" type="text" [ngModel]="calcularInt()" disabled /><input name="Investigation-prof" type="checkbox" />
+              <label for="Investigation">Investigación <span class="skill">(Int)</span></label>
+              <input name="Investigation" type="text" [(ngModel)]="arrayHab[7].valor" disabled />
+              <input name="Investigation-prof" type="checkbox" [checked]="arrayHab[7].comp" (change)="arrayHab[7].comp = !arrayHab[7].comp; competenteHab(arrayHab[7].comp, 7)" />
             </li>
             <li>
-              <label for="Sleight of Hand">Juego de manos <span class="skill">(Des)</span></label><input
-                name="Sleight of Hand" type="text" [ngModel]="calcularDex()" disabled /><input name="Sleight of Hand-prof" type="checkbox" />
+              <label for="Sleight of Hand">Juego de manos <span class="skill">(Des)</span></label>
+              <input name="Sleight of Hand" type="text" [(ngModel)]="arrayHab[8].valor" disabled />
+              <input name="Sleight of Hand-prof" type="checkbox" [checked]="arrayHab[8].comp" (change)="arrayHab[8].comp = !arrayHab[8].comp; competenteHab(arrayHab[8].comp, 8)" />
             </li>
             <li>
-              <label for="Medicine">Medicina <span class="skill">(Sab)</span></label><input name="Medicine"
-                type="text" [ngModel]="calcularSab()" disabled /><input name="Medicine-prof" type="checkbox" />
+              <label for="Medicine">Medicina <span class="skill">(Sab)</span></label>
+              <input name="Medicine" type="text" [(ngModel)]="arrayHab[9].valor" disabled />
+              <input name="Medicine-prof" type="checkbox" [checked]="arrayHab[9].comp" (change)="arrayHab[9].comp = !arrayHab[9].comp; competenteHab(arrayHab[9].comp, 9)" />
             </li>
             <li>
-              <label for="Nature">Naturaleza <span class="skill">(Int)</span></label><input name="Nature"
-                type="text" [ngModel]="calcularInt()" disabled /><input name="Nature-prof" type="checkbox" />
+              <label for="Nature">Naturaleza <span class="skill">(Int)</span></label>
+              <input name="Nature" type="text" [(ngModel)]="arrayHab[10].valor" disabled />
+              <input name="Nature-prof" type="checkbox" [checked]="arrayHab[10].comp" (change)="arrayHab[10].comp = !arrayHab[10].comp; competenteHab(arrayHab[10].comp, 10)" />
             </li>
             <li>
-              <label for="Perception">Percepción <span class="skill">(Sab)</span></label><input name="Perception"
-                type="text" [ngModel]="calcularSab()" disabled /><input name="Perception-prof" type="checkbox" />
+              <label for="Perception">Percepción <span class="skill">(Sab)</span></label>
+              <input name="Perception" type="text" [(ngModel)]="arrayHab[11].valor" disabled />
+              <input name="Perception-prof" type="checkbox" [checked]="arrayHab[11].comp" (change)="arrayHab[11].comp = !arrayHab[11].comp; competenteHab(arrayHab[11].comp, 11)" />
             </li>
             <li>
-              <label for="Insight">Perspicacia <span class="skill">(Sab)</span></label><input name="Insight"
-                type="text" [ngModel]="calcularSab()" disabled /><input name="Insight-prof" type="checkbox" />
+              <label for="Insight">Perspicacia <span class="skill">(Sab)</span></label>
+              <input name="Insight" type="text" [(ngModel)]="arrayHab[12].valor" disabled />
+              <input name="Insight-prof" type="checkbox" [checked]="arrayHab[12].comp" (change)="arrayHab[12].comp = !arrayHab[12].comp; competenteHab(arrayHab[12].comp, 12)" />
             </li>
             <li>
-              <label for="Persuasion">Persuasión <span class="skill">(Car)</span></label><input name="Persuasion"
-                type="text" [ngModel]="calcularCar()" disabled /><input name="Persuasion-prof" type="checkbox" />
+              <label for="Persuasion">Persuasión <span class="skill">(Car)</span></label>
+              <input name="Persuasion" type="text" [(ngModel)]="arrayHab[13].valor" disabled />
+              <input name="Persuasion-prof" type="checkbox" [checked]="arrayHab[13].comp" (change)="arrayHab[13].comp = !arrayHab[13].comp; competenteHab(arrayHab[13].comp, 13)" />
             </li>
             <li>
-              <label for="Religion">Religión <span class="skill">(Int)</span></label><input name="Religion"
-                type="text" [ngModel]="calcularInt()" disabled /><input name="Religion-prof" type="checkbox" />
+              <label for="Religion">Religión <span class="skill">(Int)</span></label>
+              <input name="Religion" type="text" [(ngModel)]="arrayHab[14].valor" disabled />
+              <input name="Religion-prof" type="checkbox" [checked]="arrayHab[14].comp" (change)="arrayHab[14].comp = !arrayHab[14].comp; competenteHab(arrayHab[14].comp, 14)" />
             </li>
             <li>
-              <label for="Stealth">Sigilo <span class="skill">(Des)</span></label><input name="Stealth"
-                type="text" [ngModel]="calcularDex()" disabled /><input name="Stealth-prof" type="checkbox" />
+              <label for="Stealth">Sigilo <span class="skill">(Des)</span></label>
+              <input name="Stealth" type="text" [(ngModel)]="arrayHab[15].valor" disabled />
+              <input name="Stealth-prof" type="checkbox" [checked]="arrayHab[15].comp" (change)="arrayHab[15].comp = !arrayHab[15].comp; competenteHab(arrayHab[15].comp, 15)" />
             </li>
             <li>
-              <label for="Survival">Surpervivencia <span class="skill">(Sab)</span></label><input name="Survival"
-                type="text" [ngModel]="calcularSab()" disabled /><input name="Survival-prof" type="checkbox" />
+              <label for="Survival">Surpervivencia <span class="skill">(Sab)</span></label>
+              <input name="Survival" type="text" [(ngModel)]="arrayHab[16].valor" disabled />
+              <input name="Survival-prof" type="checkbox" [checked]="arrayHab[16].comp" (change)="arrayHab[16].comp = !arrayHab[16].comp; competenteHab(arrayHab[16].comp, 16)" />
             </li>
             <li>
-              <label for="Animal Handling">T. con Animales <span class="skill">(Sab)</span></label><input
-                name="Animal Handling" type="text" [ngModel]="calcularSab()" disabled /><input name="Animal Handling-prof" type="checkbox" />
+              <label for="Animal Handling">T. con Animales <span class="skill">(Sab)</span>
+              </label><input name="Animal Handling" type="text" [(ngModel)]="arrayHab[17].valor" disabled />
+              <input name="Animal Handling-prof" type="checkbox" [checked]="arrayHab[17].comp" (change)="arrayHab[17].comp = !arrayHab[17].comp; competenteHab(arrayHab[17].comp, 17)" />
             </li>
           </ul>
           <div class="label">

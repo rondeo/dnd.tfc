@@ -24,7 +24,7 @@ const routes: Routes = [
     { path: 'datos', component: StatsComponent },
     { path: 'magia', component: MagiaComponent },
     { path: 'rasgos', component: RasgosComponent }
-  ], data : { experiencia : 'experiencia'}}
+  ]}
 ];
 
 @NgModule({

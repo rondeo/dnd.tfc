@@ -28,6 +28,16 @@ export class DndService {
 
   caracteristicas = CARACTERISTICAS;
 
+  experiencia = '0';
+
+  setExperiencia(value){
+    this.experiencia = value;
+  }
+
+  getExperiencia(){
+    return this.experiencia;
+  }
+
   constructor() { }
 
   getRazas(): Observable<Raza[]>{
