@@ -6,6 +6,7 @@ export let PERSONAJES: Personaje[] = [
         nombrePersonaje: "Marcos Tilleta",
         experiencia: 0,
         idRaza: 1,
+        idSubraza: 11,
         idJugador: 1,
         idClase: 1
     }

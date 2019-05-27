@@ -3,6 +3,7 @@ export class Personaje{
     nombrePersonaje: String;
     experiencia: Number;
     idRaza: number;
+    idSubraza: number;
     idJugador: number;
     idClase: number;
 }

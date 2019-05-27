@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RasgosComponent implements OnInit {
 
+  raza = 'Enanillo';
+
   constructor() { }
 
   ngOnInit() {

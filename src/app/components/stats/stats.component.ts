@@ -13,23 +13,9 @@ export class StatsComponent implements OnInit {
     '', '', '', '', '', ''
   ]
 
-  /* fue = '';
-  dex = '';
-  con = '';
-  int = '';
-  sab = '';
-  car = ''; */
-
   arrayMod: any[] = [
     '', '', '', '', '', ''
   ]
-
-  /* modFue = '';
-  modDex = '';
-  modCon = '';
-  modInt = '';
-  modSab = '';
-  modCar = ''; */
 
   arraySalv: any[] = [
     { valor: '', comp: false },
@@ -39,13 +25,6 @@ export class StatsComponent implements OnInit {
     { valor: '', comp: false },
     { valor: '', comp: false }
   ]
-
-  /* compFueSalv = '';
-  compDexSalv = '';
-  compConSalv = '';
-  compIntSalv = '';
-  compSabSalv = '';
-  compCarSalv = ''; */
 
   arrayHab: any[] = [
     { valor: '', comp: false, stat: 1 },
@@ -67,24 +46,6 @@ export class StatsComponent implements OnInit {
     { valor: '', comp: false, stat: 4 },
     { valor: '', comp: false, stat: 4 }
   ]
-
-  /* compAcrob = '';
-  compAtlet = '';
-  compArcan = '';
-  compEngan = '';
-  compHisto = '';
-  compInter = '';
-  compIntim = '';
-  compInves = '';
-  compJuMan = '';
-  compMedic = '';
-  compPerce = '';
-  compPersp = '';
-  compPersu = '';
-  compRelig = '';
-  compSigil = '';
-  compSuper = '';
-  compTAnim = ''; */
 
   experiencia = '';
   competencia = 0;
@@ -116,32 +77,6 @@ export class StatsComponent implements OnInit {
     this.revisarCompetencia();
 
     return '+' + this.competencia;
-    /* 
-        switch (exp) {
-          case exp < 6500:
-            this.competencia = 2;
-            return '+' + this.competencia;
-    
-          case exp < 48000:
-            this.competencia = 3;
-            return '+' + this.competencia;
-    
-          case exp < 120000:
-            this.competencia = 4;
-            return '+' + this.competencia;
-    
-          case exp < 225000:
-            this.competencia = 5;
-            return '+' + this.competencia;
-    
-          case exp <= 355000:
-            this.competencia = 6;
-            return '+' + this.competencia;
-    
-          default:
-            this.competencia = 2;
-            return '+' + this.competencia;
-        } */
 
   }
 
@@ -156,44 +91,6 @@ export class StatsComponent implements OnInit {
     this.calculoPercepcionPasiva();
     return this.calculo(this.arrayStat[i]);
   }
-  /* 
-    calcularFue() {
-  
-      this.modFue = this.calculo(this.fue);
-      //console.log(this.modFue);
-      return this.modFue;
-  
-    }
-  
-    calcularDex() {
-  
-      return this.calculo(this.dex);
-  
-    }
-  
-    calcularCon() {
-  
-      return this.calculo(this.con);
-  
-    }
-  
-    calcularInt() {
-  
-      return this.calculo(this.int);
-  
-    }
-  
-    calcularSab() {
-  
-      return this.calculo(this.sab);
-  
-    }
-  
-    calcularCar() {
-  
-      return this.calculo(this.car);
-  
-    } */
 
   calculo(numero: string) {
 
@@ -239,13 +136,11 @@ export class StatsComponent implements OnInit {
     }
 
     if (this.arraySalv[i].valor > 0) {
-      this.arraySalv[i].valor = "+" + this.arraySalv[i].valor;
+      this.arraySalv[i].valor = '+' + this.arraySalv[i].valor;
     }
 
-    //let cuenta = parseInt(this.arraySalv[i].slice(1));
-
-    //this.arraySalv[i] = '+' + (cuenta + this.competencia);
     console.log(this.arraySalv[i]);
+
   }
 
   competenteHab(bool: boolean, i: number) {
@@ -260,13 +155,11 @@ export class StatsComponent implements OnInit {
     }
 
     if (this.arrayHab[i].valor > 0) {
-      this.arrayHab[i].valor = "+" + this.arrayHab[i].valor;
+      this.arrayHab[i].valor = '+' + this.arrayHab[i].valor;
     }
 
-    //let cuenta = parseInt(this.arrayHab[i].slice(1));
-
-    //this.arrayHab[i] = '+' + (cuenta + this.competencia);
     console.log(this.arrayHab[i]);
+
   }
 
   revisarCompetencia() {
@@ -276,8 +169,8 @@ export class StatsComponent implements OnInit {
         element.valor = parseInt(this.arrayMod[i]);
         element.valor = element.valor + this.competencia;
       }
-      if (element.valor > 0&&element.comp) {
-        element.valor = "+" + element.valor;
+      if (element.valor > 0 && element.comp) {
+        element.valor = '+' + element.valor;
       }
       i++;
     });
@@ -285,30 +178,21 @@ export class StatsComponent implements OnInit {
     this.arrayHab.forEach(element => {
       if (element.comp) {
         for (let index = 0; index < this.arrayMod.length; index++) {
-          if(element.stat == index){
+          if (element.stat == index) {
             element.valor = parseInt(this.arrayMod[index]);
             element.valor = element.valor + this.competencia;
           }
         }
       }
       if (element.valor > 0 && element.comp) {
-        element.valor = "+" + element.valor;
+        element.valor = '+' + element.valor;
       }
       i++;
     });
   }
 
-  calculoPercepcionPasiva(){
-    this.percepcionPasiva = ""+ (10 + parseInt(this.arrayHab[11].valor));
+  calculoPercepcionPasiva() {
+    this.percepcionPasiva = '' + (10 + parseInt(this.arrayHab[11].valor));
   }
 
-  /* 
-    competente(bool: boolean) {
-      if (bool) {
-        console.log("todo Ok");
-      }
-  
-      console.log("no OK");
-    }
-   */
 }

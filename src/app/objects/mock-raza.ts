@@ -10,5 +10,10 @@ export let RAZAS: Raza[] = [
         idRaza: 2,
         nombreRaza: 'Elfo',
         descripcionRaza: 'Sucio orejas puntiagudas'
+    },
+    {
+        idRaza: 9,
+        nombreRaza: 'Tiefling',
+        descripcionRaza: 'Medio demonios edgy'
     }
 ];

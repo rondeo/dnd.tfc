@@ -3,5 +3,5 @@ export class RasgoSubclase{
     nombreRasgoSubclase: String;
     idSubclase: Number;
     nivelSubclase: Number;
-    descripcionRasgoSubClase: String;
+    descripcionRasgoSubclase: String;
 }

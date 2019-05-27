@@ -12,5 +12,11 @@ export let RASGOSRAZA: RasgoRaza[] = [
         nombreRasgoRaza: 'Hermosura ególatra',
         idRaza: 2,
         descripcionRasgoRaza: 'Son tan hermosos como condescendientes y racistas'
+    },
+    {
+        idRasgoRaza: 91,
+        nombreRasgoRaza: 'La marca de mi pecado',
+        idRaza: 9,
+        descripcionRasgoRaza: 'Los demás me discriminan por ser diferente (No es cierto, se aleja porque cree que es cool)'
     }
 ]

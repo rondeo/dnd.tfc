@@ -12,14 +12,26 @@ import { TRASFONDOS } from '../objects/mock-trasfondo';
 import { Trasfondo } from '../objects/trasfondo';
 import { Caracteristica } from '../objects/caracteristica';
 import { CARACTERISTICAS } from '../objects/mock-caracteristica';
+import { RASGOSSUBRAZA } from '../objects/mock-rasgoSubraza';
+import { SUBRAZAS } from '../objects/mock-subRaza';
+import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
+import { SubRaza } from '../objects/subRaza';
+import { RasgoSubraza } from '../objects/rasgoSubraza';
+import { Personaje } from '../objects/personaje';
+import { PERSONAJES } from '../objects/mock-personaje';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DndService {
 
+  personajes = PERSONAJES;
+
   razas = RAZAS;
   rasgosRaza = RASGOSRAZA;
+
+  subRazas = SUBRAZAS;
+  rasgosSubraza= RASGOSSUBRAZA;
 
   clases = CLASES;
   rasgosClase = RASGOSCLASE;
@@ -40,6 +52,10 @@ export class DndService {
 
   constructor() { }
 
+  getPersonajes(): Observable<Personaje[]>{
+    return of(PERSONAJES);
+  }
+
   getRazas(): Observable<Raza[]>{
     return of(this.razas);
   }
@@ -52,11 +68,37 @@ export class DndService {
         return of(finded);
       }
     }
+
   }
+
+  
+  getSubrazas(id: Number): Observable<SubRaza[]>{
+    let finded = SUBRAZAS.filter(subrazas => subrazas.idRaza === id);
+
+    for (let i of this.razas) {
+      if(i.idRaza === id){
+        return of(finded);
+      }
+    }
+    
+  }
+
+  getRasgosSubraza(id: Number): Observable<RasgoSubraza[]>{
+    let finded = RASGOSSUBRAZA.filter(rasgos => rasgos.idSubraza === id);
+
+    for (let i of this.subRazas) {
+      if(i.idSubraza === id){
+        return of(finded);
+      }
+    }
+
+  }
+
 
   getClases(): Observable<Clase[]>{
     return of(this.clases);
   }
+
   getRasgosClase(id: Number): Observable<RasgoClase[]>{
     let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id);
 

@@ -19,6 +19,7 @@ import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { ExperienceLimitDirective } from './directives/experience-limit.directive';
+import { PersonajesComponent } from './components/personajes/personajes.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ExperienceLimitDirective } from './directives/experience-limit.directiv
     MagiaComponent,
     RasgosComponent,
     OnlyNumbersDirective,
-    ExperienceLimitDirective
+    ExperienceLimitDirective,
+    PersonajesComponent
   ],
   imports: [
     CommonModule,
