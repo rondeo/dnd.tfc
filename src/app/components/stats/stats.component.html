@@ -173,7 +173,7 @@
             <li>
               <label for="Perception">Percepción <span class="skill">(Sab)</span></label>
               <input name="Perception" type="text" [(ngModel)]="arrayHab[11].valor" disabled />
-              <input name="Perception-prof" type="checkbox" [checked]="arrayHab[11].comp" (change)="arrayHab[11].comp = !arrayHab[11].comp; competenteHab(arrayHab[11].comp, 11)" />
+              <input name="Perception-prof" type="checkbox" [checked]="arrayHab[11].comp" (change)="arrayHab[11].comp = !arrayHab[11].comp; competenteHab(arrayHab[11].comp, 11); calculoPercepcionPasiva()" />
             </li>
             <li>
               <label for="Insight">Perspicacia <span class="skill">(Sab)</span></label>
@@ -217,7 +217,7 @@
       <div class="label-container">
         <label for="passiveperception">Sabiduría (Percepción) Pasiva </label>
       </div>
-      <input name="passiveperception" disabled />
+      <input name="passiveperception" [(ngModel)]="percepcionPasiva" disabled />
     </div>
     <div class="otherprofs box textblock">
       <label for="otherprofs">Otras competencias e idiomas</label>

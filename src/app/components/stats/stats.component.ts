@@ -88,6 +88,7 @@ export class StatsComponent implements OnInit {
 
   experiencia = '';
   competencia = 0;
+  percepcionPasiva = '';
 
   constructor(private dndService: DndService) { }
 
@@ -152,6 +153,7 @@ export class StatsComponent implements OnInit {
         element.valor = this.arrayMod[i];
       }
     });
+    this.calculoPercepcionPasiva();
     return this.calculo(this.arrayStat[i]);
   }
   /* 
@@ -294,6 +296,10 @@ export class StatsComponent implements OnInit {
       }
       i++;
     });
+  }
+
+  calculoPercepcionPasiva(){
+    this.percepcionPasiva = ""+ (10 + parseInt(this.arrayHab[11].valor));
   }
 
   /* 
