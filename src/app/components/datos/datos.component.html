@@ -31,7 +31,7 @@
         </li>
         <li>
           <div>
-            <input name="race" />
+            <input name="race" [(ngModel)]="razaElegida" (ngModelChange)="obtenerRaza()"/>
             <label for="race">Raza</label>
           </div>
         </li>

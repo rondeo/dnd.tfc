@@ -1,6 +1,8 @@
 <ul class="personajes" >
   <li *ngFor="let personaje of personajes">
+    <a routerLink="/personaje/{{personaje.idPersonaje}}">
     <span>{{personaje.idPersonaje}}</span> {{personaje.nombrePersonaje}}
+  </a>
   </li>
 </ul>
 

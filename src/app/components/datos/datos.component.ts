@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DndService } from 'src/app/services/dnd-service';
+import { Raza } from 'src/app/objects/raza';
+import { SubRaza } from 'src/app/objects/subRaza';
 
 @Component({
   selector: 'app-datos',
@@ -12,10 +14,27 @@ export class DatosComponent implements OnInit {
 
   experiencia = '0';
 
+  razaElegida ='';
+
+  razas: Raza[];
+
+  subRazas: SubRaza[];
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
+    this.getRazas();
+    this.getSubrazas();
+  }
 
+  getRazas() {
+    this.dndService.getRazas()
+      .subscribe(razas => this.razas = razas);
+  }
+
+  getSubrazas() {
+    this.dndService.getAllSubrazas()
+      .subscribe(subRazas => this.subRazas = subRazas);
   }
 
   calcularNivel() {
@@ -106,6 +125,16 @@ export class DatosComponent implements OnInit {
     }
     this.dndService.setExperiencia(this.experiencia);
     return this.nivel;
+  }
+
+  obtenerRaza(){
+
+    this.subRazas.forEach(element => {
+      if(element.nombreSubraza == this.razaElegida){
+        this.dndService.setRazaElegida(element.idSubraza);
+      }
+    });
+    
   }
 
 

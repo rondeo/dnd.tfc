@@ -42,6 +42,16 @@ export class DndService {
 
   experiencia = '0';
 
+  razaElegida = 0;
+
+  setRazaElegida(value){
+    this.razaElegida = value;
+  }
+
+  getRazaElegida(){
+    return this.razaElegida;
+  }
+
   setExperiencia(value){
     this.experiencia = value;
   }
@@ -58,6 +68,10 @@ export class DndService {
 
   getRazas(): Observable<Raza[]>{
     return of(this.razas);
+  }
+
+  getAllSubrazas(): Observable<SubRaza[]>{
+    return of(this.subRazas);
   }
 
   getRasgosRaza(id: Number): Observable<RasgoRaza[]>{
