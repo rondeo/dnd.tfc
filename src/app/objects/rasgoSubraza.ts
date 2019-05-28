@@ -1,6 +1,6 @@
 export class RasgoSubraza{
-    idRasgoSubraza: Number;
+    idRasgoSubraza: number;
     nombreRasgoSubraza: String;
-    idSubraza: Number;
+    idSubraza: number;
     descripcionRasgoSubraza: String;
 }

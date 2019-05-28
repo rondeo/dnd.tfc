@@ -1,7 +1,7 @@
 export class RasgoSubclase{
-    idRasgoSubclase: Number;
+    idRasgoSubclase: number;
     nombreRasgoSubclase: String;
-    idSubclase: Number;
-    nivelSubclase: Number;
+    idSubclase: number;
+    nivelSubclase: number;
     descripcionRasgoSubclase: String;
 }

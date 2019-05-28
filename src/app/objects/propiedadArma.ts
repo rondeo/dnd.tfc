@@ -1,5 +1,5 @@
 export class PropiedadArma{
-    idPropiedadArma: Number;
+    idPropiedadArma: number;
     nombrePropiedadArma: String;
     descripcionPropiedadArma: String;
 }

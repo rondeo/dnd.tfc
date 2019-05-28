@@ -1,7 +1,7 @@
 export class Conjuro{
-    idConjuro: Number;
+    idConjuro: number;
     nombreConjuro: String;
-    nivelConjuro: Number;
+    nivelConjuro: number;
     tiempoCasteo: String;
     alcance: String;
     componentes: String;

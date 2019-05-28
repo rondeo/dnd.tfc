@@ -1,5 +1,5 @@
 export class Herramienta{
-    idEquipoHerramienta: Number;
+    idEquipoHerramienta: number;
     descripcionHerramienta: String;
     competente: boolean;
 }

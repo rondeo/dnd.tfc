@@ -1,6 +1,6 @@
 export class RasgoRaza{
-    idRasgoRaza: Number;
+    idRasgoRaza: number;
     nombreRasgoRaza: String;
-    idRaza: Number;
+    idRaza: number;
     descripcionRasgoRaza: String;
 }

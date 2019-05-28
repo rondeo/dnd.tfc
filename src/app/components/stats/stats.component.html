@@ -7,7 +7,7 @@
           <li>
             <div class="score">
               <label for="Strengthscore">Fuerza</label>
-              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="arrayStat[0]" (ngModelChange)="calcularMod(0)" />
+              <input appOnlyNumbers name="Strengthscore" class="stat" [(ngModel)]="arrayStat[0].valor" (ngModelChange)="calcularMod(0)" />
             </div>
             <div class="modifier">
               <!-- <input name="Strengthmod" class="statmod" [ngModel]="calcularMod(0)" disabled/> -->
@@ -18,7 +18,7 @@
           <li>
             <div class="score">
               <label for="Dexterityscore">Destreza</label>
-              <input appOnlyNumbers name="Dexterityscore" class="stat" [(ngModel)]="arrayStat[1]" (ngModelChange)="calcularMod(1)" />
+              <input appOnlyNumbers name="Dexterityscore" class="stat" [(ngModel)]="arrayStat[1].valor" (ngModelChange)="calcularMod(1)" />
             </div>
             <div class="modifier">
               <input name="Dexteritymod" class="statmod" [(ngModel)]="arrayMod[1]" disabled />
@@ -28,7 +28,7 @@
           <li>
             <div class="score">
               <label for="Constitutionscore">Constitución</label>
-              <input appOnlyNumbers name="Constitutionscore" class="stat" [(ngModel)]="arrayStat[2]" (ngModelChange)="calcularMod(2)" />
+              <input appOnlyNumbers name="Constitutionscore" class="stat" [(ngModel)]="arrayStat[2].valor" (ngModelChange)="calcularMod(2)" />
             </div>
             <div class="modifier">
               <input name="Constitutionmod" class="statmod" [(ngModel)]="arrayMod[2]" disabled />
@@ -38,7 +38,7 @@
           <li>
             <div class="score">
               <label for="Intelligencescore">Inteligencia</label>
-              <input appOnlyNumbers name="Intelligencescore" class="stat" [(ngModel)]="arrayStat[3]" (ngModelChange)="calcularMod(3)" />
+              <input appOnlyNumbers name="Intelligencescore" class="stat" [(ngModel)]="arrayStat[3].valor" (ngModelChange)="calcularMod(3)" />
             </div>
             <div class="modifier">
               <input name="Intelligencemod" class="statmod" [(ngModel)]="arrayMod[3]" disabled />
@@ -48,7 +48,7 @@
           <li>
             <div class="score">
               <label for="Wisdomscore">Sabiduría</label>
-              <input appOnlyNumbers name="Wisdomscore" class="stat" [(ngModel)]="arrayStat[4]" (ngModelChange)="calcularMod(4)" />
+              <input appOnlyNumbers name="Wisdomscore" class="stat" [(ngModel)]="arrayStat[4].valor" (ngModelChange)="calcularMod(4)" />
             </div>
             <div class="modifier">
               <input name="Wisdommod" class="statmod" [(ngModel)]="arrayMod[4]" disabled />
@@ -58,7 +58,7 @@
           <li>
             <div class="score">
               <label for="Charismascore">Carisma</label>
-              <input appOnlyNumbers name="Charismascore" class="stat" [(ngModel)]="arrayStat[5]" (ngModelChange)="calcularMod(5)" />
+              <input appOnlyNumbers name="Charismascore" class="stat" [(ngModel)]="arrayStat[5].valor" (ngModelChange)="calcularMod(5)" />
             </div>
             <div class="modifier">
               <input name="Charismamod" class="statmod" [(ngModel)]="arrayMod[5]" disabled />

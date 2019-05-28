@@ -1,45 +1,46 @@
-<div>
+
+<input name="raza" [ngModel]="razaElegida()" disabled />
+
+<div *ngIf="razaMostrar>0" >
   <table class="table table-hover text-center">
     <thead class="thead-dark">
       <tr>
-        <th colspan="4">Raza: {{Raza}}</th>
+        <th colspan="2">Rasgos raciales</th>
       </tr>
       <tr>
-        <th>Raza</th>
-        <th>Dados de golpe</th>
-        <th>Descripción</th>
-        <th>Elegir</th>
+        <th>Nombre rasgo</th>
+        <th>Descripcion rasgo</th>
       </tr>
     </thead>
     <tbody>
+      <tr *ngFor="let rasgoRaza of rasgosRaza">
+        <td>{{rasgoRaza.nombreRasgoRaza}}</td>
+        <td>{{rasgoRaza.descripcionRasgoRaza}}</td>
+      </tr>
+      <tr *ngFor="let rasgoSubraza of rasgosSubraza">
+        <td>{{rasgoSubraza.nombreRasgoSubraza}}</td>
+        <td>{{rasgoSubraza.descripcionRasgoSubraza}}</td>
+      </tr>
     </tbody>
   </table>
 </div>
 
-<div>
+<div *ngIf="claseMostrar>0">
   <table class="table table-hover text-center">
     <thead class="thead-dark">
       <tr>
-        <th>Rasgos Raciales</th>
+        <th colspan="2">Rasgos de clase</th>
       </tr>
       <tr>
-        <th>Clase</th>
-        <th>Dados de golpe</th>
-        <th>Descripción</th>
-        <th>Elegir</th>
+        <th>Nombre rasgo</th>
+        <th>Descripcion</th>
       </tr>
     </thead>
     <tbody>
-      <!-- <tr *ngFor="let clase of clases" ng-click="mostrar = !mostrar">
-        <td>{{clase.nombreClase}}</td>
-        <td>d{{clase.hitDice}}</td>
-        <td>{{clase.descripcionClase}}</td>
-        <td>
-          <button (click)="getRasgosClase(clase.idClase)">
-            Elegir
-          </button>
-        </td>
-      </tr> -->
+        <tr *ngFor="let rasgoClase of rasgosClase">
+            <td>{{rasgoClase.nombreRasgoClase}}</td>
+            <td>{{rasgoClase.descripcionRasgoClase}}</td>
+          </tr>
     </tbody>
   </table>
 </div>

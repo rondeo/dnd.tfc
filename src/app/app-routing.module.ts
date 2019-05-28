@@ -9,22 +9,40 @@ import { CrearStatsComponent } from './components/crear-stats/crear-stats.compon
 import { CrearClaseComponent } from './components/crear-clase/crear-clase.component';
 import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
+import { PersonajesComponent } from './components/personajes/personajes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/creacion', pathMatch: 'full' },
-  { path: 'creacion', component: CreacionComponent, children: [
-    { path: 'raza', component: CrearRazaComponent },
-    { path: 'clase', component: CrearClaseComponent},
-    { path: 'trasfondo', component: CrearTrasfondoComponent},
-    { path: 'stats', component: CrearStatsComponent}
-  ]},
+  {
+    path: 'creacion', component: CreacionComponent, children: [
+      { path: 'raza', component: CrearRazaComponent },
+      { path: 'clase', component: CrearClaseComponent },
+      { path: 'trasfondo', component: CrearTrasfondoComponent },
+      { path: 'stats', component: CrearStatsComponent }
+    ]
+  },
   //{ path: 'personaje/:id', component: DatosComponent, children: [
-  { path: 'personaje', component: DatosComponent, children: [
-    //{ path: '', redirectTo: '/character', pathMatch: 'full' },
-    { path: 'datos', component: StatsComponent },
-    { path: 'magia', component: MagiaComponent },
-    { path: 'rasgos', component: RasgosComponent }
-  ]}
+  {
+    path: 'hoja', component: DatosComponent, children: [
+      //{ path: '', redirectTo: '/character', pathMatch: 'full' },
+      { path: 'datos', component: StatsComponent },
+      { path: 'magia', component: MagiaComponent },
+      { path: 'rasgos', component: RasgosComponent },
+      //{ path: ':id', component: DatosComponent}
+    ]
+  },
+  {
+    path: 'listaPersonajes', component: PersonajesComponent
+  },
+  {
+    path: 'personaje/:id', component: DatosComponent, children: [
+      //{ path: '', redirectTo: '/character', pathMatch: 'full' },
+      { path: 'datos', component: StatsComponent },
+      { path: 'magia', component: MagiaComponent },
+      { path: 'rasgos', component: RasgosComponent },
+      //{ path: ':id', component: DatosComponent}
+    ]
+  }
 ];
 
 @NgModule({

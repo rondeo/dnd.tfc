@@ -1,6 +1,6 @@
 export class Habilidad{
-    idHabilidad: Number;
+    idHabilidad: number;
     nombreHabilidad: String;
     competenteHabilidad: boolean;
-    idCaracteristica: Number;
+    idCaracteristica: number;
 }

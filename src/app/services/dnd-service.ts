@@ -19,11 +19,17 @@ import { SubRaza } from '../objects/subRaza';
 import { RasgoSubraza } from '../objects/rasgoSubraza';
 import { Personaje } from '../objects/personaje';
 import { PERSONAJES } from '../objects/mock-personaje';
+import { Jugador } from '../objects/jugador';
+import { JUGADORES } from '../objects/mock-jugador';
+import { CaracteristicasPersonaje } from '../objects/caracteristicasPersonaje';
+import { CARACTERISTICASPERSONAJES } from '../objects/mock-caracteristicasPersonaje';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DndService {
+
+  jugadores = JUGADORES;
 
   personajes = PERSONAJES;
 
@@ -40,9 +46,23 @@ export class DndService {
 
   caracteristicas = CARACTERISTICAS;
 
+  caracteristicasPersonaje = CARACTERISTICASPERSONAJES;
+
   experiencia = '0';
 
   razaElegida = 0;
+
+  claseElegida = 0;
+
+  personajeElegido = 0;
+
+  setPersonajeElegido(value){
+    this.personajeElegido = value;
+  }
+
+  getPersonajeElegido(){
+    return this.personajeElegido;
+  }
 
   setRazaElegida(value){
     this.razaElegida = value;
@@ -50,6 +70,14 @@ export class DndService {
 
   getRazaElegida(){
     return this.razaElegida;
+  }
+
+  setClaseElegida(value){
+    this.claseElegida = value;
+  }
+
+  getClaseElegida(){
+    return this.claseElegida;
   }
 
   setExperiencia(value){
@@ -61,6 +89,22 @@ export class DndService {
   }
 
   constructor() { }
+
+  getPersonaje(id: number): Observable<Personaje>{
+    return of(PERSONAJES.find(personaje => personaje.idPersonaje === id));
+  }
+
+  getRaza(id: number): Observable<Raza>{
+    return of(RAZAS.find(raza => raza.idRaza===id));
+  }
+
+  getSubRaza(id: number): Observable<SubRaza>{
+    return of(SUBRAZAS.find(subRaza => subRaza.idSubraza === id));
+  }
+
+  getClase(id: number): Observable<Clase>{
+    return of(CLASES.find(Clase => Clase.idClase===id));
+  }
 
   getPersonajes(): Observable<Personaje[]>{
     return of(PERSONAJES);
@@ -82,10 +126,8 @@ export class DndService {
         return of(finded);
       }
     }
-
   }
 
-  
   getSubrazas(id: Number): Observable<SubRaza[]>{
     let finded = SUBRAZAS.filter(subrazas => subrazas.idRaza === id);
 
@@ -94,7 +136,6 @@ export class DndService {
         return of(finded);
       }
     }
-    
   }
 
   getRasgosSubraza(id: Number): Observable<RasgoSubraza[]>{
@@ -105,12 +146,14 @@ export class DndService {
         return of(finded);
       }
     }
-
   }
-
 
   getClases(): Observable<Clase[]>{
     return of(this.clases);
+  }
+
+  getJugadores(): Observable<Jugador[]>{
+    return of(this.jugadores);
   }
 
   getRasgosClase(id: Number): Observable<RasgoClase[]>{
@@ -130,5 +173,13 @@ export class DndService {
   getCaracteristicas(): Observable<Caracteristica[]>{
     return of(this.caracteristicas);
   }
+
+  getCaracteristicasPersonajes(): Observable<CaracteristicasPersonaje[]>{
+    return of(this.caracteristicasPersonaje);
+  }
+
+  /* getCaracteristicasPersonaje(id: number): Observable<CaracteristicasPersonaje[]>{
+    return of(CARACTERISTICASPERSONAJES.findAll(this.caracteristicasPersonaje))
+  } */
 
 }

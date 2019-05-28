@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { clearModulesForTest } from '@angular/core/src/linker/ng_module_factory_loader';
+
 import { DndService } from 'src/app/services/dnd-service';
+import { CaracteristicasPersonaje } from 'src/app/objects/caracteristicasPersonaje';
 
 @Component({
   selector: 'app-stats',
@@ -9,8 +10,15 @@ import { DndService } from 'src/app/services/dnd-service';
 })
 export class StatsComponent implements OnInit {
 
+  caracteristicasPersonaje: CaracteristicasPersonaje[];
+
   arrayStat: any[] = [
-    '', '', '', '', '', ''
+    { id: 1, valor: '' },
+    { id: 2, valor: '' },
+    { id: 3, valor: '' },
+    { id: 4, valor: '' },
+    { id: 5, valor: '' },
+    { id: 6, valor: '' }
   ]
 
   arrayMod: any[] = [
@@ -51,9 +59,28 @@ export class StatsComponent implements OnInit {
   competencia = 0;
   percepcionPasiva = '';
 
-  constructor(private dndService: DndService) { }
+  constructor(
+    private dndService: DndService
+    ) { }
 
   ngOnInit() {
+    this.getCaracteristicasPersonaje();
+  }
+
+  getCaracteristicasPersonaje() {
+    const id = this.dndService.getPersonajeElegido();
+    this.dndService.getCaracteristicasPersonajes()
+      .subscribe(caracteristicasPersonaje => this.caracteristicasPersonaje = caracteristicasPersonaje);
+    //console.log(id);
+    for (let i = 0; i < this.caracteristicasPersonaje.length; i++) {
+      for (let j = 0; j < this.arrayStat.length; j++) {
+        if(this.caracteristicasPersonaje[i].idPersonaje==id&&this.arrayStat[j].id==this.caracteristicasPersonaje[i].idCaracteristica){
+          //console.log(this.caracteristicasPersonaje[i].idPersonaje);
+          this.arrayStat[j].valor = this.caracteristicasPersonaje[i].puntuacionCaracteristica;
+          this.calcularMod(j);
+        }
+      }
+    }
 
   }
 
@@ -81,7 +108,7 @@ export class StatsComponent implements OnInit {
   }
 
   calcularMod(i: number) {
-    this.arrayMod[i] = this.calculo(this.arrayStat[i]);
+    this.arrayMod[i] = this.calculo(this.arrayStat[i].valor);
     this.arraySalv[i].valor = this.arrayMod[i];
     this.arrayHab.forEach(element => {
       if (element.stat === i) {
@@ -89,7 +116,7 @@ export class StatsComponent implements OnInit {
       }
     });
     this.calculoPercepcionPasiva();
-    return this.calculo(this.arrayStat[i]);
+    return this.calculo(this.arrayStat[i].valor);
   }
 
   calculo(numero: string) {

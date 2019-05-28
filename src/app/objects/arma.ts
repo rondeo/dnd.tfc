@@ -1,8 +1,8 @@
 export class Arma{
-    idEquipoArma: Number;
+    idEquipoArma: number;
     tipoArma: String;
     categoriaArma: String;
-    daño: Number;
+    daño: number;
     tipoDaño: String;
     propiedades: String;
     competencia: boolean;

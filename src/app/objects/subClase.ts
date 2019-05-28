@@ -1,7 +1,7 @@
 export class SubClase{
-    idSubclase: Number;
+    idSubclase: number;
     nombreSubclase: String;
-    idClase: Number;
-    nivelSubclase: Number;
+    idClase: number;
+    nivelSubclase: number;
     descripcionSubclase: String;     
 }

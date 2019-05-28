@@ -1,14 +1,14 @@
 <form class="charsheet">
   <header>
     <section class="charname">
-      <label for="charname">Nombre del personaje</label><input name="charname" />
+      <label for="charname">Nombre del personaje</label><input name="charname" [(ngModel)]="nombrePersonaje" />
     </section>
     <section class="misc">
       <ul>
         <li>
           <div class="classlevel">
             <div class="divclass">
-              <input name="class" placeholder="clase"/>
+              <input name="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()"/>
               <label for="class">Clase</label>
             </div>
             <div class="divlevel">
@@ -19,26 +19,26 @@
         </li>
         <li>
           <div>
-            <input name="background" />
-            <label for="background">Trasfondo</label>
+            <input name="background" [(ngModel)]="trasfondoPersonaje"/>
+            <label for="background" >Trasfondo</label>
           </div>
         </li>
         <li>
           <div>
-            <input name="playername" />
-            <label for="playername">Nombre del Jugador</label>
+            <input name="playername" [(ngModel)]="nombreJugador"/>
+            <label for="playername" >Nombre del Jugador</label>
           </div>
         </li>
         <li>
           <div>
-            <input name="race" [(ngModel)]="razaElegida" (ngModelChange)="obtenerRaza()"/>
+            <input name="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()"/>
             <label for="race">Raza</label>
           </div>
         </li>
         <li>
           <div>
-            <input name="alignment" />
-            <label for="alignment">Alineamiento</label>
+            <input name="alignment" [(ngModel)]="alineamientoPersonaje"/>
+            <label for="alignment" >Alineamiento</label>
           </div>
         </li>
         <li>
@@ -51,10 +51,16 @@
     </section>
   </header>
 
-  <nav>
-    <a routerLink="/personaje/datos">Datos</a>
-    <a routerLink="/personaje/magia">Magia</a>
-    <a routerLink="/personaje/rasgos">Rasgos</a>
+  <nav *ngIf="navegarPersonaje">
+    <a routerLink="/personaje/{{personaje.idPersonaje}}/datos">Datos</a>
+    <a routerLink="/personaje/{{personaje.idPersonaje}}/magia">Magia</a>
+    <a routerLink="/personaje/{{personaje.idPersonaje}}/rasgos">Rasgos</a>
+  </nav>
+
+  <nav *ngIf="navegarHoja">
+    <a routerLink="/hoja/datos">Datos</a>
+    <a routerLink="/hoja/magia">Magia</a>
+    <a routerLink="/hoja/rasgos">Rasgos</a>
   </nav>
 
   <router-outlet></router-outlet>
