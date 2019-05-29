@@ -50,19 +50,18 @@ export class RasgosComponent implements OnInit {
     this.razaMostrar = 0;
     this.subRazaMostrar = 0;
     this.claseMostrar = 0;
-
-    
-      this.idRaza = this.dndService.getRazaElegida();
-    
-
-    
-      this.idClase = this.dndService.getClaseElegida();
-    
-
-    //console.log(idRaza);
+    this.subRaza = null;
+    this.rasgosSubraza = null;
 
 
-    console.log(this.idClase);
+    this.idRaza = this.dndService.getRazaElegida();
+
+
+    this.idClase = this.dndService.getClaseElegida();
+
+    //console.log(this.dndService.getRazaElegida());
+
+    //console.log(this.idClase);
 
     if (this.idRaza != null && this.idRaza != undefined && this.idRaza != 0) {
       this.getSubRaza(this.idRaza);
@@ -82,8 +81,8 @@ export class RasgosComponent implements OnInit {
 
     this.obtenerRasgos();
 
-    this.dndService.setRazaElegida(0);
-    this.dndService.setClaseElegida(0);
+    // this.dndService.setRazaElegida(0);
+    // this.dndService.setClaseElegida(0);
   }
 
   personajeElegido() {
@@ -105,13 +104,16 @@ export class RasgosComponent implements OnInit {
 
       this.obtenerRasgos();
 
-    }
+    } 
+    // else {
+    //   this.razaElegida();
+    // }
   }
 
   obtenerRasgos() {
     if (this.razaMostrar != null && this.razaMostrar != undefined && this.razaMostrar != 0) {
       this.getRasgosRaza(this.razaMostrar);
-      console.log(this.razaMostrar);
+      //console.log(this.razaMostrar);
     }
     if (this.subRazaMostrar != null && this.subRazaMostrar != undefined && this.subRazaMostrar != 0) {
       //console.log(this.subraza)
@@ -164,6 +166,8 @@ export class RasgosComponent implements OnInit {
       .subscribe(rasgo => this.rasgosClase = rasgo);
   }
 
+  mostrarCosas() {
 
+  }
 
 }

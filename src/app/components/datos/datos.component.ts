@@ -64,6 +64,8 @@ export class DatosComponent implements OnInit {
     this.getJugadores();
     this.getTrasfondos();
     this.getPersonaje();
+    this.obtenerClase();
+    this.obtenerRaza();
   }
 
   getRazas() {
@@ -98,6 +100,7 @@ export class DatosComponent implements OnInit {
     if(id == null){
       this.navegarHoja=true;
       this.navegarPersonaje=false;
+      this.dndService.setPersonajeElegido(0);
     } else {
       //console.log("Ha entrado aquí porque patata")
       this.dndService.getPersonaje(parseInt(id))
@@ -179,29 +182,74 @@ export class DatosComponent implements OnInit {
 
   obtenerRaza() {
 
-    this.razas.forEach(raza => {
-      if(raza.nombreRaza == this.razaPersonaje){
-        this.dndService.setRazaElegida(raza.idRaza);
-        //console.log(this.razaPersonaje)
+    for (let i = 0; i < this.razas.length; i++) {
+      for (let j = 0; j < this.subRazas.length; j++) {
+        if(this.razas[i].nombreRaza==this.razaPersonaje){
+          this.dndService.setRazaElegida(this.razas[i].idRaza);
+          //console.log(this.razaPersonaje + ' raza ' + this.razas[i].idRaza)
+          return;
+        }else if(this.subRazas[j].nombreSubraza == this.razaPersonaje){
+          this.dndService.setRazaElegida(this.subRazas[j].idSubraza);
+          //console.log(this.razaPersonaje + ' subraza ' + this.subRazas[j].idSubraza)
+          return;
+        }else{
+          this.limpiarRaza();
+        }
+        
       }
-    });
+      
+    }
 
-    this.subRazas.forEach(subraza => {
-      if (subraza.nombreSubraza == this.razaPersonaje) {
-        this.dndService.setRazaElegida(subraza.idSubraza);
-        //console.log(this.razaPersonaje)
-      }
-    });
+    // this.razas.forEach(raza => {
+    //   if(raza.nombreRaza == this.razaPersonaje){
+    //     this.dndService.setRazaElegida(raza.idRaza);
+    //     console.log(this.razaPersonaje + raza.idRaza)
+    //     return;
+    //   }else{
+    //     this.limpiarRaza();
+    //   }
+    // });
 
+    // this.subRazas.forEach(subraza => {
+    //   if (subraza.nombreSubraza == this.razaPersonaje) {
+    //     this.dndService.setRazaElegida(subraza.idSubraza);
+    //     console.log(this.razaPersonaje + subraza.idSubraza)
+    //     return;
+    //   }
+    // });
+    
   }
 
   obtenerClase(){
-    this.clases.forEach(clase =>{
-      if(clase.nombreClase == this.clasePersonaje){
-        this.dndService.setClaseElegida(clase.idClase);
-        console.log(this.clasePersonaje)
+
+    for (let i = 0; i < this.clases.length; i++) {
+      if(this.clases[i].nombreClase == this.clasePersonaje){
+        this.dndService.setClaseElegida(this.clases[i].idClase);
+        //console.log(this.clasePersonaje);
+        return;
+      }else{
+        this.limpiarClase();
       }
-    });
+    }
+
+    // this.clases.forEach(clase =>{
+    //   if(clase.nombreClase == this.clasePersonaje){
+    //     this.dndService.setClaseElegida(clase.idClase);
+    //     //console.log(this.clasePersonaje);
+    //     return;
+    //   }else{
+    //     this.limpiarClase();
+    //   }
+    // });
+    
+  }
+
+  limpiarClase(){
+    this.dndService.setClaseElegida(0);
+  }
+
+  limpiarRaza(){
+    this.dndService.setRazaElegida(0);
   }
 
 

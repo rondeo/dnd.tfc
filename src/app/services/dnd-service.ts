@@ -66,17 +66,21 @@ export class DndService {
 
   setRazaElegida(value){
     this.razaElegida = value;
+    //console.log('set service'+ this.razaElegida);
   }
 
   getRazaElegida(){
+    //console.log('get service'+ this.razaElegida);
     return this.razaElegida;
   }
 
   setClaseElegida(value){
+    //console.log('set clase' + this.claseElegida)
     this.claseElegida = value;
   }
 
   getClaseElegida(){
+    //console.log('get clase' + this.claseElegida)
     return this.claseElegida;
   }
 

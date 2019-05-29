@@ -64,10 +64,22 @@ export class StatsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+    //this.resetStats();
     this.getCaracteristicasPersonaje();
   }
 
+  // resetStats(){
+  //   this.caracteristicasPersonaje = null;
+  //   for (let i = 0; i < this.arrayStat.length; i++) {
+  //     this.arrayStat[i].valor = '';
+  //     console.log(this.arrayStat[i].valor);
+  //   }
+  //   console.log("Stats reseteados");
+  // }
+
   getCaracteristicasPersonaje() {
+    // this.caracteristicasPersonaje = null;
+    
     const id = this.dndService.getPersonajeElegido();
     this.dndService.getCaracteristicasPersonajes()
       .subscribe(caracteristicasPersonaje => this.caracteristicasPersonaje = caracteristicasPersonaje);
@@ -143,7 +155,6 @@ export class StatsComponent implements OnInit {
       if (mod > 0) {
         mod = '+' + mod;
       }
-
 
       return mod;
 

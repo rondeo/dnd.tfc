@@ -24,7 +24,7 @@ const routes: Routes = [
   //{ path: 'personaje/:id', component: DatosComponent, children: [
   {
     path: 'hoja', component: DatosComponent, children: [
-      //{ path: '', redirectTo: '/character', pathMatch: 'full' },
+      { path: 'hoja', redirectTo: 'hoja/datos', pathMatch: 'full'},
       { path: 'datos', component: StatsComponent },
       { path: 'magia', component: MagiaComponent },
       { path: 'rasgos', component: RasgosComponent },
@@ -36,7 +36,6 @@ const routes: Routes = [
   },
   {
     path: 'personaje/:id', component: DatosComponent, children: [
-      //{ path: '', redirectTo: '/character', pathMatch: 'full' },
       { path: 'datos', component: StatsComponent },
       { path: 'magia', component: MagiaComponent },
       { path: 'rasgos', component: RasgosComponent },
