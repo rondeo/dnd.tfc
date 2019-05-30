@@ -10,11 +10,13 @@ import { CrearClaseComponent } from './components/crear-clase/crear-clase.compon
 import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
+import { CrearInfoComponent } from './components/crear-info/crear-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/creacion', pathMatch: 'full' },
   {
     path: 'creacion', component: CreacionComponent, children: [
+      { path: 'info', component: CrearInfoComponent},
       { path: 'raza', component: CrearRazaComponent },
       { path: 'clase', component: CrearClaseComponent },
       { path: 'trasfondo', component: CrearTrasfondoComponent },

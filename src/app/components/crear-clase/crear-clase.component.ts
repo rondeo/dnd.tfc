@@ -32,4 +32,8 @@ export class CrearClaseComponent implements OnInit {
     this.mostrar = true;
   }
 
+  asignarClase(){
+    
+  }
+
 }
