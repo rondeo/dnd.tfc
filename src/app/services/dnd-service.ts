@@ -56,6 +56,113 @@ export class DndService {
 
   personajeElegido = 0;
 
+  idCreacion = 0;
+
+  nombreCreacion = '';
+
+  alineamientoCreacion = '';
+
+  experienciaCreacion =0;
+
+  razaCreacion = 0;
+
+  subRazaCreacion = null;
+
+  jugadorCreacion = 0;
+
+  claseCreacion = 0;
+
+  trasfondoCreacion = 0;
+
+  statsCreacion: any[] = [
+    { "id": 1, "valor": '' },
+    { "id": 2, "valor": '' },
+    { "id": 3, "valor": '' },
+    { "id": 4, "valor": '' },
+    { "id": 5, "valor": '' },
+    { "id": 6, "valor": '' }
+  ];
+
+  getIdCreacion(){
+    return this.idCreacion;
+  }
+
+  setIdCreacion(value){
+    this.idCreacion = value;
+  }
+
+  getNombreCreacion(){
+    return this.nombreCreacion;
+  }
+
+  setNombreCreacion(value){
+    this.nombreCreacion = value;
+  }
+
+  getAlineamientoCreacion(){
+    return this.alineamientoCreacion;
+  }
+
+  setAlineamientoCreacion(value){
+    this.alineamientoCreacion = value;
+  }
+
+  getExperienciaCreacion(){
+    return this.experienciaCreacion;
+  }
+
+  setExpecienciaCreacion(value){
+    this.experienciaCreacion = value;
+  }
+
+  getRazaCreacion(){
+    return this.razaCreacion;
+  }
+
+  setRazaCreacion(value){
+    this.razaCreacion = value;
+  }
+
+  getSubRazaCreacion(){
+    return this.subRazaCreacion;
+  }
+
+  setSubRazaCreacion(value){
+    this.subRazaCreacion = value;
+  }
+
+  getJugadorCreacion(){
+    return this.jugadorCreacion;
+  }
+
+  setJugadorCreacion(value){
+    this.jugadorCreacion = value;
+  }
+
+  getClaseCreacion(){
+    return this.claseCreacion;
+  }
+
+  setClaseCreacion(value){
+    this.claseCreacion = value;
+  }
+
+  getTrasfondoCreacion(){
+    return this.trasfondoCreacion;
+  }
+
+  setTrasfondoCreacion(value){
+    this.trasfondoCreacion = value;
+  }
+
+  getStatsCreacion(){
+    return this.statsCreacion;
+  }
+
+  setStatsCreacion(value){
+    this.statsCreacion = value;
+  }
+
   setPersonajeElegido(value){
     this.personajeElegido = value;
   }
@@ -185,5 +292,9 @@ export class DndService {
   /* getCaracteristicasPersonaje(id: number): Observable<CaracteristicasPersonaje[]>{
     return of(CARACTERISTICASPERSONAJES.findAll(this.caracteristicasPersonaje))
   } */
+
+  crearPersonaje(id: number, nombre: String, exp: number, align: String, raza: number, subraza: number, jugador: number, clase: number, trasfondo: number, stats: any[]){
+    
+  }
 
 }

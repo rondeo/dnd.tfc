@@ -15,7 +15,7 @@
       <td>{{trasfondo.nombreTrasfondo}}</td>
       <td>{{trasfondo.descripcionTrasfondo}}</td>
       <td>
-        <button (click)="siguiente()">
+        <button (click)="siguiente(trasfondo.idTrasfondo)">
           Elegir
         </button>
       </td>
@@ -24,7 +24,10 @@
 </table>
 
 <div *ngIf="mostrar">
-  <button routerLink="/creacion/stats">
+  <!-- <button routerLink="/creacion/stats" (click)="asignarTrasfondo">
+    Confirmar
+  </button> -->
+  <button (click)="asignarTrasfondo(trasfondoCreacion)">
     Confirmar
   </button>
 </div>

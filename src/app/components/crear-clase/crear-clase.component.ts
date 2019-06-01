@@ -10,6 +10,8 @@ import { DndService } from 'src/app/services/dnd-service';
 })
 export class CrearClaseComponent implements OnInit {
 
+  claseCreacion = null;
+
   mostrar = false;
 
   clases: Clase[];
@@ -30,10 +32,15 @@ export class CrearClaseComponent implements OnInit {
     this.dndService.getRasgosClase(id)
       .subscribe(rasgo => this.rasgoClase = rasgo);
     this.mostrar = true;
+    this.claseCreacion = id;
+    //console.log("Clase elegida " + this.claseCreacion)
   }
 
-  asignarClase(){
+  asignarClase(idClase){
+    //console.log("Clase elegida " + idClase)
+    this.dndService.setClaseCreacion(idClase);
     
+    //console.log("Clase elegida " + this.dndService.getClaseCreacion());
   }
 
 }

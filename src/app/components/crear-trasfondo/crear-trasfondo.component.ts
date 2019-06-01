@@ -9,6 +9,8 @@ import { DndService } from 'src/app/services/dnd-service';
 })
 export class CrearTrasfondoComponent implements OnInit {
 
+  trasfondoCreacion = null;
+
   mostrar = false;
 
   trasfondos: Trasfondo[];
@@ -24,8 +26,16 @@ export class CrearTrasfondoComponent implements OnInit {
      .subscribe(trasfondos => this.trasfondos = trasfondos);
   }
 
-  siguiente(){
+  siguiente(id){
     this.mostrar = true;
+    this.trasfondoCreacion = id;
+    //console.log("Lmao "+this.trasfondoCreacion);
+  }
+
+  asignarTrasfondo(id){
+    this.dndService.setTrasfondoCreacion(id);
+    
+    //console.log("Lol "+this.dndService.getTrasfondoCreacion());
   }
 
 }

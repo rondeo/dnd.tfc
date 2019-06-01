@@ -81,7 +81,7 @@
 </div>
 
 <div *ngIf="elegido">
-  <button routerLink="/creacion/clase" >
+  <button routerLink="/creacion/clase" (click)="asignarRaza(razaCreacion, subRazaCreacion)">
     Confirmar
   </button>
 </div>

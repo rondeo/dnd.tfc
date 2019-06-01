@@ -138,8 +138,8 @@ export class StatsComponent implements OnInit {
     mod = parseInt(numero);
 
 
-    if (mod > 30) {
-      mod = 30;
+    if (mod > 20) {
+      mod = 20;
     } else if (mod <= 0) {
       return;
     }

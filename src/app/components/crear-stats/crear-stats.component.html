@@ -31,7 +31,7 @@
         <button (click)="restar(puntosArray[i].id)">-</button>
       </td>
 
-      <td *ngIf="mostrarRandom">{{randomArray[i].random}}</td>
+      <td *ngIf="mostrarRandom">{{puntosArray[i].random}}</td>
 
     </tr>
     <!-- <tr *ngFor="let puntos of puntosArray">
@@ -44,9 +44,12 @@
 <label *ngIf="mostrarPuntos">{{totalPuntos}}/27</label>
 
 <br />
-<button routerLink="/personaje/datos">
+<button (click)="asignarStatsCreacion()">
   Confirmar
 </button>
+<!-- <button routerLink="/personaje/datos" (click)="asignarStatsCreacion()">
+  Confirmar
+</button> -->
 <button *ngIf="mostrarArray" (click)="resetArray()">
   Reset
 </button>
