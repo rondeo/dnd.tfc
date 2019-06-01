@@ -1,8 +1,8 @@
 export class Armadura{
-    idEquipoArmadura: Number;
+    idEquipoArmadura: number;
     tipoArmadura: String;
     claseArmadura: String;
-    fuerzaArmadura: Number;
+    fuerzaArmadura: number;
     desventajaSigilo: boolean;
     competencia: boolean;
 }

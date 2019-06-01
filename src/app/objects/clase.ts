@@ -1,6 +1,6 @@
 export class Clase{
-    idClase: Number;
+    idClase: number;
     nombreClase: String;
-    hitDice: Number;
+    hitDice: number;
     descripcionClase: String;
 }

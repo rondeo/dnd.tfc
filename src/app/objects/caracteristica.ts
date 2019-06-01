@@ -1,4 +1,4 @@
 export class Caracteristica{
-    idCaracteristica: Number;
+    idCaracteristica: number;
     nombreCaracteristica: String;
 }

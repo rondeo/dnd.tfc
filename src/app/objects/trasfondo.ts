@@ -1,5 +1,5 @@
 export class Trasfondo{
-    idTrasfondo: Number;
+    idTrasfondo: number;
     nombreTrasfondo: String;
     descripcionTrasfondo: String;
 }

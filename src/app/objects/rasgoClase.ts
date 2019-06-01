@@ -1,7 +1,7 @@
 export class RasgoClase{
-    idRasgoClase: Number;
+    idRasgoClase: number;
     nombreRasgoClase: String;
-    idClase: Number;
-    nivelClase: Number;
+    idClase: number;
+    nivelClase: number;
     descripcionRasgoClase: String;
 }

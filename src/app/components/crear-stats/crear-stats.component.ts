@@ -135,10 +135,6 @@ export class CrearStatsComponent implements OnInit {
   seleccionRandom() {
     console.log("seleccionRandom");
     this.aleatorio();
-    /* this.puntosRandom.forEach(element => {
-      element = this.aleatorio();
-      console.log(element);
-    }); */
     this.mostrarArray = false;
     this.mostrarPuntos = false;
     this.mostrarRandom = true;
@@ -179,13 +175,6 @@ export class CrearStatsComponent implements OnInit {
 
       }
     }
-    /* if(this.puntosArray[i].pointBuy >= 15 || this.puntosArray[i].pointBuy <= 8 ){
-
-    }else if(this.puntosArray[i].pointBuy > 12){
-      this.totalPuntos = this.totalPuntos-2;
-    }else{
-      this.totalPuntos--;
-    } */
   }
 
   restar(i: number) {
@@ -207,13 +196,6 @@ export class CrearStatsComponent implements OnInit {
 
     }
 
-    /* if(this.puntosArray[i].pointBuy >= 15 || this.puntosArray[i].pointBuy <= 8 ){
-
-    }else if(this.puntosArray[i].pointBuy >= 12){
-      this.totalPuntos = this.totalPuntos+2;
-    }else{
-      this.totalPuntos++;
-    } */
   }
 
   arriba(i: number) {
@@ -230,7 +212,6 @@ export class CrearStatsComponent implements OnInit {
   }
 
   abajo(i: number) {
-    //let j=i;
     if (i === 5) {
 
     } else {

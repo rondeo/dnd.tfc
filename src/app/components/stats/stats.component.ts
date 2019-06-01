@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { clearModulesForTest } from '@angular/core/src/linker/ng_module_factory_loader';
+
 import { DndService } from 'src/app/services/dnd-service';
+import { CaracteristicasPersonaje } from 'src/app/objects/caracteristicasPersonaje';
 
 @Component({
   selector: 'app-stats',
@@ -9,27 +10,20 @@ import { DndService } from 'src/app/services/dnd-service';
 })
 export class StatsComponent implements OnInit {
 
-  arrayStat: any[] = [
-    '', '', '', '', '', ''
-  ]
+  caracteristicasPersonaje: CaracteristicasPersonaje[];
 
-  /* fue = '';
-  dex = '';
-  con = '';
-  int = '';
-  sab = '';
-  car = ''; */
+  arrayStat: any[] = [
+    { id: 1, valor: '' },
+    { id: 2, valor: '' },
+    { id: 3, valor: '' },
+    { id: 4, valor: '' },
+    { id: 5, valor: '' },
+    { id: 6, valor: '' }
+  ]
 
   arrayMod: any[] = [
     '', '', '', '', '', ''
   ]
-
-  /* modFue = '';
-  modDex = '';
-  modCon = '';
-  modInt = '';
-  modSab = '';
-  modCar = ''; */
 
   arraySalv: any[] = [
     { valor: '', comp: false },
@@ -39,13 +33,6 @@ export class StatsComponent implements OnInit {
     { valor: '', comp: false },
     { valor: '', comp: false }
   ]
-
-  /* compFueSalv = '';
-  compDexSalv = '';
-  compConSalv = '';
-  compIntSalv = '';
-  compSabSalv = '';
-  compCarSalv = ''; */
 
   arrayHab: any[] = [
     { valor: '', comp: false, stat: 1 },
@@ -68,30 +55,44 @@ export class StatsComponent implements OnInit {
     { valor: '', comp: false, stat: 4 }
   ]
 
-  /* compAcrob = '';
-  compAtlet = '';
-  compArcan = '';
-  compEngan = '';
-  compHisto = '';
-  compInter = '';
-  compIntim = '';
-  compInves = '';
-  compJuMan = '';
-  compMedic = '';
-  compPerce = '';
-  compPersp = '';
-  compPersu = '';
-  compRelig = '';
-  compSigil = '';
-  compSuper = '';
-  compTAnim = ''; */
-
   experiencia = '';
   competencia = 0;
+  percepcionPasiva = '';
 
-  constructor(private dndService: DndService) { }
+  constructor(
+    private dndService: DndService
+    ) { }
 
   ngOnInit() {
+    //this.resetStats();
+    this.getCaracteristicasPersonaje();
+  }
+
+  // resetStats(){
+  //   this.caracteristicasPersonaje = null;
+  //   for (let i = 0; i < this.arrayStat.length; i++) {
+  //     this.arrayStat[i].valor = '';
+  //     console.log(this.arrayStat[i].valor);
+  //   }
+  //   console.log("Stats reseteados");
+  // }
+
+  getCaracteristicasPersonaje() {
+    // this.caracteristicasPersonaje = null;
+    
+    const id = this.dndService.getPersonajeElegido();
+    this.dndService.getCaracteristicasPersonajes()
+      .subscribe(caracteristicasPersonaje => this.caracteristicasPersonaje = caracteristicasPersonaje);
+    //console.log(id);
+    for (let i = 0; i < this.caracteristicasPersonaje.length; i++) {
+      for (let j = 0; j < this.arrayStat.length; j++) {
+        if(this.caracteristicasPersonaje[i].idPersonaje==id&&this.arrayStat[j].id==this.caracteristicasPersonaje[i].idCaracteristica){
+          //console.log(this.caracteristicasPersonaje[i].idPersonaje);
+          this.arrayStat[j].valor = this.caracteristicasPersonaje[i].puntuacionCaracteristica;
+          this.calcularMod(j);
+        }
+      }
+    }
 
   }
 
@@ -115,83 +116,20 @@ export class StatsComponent implements OnInit {
     this.revisarCompetencia();
 
     return '+' + this.competencia;
-    /* 
-        switch (exp) {
-          case exp < 6500:
-            this.competencia = 2;
-            return '+' + this.competencia;
-    
-          case exp < 48000:
-            this.competencia = 3;
-            return '+' + this.competencia;
-    
-          case exp < 120000:
-            this.competencia = 4;
-            return '+' + this.competencia;
-    
-          case exp < 225000:
-            this.competencia = 5;
-            return '+' + this.competencia;
-    
-          case exp <= 355000:
-            this.competencia = 6;
-            return '+' + this.competencia;
-    
-          default:
-            this.competencia = 2;
-            return '+' + this.competencia;
-        } */
 
   }
 
   calcularMod(i: number) {
-    this.arrayMod[i] = this.calculo(this.arrayStat[i]);
+    this.arrayMod[i] = this.calculo(this.arrayStat[i].valor);
     this.arraySalv[i].valor = this.arrayMod[i];
     this.arrayHab.forEach(element => {
       if (element.stat === i) {
         element.valor = this.arrayMod[i];
       }
     });
-    return this.calculo(this.arrayStat[i]);
+    this.calculoPercepcionPasiva();
+    return this.calculo(this.arrayStat[i].valor);
   }
-  /* 
-    calcularFue() {
-  
-      this.modFue = this.calculo(this.fue);
-      //console.log(this.modFue);
-      return this.modFue;
-  
-    }
-  
-    calcularDex() {
-  
-      return this.calculo(this.dex);
-  
-    }
-  
-    calcularCon() {
-  
-      return this.calculo(this.con);
-  
-    }
-  
-    calcularInt() {
-  
-      return this.calculo(this.int);
-  
-    }
-  
-    calcularSab() {
-  
-      return this.calculo(this.sab);
-  
-    }
-  
-    calcularCar() {
-  
-      return this.calculo(this.car);
-  
-    } */
 
   calculo(numero: string) {
 
@@ -218,7 +156,6 @@ export class StatsComponent implements OnInit {
         mod = '+' + mod;
       }
 
-
       return mod;
 
     }
@@ -237,13 +174,11 @@ export class StatsComponent implements OnInit {
     }
 
     if (this.arraySalv[i].valor > 0) {
-      this.arraySalv[i].valor = "+" + this.arraySalv[i].valor;
+      this.arraySalv[i].valor = '+' + this.arraySalv[i].valor;
     }
 
-    //let cuenta = parseInt(this.arraySalv[i].slice(1));
-
-    //this.arraySalv[i] = '+' + (cuenta + this.competencia);
     console.log(this.arraySalv[i]);
+
   }
 
   competenteHab(bool: boolean, i: number) {
@@ -258,13 +193,11 @@ export class StatsComponent implements OnInit {
     }
 
     if (this.arrayHab[i].valor > 0) {
-      this.arrayHab[i].valor = "+" + this.arrayHab[i].valor;
+      this.arrayHab[i].valor = '+' + this.arrayHab[i].valor;
     }
 
-    //let cuenta = parseInt(this.arrayHab[i].slice(1));
-
-    //this.arrayHab[i] = '+' + (cuenta + this.competencia);
     console.log(this.arrayHab[i]);
+
   }
 
   revisarCompetencia() {
@@ -274,8 +207,8 @@ export class StatsComponent implements OnInit {
         element.valor = parseInt(this.arrayMod[i]);
         element.valor = element.valor + this.competencia;
       }
-      if (element.valor > 0&&element.comp) {
-        element.valor = "+" + element.valor;
+      if (element.valor > 0 && element.comp) {
+        element.valor = '+' + element.valor;
       }
       i++;
     });
@@ -283,26 +216,21 @@ export class StatsComponent implements OnInit {
     this.arrayHab.forEach(element => {
       if (element.comp) {
         for (let index = 0; index < this.arrayMod.length; index++) {
-          if(element.stat == index){
+          if (element.stat == index) {
             element.valor = parseInt(this.arrayMod[index]);
             element.valor = element.valor + this.competencia;
           }
         }
       }
       if (element.valor > 0 && element.comp) {
-        element.valor = "+" + element.valor;
+        element.valor = '+' + element.valor;
       }
       i++;
     });
   }
 
-  /* 
-    competente(bool: boolean) {
-      if (bool) {
-        console.log("todo Ok");
-      }
-  
-      console.log("no OK");
-    }
-   */
+  calculoPercepcionPasiva() {
+    this.percepcionPasiva = '' + (10 + parseInt(this.arrayHab[11].valor));
+  }
+
 }

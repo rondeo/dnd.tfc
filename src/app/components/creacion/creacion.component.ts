@@ -12,4 +12,8 @@ export class CreacionComponent implements OnInit {
   ngOnInit() {
   }
 
+  confirmarCreacion(){
+    console.log("Esto aun no está preparado, lol")
+  }
+
 }

@@ -1,0 +1,35 @@
+<p>
+  crear-info works!
+</p>
+
+<!-- <div class="mx-auto mat-elevation-z24 m-5 p-5 rounded"> -->
+<div class="grid">
+  <label class="name">
+    <span>Nombre:
+      <span class="required">*</span>
+    </span>
+    <input #nameCharacter class="box" />
+  </label>
+  <br /><br />
+  <label class="align">
+    <span>Alineamiento:
+      <span class="required">*</span>
+    </span>
+    <input #alignCharacter class="box" />
+  </label>
+  <br /><br />
+  <label class="level">
+    <span>Nivel:
+      <span class="required">*</span>
+    </span>
+    <input #levelCharacter class="box" value="1"/>
+  </label>
+  <br /><br />
+  <label>*Campo requerido</label>
+  <div class="botones">
+    <button class="button"
+      (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
+      routerLink="/creacion/raza">Confirmar</button>
+  </div>
+</div>
+<!-- </div> -->

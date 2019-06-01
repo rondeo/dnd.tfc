@@ -15,7 +15,7 @@
       <td>{{raza.nombreRaza}}</td>
       <td>{{raza.descripcionRaza}}</td>
       <td>
-        <button (click)="getRasgosRaza(raza.idRaza)">
+        <button (click)=" getSubrazas(raza.idRaza); getRasgosRaza(raza.idRaza)">
           Elegir
         </button>
       </td>
@@ -38,6 +38,49 @@
         </tr>
       </tbody>
   </table>
+</div>
+
+<div *ngIf="mostrarSubraza">
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+          <th>Rasgo</th>
+          <th>Descripción</th>
+          <th>Elegir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let subraza of subrazas">
+          <td>{{subraza.nombreSubraza}}</td>
+          <td>{{subraza.descripcionSubraza}}</td>
+          <td>
+            <button (click)="getRasgosSubraza(subraza.idSubraza)">
+              Elegir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div *ngIf="mostrarRasgoSubraza">
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
+        <tr>
+          <th>Rasgo</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rasgo of rasgoSubraza">
+          <td>{{rasgo.nombreRasgoSubraza}}</td>
+          <td>{{rasgo.descripcionRasgoSubraza}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+
+<div *ngIf="elegido">
   <button routerLink="/creacion/clase" >
     Confirmar
   </button>

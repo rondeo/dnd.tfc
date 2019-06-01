@@ -1,4 +1,4 @@
 export class Objeto{
-    IdEquipoObjeto: Number;
+    IdEquipoObjeto: number;
     descripcionObjeto: String;
 }

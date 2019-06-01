@@ -1,8 +1,11 @@
 export class Personaje{
-    idPersonaje: Number;
+    idPersonaje: number;
     nombrePersonaje: String;
-    experiencia: Number;
+    experiencia: number;
+    alineamiento: String;
     idRaza: number;
+    idSubraza: number;
     idJugador: number;
     idClase: number;
+    idTrasfondo: number;
 }

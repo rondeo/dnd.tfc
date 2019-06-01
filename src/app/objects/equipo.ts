@@ -1,6 +1,6 @@
 export class Equipo{
-    idEquipo: Number;
+    idEquipo: number;
     nombreEquipo: String;
-    precioEquipo: Number;
-    pesoEquipo: Number;
+    precioEquipo: number;
+    pesoEquipo: number;
 }
