@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DndService } from 'src/app/services/dnd-service';
+import { Personaje } from 'src/app/objects/personaje';
 
 @Component({
   selector: 'app-creacion',
@@ -8,23 +9,25 @@ import { DndService } from 'src/app/services/dnd-service';
 })
 export class CreacionComponent implements OnInit {
 
-  id = 0;
 
-  nombre = '';
 
-  alineamiento = '';
+  id: number;
+
+  nombre: String;
+
+  alineamiento: String;
 
   experiencia =0;
 
-  raza = 0;
+  raza: number;
 
   subraza = null;
 
-  jugador = 0;
+  jugador: number;
 
-  clase = 0;
+  clase: number;
 
-  trasfondo = 0;
+  trasfondo: number;
 
   stats: any[] = [
     { id: 1, valor: null },
@@ -43,6 +46,8 @@ export class CreacionComponent implements OnInit {
   confirmarCreacion(){
     console.log("Esto aun no está preparado, lol")
 
+    let array: Personaje;
+
     this.id = this.dndService.getIdCreacion();
     this.nombre = this.dndService.getNombreCreacion();
     this.alineamiento = this.dndService.getAlineamientoCreacion();
@@ -54,7 +59,24 @@ export class CreacionComponent implements OnInit {
     this.trasfondo = this.dndService.getTrasfondoCreacion();
     this.stats = this.dndService.getStatsCreacion();
 
+    if(!this.id||!this.nombre||!this.alineamiento||!this.experiencia||!this.raza||!this.clase||!this.trasfondo||!this.stats){
+      return console.log("Te falta alguna cosa");
+    }
+    array = {
+      idPersonaje: this.id, nombrePersonaje: this.nombre, experiencia: this.experiencia,
+      alineamiento: this.alineamiento, idJugador: 1, idRaza: this.raza, idSubraza: this.subraza,
+      idClase: this.clase, idTrasfondo: this.trasfondo
+    }
+    console.log(array);
     
+    this.dndService.crearPersonaje(array);
+
+    for (let i = 0; i < this.stats.length; i++) {
+      this.dndService.introducirStats(this.stats[i].id, this.id, this.stats[i].valor);
+      console.log(this.stats[i] + "introducido");
+    }
+
+
   }
 
 }

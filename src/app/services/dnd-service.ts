@@ -56,23 +56,23 @@ export class DndService {
 
   personajeElegido = 0;
 
-  idCreacion = 0;
+  idCreacion: number;
 
-  nombreCreacion = '';
+  nombreCreacion: String;
 
-  alineamientoCreacion = '';
+  alineamientoCreacion: String;
 
   experienciaCreacion =0;
 
-  razaCreacion = 0;
+  razaCreacion: number;
 
   subRazaCreacion = null;
 
-  jugadorCreacion = 0;
+  jugadorCreacion: number;
 
-  claseCreacion = 0;
+  claseCreacion: number;
 
-  trasfondoCreacion = 0;
+  trasfondoCreacion: number;
 
   statsCreacion: any[] = [
     { "id": 1, "valor": '' },
@@ -293,8 +293,20 @@ export class DndService {
     return of(CARACTERISTICASPERSONAJES.findAll(this.caracteristicasPersonaje))
   } */
 
-  crearPersonaje(id: number, nombre: String, exp: number, align: String, raza: number, subraza: number, jugador: number, clase: number, trasfondo: number, stats: any[]){
+  // crearPersonaje(id: number, nombre: String, exp: number, align: String, raza: number, subraza: number, jugador: number, clase: number, trasfondo: number, stats: any[]){
     
+  // }
+
+  crearPersonaje(personaje: Personaje){
+    this.personajes.push(personaje);
+  }
+
+  introducirStats(id: number, personaje: number, stat: String){
+    this.caracteristicasPersonaje.push({
+      "idCaracteristica": id,
+      "idPersonaje": personaje,
+      "puntuacionCaracteristica": stat
+    })
   }
 
 }

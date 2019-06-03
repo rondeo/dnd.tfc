@@ -317,6 +317,7 @@ export class CrearStatsComponent implements OnInit {
   asignarStatsCreacion(){
     this.dndService.setStatsCreacion(this.statsCreacion);
     console.log(this.dndService.getStatsCreacion());
+    console.log("Stats asignados");
   }
 
 }

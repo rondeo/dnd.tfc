@@ -36,6 +36,7 @@ export class CrearTrasfondoComponent implements OnInit {
     this.dndService.setTrasfondoCreacion(id);
     
     //console.log("Lol "+this.dndService.getTrasfondoCreacion());
+    console.log("Trasfondo elegido");
   }
 
 }
