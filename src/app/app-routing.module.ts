@@ -13,7 +13,7 @@ import { PersonajesComponent } from './components/personajes/personajes.componen
 import { CrearInfoComponent } from './components/crear-info/crear-info.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/creacion', pathMatch: 'full' },
+  { path: '', redirectTo: '/creacion/info', pathMatch: 'full' },
   {
     path: 'creacion', component: CreacionComponent, children: [
       { path: 'info', component: CrearInfoComponent},

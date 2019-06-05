@@ -37,7 +37,7 @@ export class DndService {
   rasgosRaza = RASGOSRAZA;
 
   subRazas = SUBRAZAS;
-  rasgosSubraza= RASGOSSUBRAZA;
+  rasgosSubraza = RASGOSSUBRAZA;
 
   clases = CLASES;
   rasgosClase = RASGOSCLASE;
@@ -62,7 +62,7 @@ export class DndService {
 
   alineamientoCreacion = '';
 
-  experienciaCreacion =0;
+  experienciaCreacion = 0;
 
   razaCreacion = 0;
 
@@ -83,209 +83,209 @@ export class DndService {
     { "id": 6, "valor": '' }
   ];
 
-  getIdCreacion(){
+  getIdCreacion() {
     return this.idCreacion;
   }
 
-  setIdCreacion(value){
+  setIdCreacion(value) {
     this.idCreacion = value;
   }
 
-  getNombreCreacion(){
+  getNombreCreacion() {
     return this.nombreCreacion;
   }
 
-  setNombreCreacion(value){
+  setNombreCreacion(value) {
     this.nombreCreacion = value;
   }
 
-  getAlineamientoCreacion(){
+  getAlineamientoCreacion() {
     return this.alineamientoCreacion;
   }
 
-  setAlineamientoCreacion(value){
+  setAlineamientoCreacion(value) {
     this.alineamientoCreacion = value;
   }
 
-  getExperienciaCreacion(){
+  getExperienciaCreacion() {
     return this.experienciaCreacion;
   }
 
-  setExpecienciaCreacion(value){
+  setExpecienciaCreacion(value) {
     this.experienciaCreacion = value;
   }
 
-  getRazaCreacion(){
+  getRazaCreacion() {
     return this.razaCreacion;
   }
 
-  setRazaCreacion(value){
+  setRazaCreacion(value) {
     this.razaCreacion = value;
   }
 
-  getSubRazaCreacion(){
+  getSubRazaCreacion() {
     return this.subRazaCreacion;
   }
 
-  setSubRazaCreacion(value){
+  setSubRazaCreacion(value) {
     this.subRazaCreacion = value;
   }
 
-  getJugadorCreacion(){
+  getJugadorCreacion() {
     return this.jugadorCreacion;
   }
 
-  setJugadorCreacion(value){
+  setJugadorCreacion(value) {
     this.jugadorCreacion = value;
   }
 
-  getClaseCreacion(){
+  getClaseCreacion() {
     return this.claseCreacion;
   }
 
-  setClaseCreacion(value){
+  setClaseCreacion(value) {
     this.claseCreacion = value;
   }
 
-  getTrasfondoCreacion(){
+  getTrasfondoCreacion() {
     return this.trasfondoCreacion;
   }
 
-  setTrasfondoCreacion(value){
+  setTrasfondoCreacion(value) {
     this.trasfondoCreacion = value;
   }
 
-  getStatsCreacion(){
+  getStatsCreacion() {
     return this.statsCreacion;
   }
 
-  setStatsCreacion(value){
+  setStatsCreacion(value) {
     this.statsCreacion = value;
   }
 
-  setPersonajeElegido(value){
+  setPersonajeElegido(value) {
     this.personajeElegido = value;
   }
 
-  getPersonajeElegido(){
+  getPersonajeElegido() {
     return this.personajeElegido;
   }
 
-  setRazaElegida(value){
+  setRazaElegida(value) {
     this.razaElegida = value;
     //console.log('set service'+ this.razaElegida);
   }
 
-  getRazaElegida(){
+  getRazaElegida() {
     //console.log('get service'+ this.razaElegida);
     return this.razaElegida;
   }
 
-  setClaseElegida(value){
+  setClaseElegida(value) {
     //console.log('set clase' + this.claseElegida)
     this.claseElegida = value;
   }
 
-  getClaseElegida(){
+  getClaseElegida() {
     //console.log('get clase' + this.claseElegida)
     return this.claseElegida;
   }
 
-  setExperiencia(value){
+  setExperiencia(value) {
     this.experiencia = value;
   }
 
-  getExperiencia(){
+  getExperiencia() {
     return this.experiencia;
   }
 
   constructor() { }
 
-  getPersonaje(id: number): Observable<Personaje>{
+  getPersonaje(id: number): Observable<Personaje> {
     return of(PERSONAJES.find(personaje => personaje.idPersonaje === id));
   }
 
-  getRaza(id: number): Observable<Raza>{
-    return of(RAZAS.find(raza => raza.idRaza===id));
+  getRaza(id: number): Observable<Raza> {
+    return of(RAZAS.find(raza => raza.idRaza === id));
   }
 
-  getSubRaza(id: number): Observable<SubRaza>{
+  getSubRaza(id: number): Observable<SubRaza> {
     return of(SUBRAZAS.find(subRaza => subRaza.idSubraza === id));
   }
 
-  getClase(id: number): Observable<Clase>{
-    return of(CLASES.find(Clase => Clase.idClase===id));
+  getClase(id: number): Observable<Clase> {
+    return of(CLASES.find(Clase => Clase.idClase === id));
   }
 
-  getPersonajes(): Observable<Personaje[]>{
+  getPersonajes(): Observable<Personaje[]> {
     return of(PERSONAJES);
   }
 
-  getRazas(): Observable<Raza[]>{
+  getRazas(): Observable<Raza[]> {
     return of(this.razas);
   }
 
-  getAllSubrazas(): Observable<SubRaza[]>{
+  getAllSubrazas(): Observable<SubRaza[]> {
     return of(this.subRazas);
   }
 
-  getRasgosRaza(id: Number): Observable<RasgoRaza[]>{
+  getRasgosRaza(id: Number): Observable<RasgoRaza[]> {
     let finded = RASGOSRAZA.filter(rasgos => rasgos.idRaza === id);
 
     for (let i of this.razas) {
-      if(i.idRaza === id){
+      if (i.idRaza === id) {
         return of(finded);
       }
     }
   }
 
-  getSubrazas(id: Number): Observable<SubRaza[]>{
+  getSubrazas(id: Number): Observable<SubRaza[]> {
     let finded = SUBRAZAS.filter(subrazas => subrazas.idRaza === id);
 
     for (let i of this.razas) {
-      if(i.idRaza === id){
+      if (i.idRaza === id) {
         return of(finded);
       }
     }
   }
 
-  getRasgosSubraza(id: Number): Observable<RasgoSubraza[]>{
+  getRasgosSubraza(id: Number): Observable<RasgoSubraza[]> {
     let finded = RASGOSSUBRAZA.filter(rasgos => rasgos.idSubraza === id);
 
     for (let i of this.subRazas) {
-      if(i.idSubraza === id){
+      if (i.idSubraza === id) {
         return of(finded);
       }
     }
   }
 
-  getClases(): Observable<Clase[]>{
+  getClases(): Observable<Clase[]> {
     return of(this.clases);
   }
 
-  getJugadores(): Observable<Jugador[]>{
+  getJugadores(): Observable<Jugador[]> {
     return of(this.jugadores);
   }
 
-  getRasgosClase(id: Number): Observable<RasgoClase[]>{
+  getRasgosClase(id: Number): Observable<RasgoClase[]> {
     let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id);
 
     for (let i of this.clases) {
-      if(i.idClase === id){
+      if (i.idClase === id) {
         return of(finded);
       }
     }
   }
 
-  getTrasfondos(): Observable<Trasfondo[]>{
+  getTrasfondos(): Observable<Trasfondo[]> {
     return of(this.trasfondos);
   }
 
-  getCaracteristicas(): Observable<Caracteristica[]>{
+  getCaracteristicas(): Observable<Caracteristica[]> {
     return of(this.caracteristicas);
   }
 
-  getCaracteristicasPersonajes(): Observable<CaracteristicasPersonaje[]>{
+  getCaracteristicasPersonajes(): Observable<CaracteristicasPersonaje[]> {
     return of(this.caracteristicasPersonaje);
   }
 
@@ -293,8 +293,25 @@ export class DndService {
     return of(CARACTERISTICASPERSONAJES.findAll(this.caracteristicasPersonaje))
   } */
 
-  crearPersonaje(id: number, nombre: String, exp: number, align: String, raza: number, subraza: number, jugador: number, clase: number, trasfondo: number, stats: any[]){
-    
+  crearPersonaje(personaje: Personaje) {
+    //console.log(personaje);
+    this.personajes.push(personaje);
+
+    for (let i = 0; i < this.personajes.length; i++) {
+      console.log(this.personajes[i]);
+      
+    }
+  }
+
+  asignarStatsPersonaje(id: number, character: number, caracteristica: String) {
+    let array = {
+
+      idCaracteristica: id,
+      idPersonaje: character,
+      puntuacionCaracteristica: caracteristica
+
+    }
+    this.caracteristicasPersonaje.push(array);
   }
 
 }

@@ -45,7 +45,7 @@ export class CrearInfoComponent implements OnInit {
 
 
 
-    //console.log('Implementado Id: ' + this.dndService.getIdCreacion() + ', Nombre: ' + this.dndService.getNombreCreacion() + ', alineamiento: ' + this.dndService.getAlineamientoCreacion() + ', experiencia: ' + this.dndService.getExperienciaCreacion());
+    console.log('Implementado Id: ' + this.dndService.getIdCreacion() + ', Nombre: ' + this.dndService.getNombreCreacion() + ', alineamiento: ' + this.dndService.getAlineamientoCreacion() + ', experiencia: ' + this.dndService.getExperienciaCreacion());
 
   }
 
