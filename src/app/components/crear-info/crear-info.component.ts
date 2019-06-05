@@ -58,64 +58,63 @@ export class CrearInfoComponent implements OnInit {
     switch (nivel) {
       case 1:
         return 0;
-        break;
+      
       case 2:
         return 300;
-        break;
+      
       case 3:
         return 900;
-        break;
+        
       case 4:
         return 2700;
-        break;
+        
       case 5:
         return 6500;
-        break;
+        
       case 6:
         return 14000;
-        break;
+        
       case 7:
         return 23000;
-        break;
+        
       case 8:
         return 34000;
-        break;
+        
       case 9:
         return 48000;
-        break;
+        
       case 10:
         return 64000;
-        break;
+        
       case 11:
         return 85000;
-        break;
+        
       case 12:
         return 100000;
-        break;
+        
       case 13:
         return 120000;
-        break;
+        
       case 14:
         return 140000;
-        break;
+        
       case 15:
         return 165000;
-        break;
+        
       case 16:
         return 195000;
-        break;
+        
       case 17:
         return 225000;
-        break;
+        
       case 18:
         return 265000;
-        break;
+        
       case 19:
         return 305000;
-        break;
+        
       case 20:
         return 355000;
-        break;
 
       default:
         break;
