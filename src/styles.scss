@@ -240,10 +240,18 @@ form.charsheet header section.misc ul li .divclass {
   margin-right: 2px;
 }
 
+form.charsheet header section.misc ul li .divclass select {
+  width: 100%;
+}
+
 form.charsheet header section.misc ul li .divlevel {
   width: 20%;
   margin-left: 2px;
   margin-right: 2px;
+}
+
+form.charsheet header section.misc ul li .divlevel input {
+  text-align: center;
 }
 
 form.charsheet main {
@@ -353,6 +361,8 @@ form.charsheet main>section section.attributes div.attr-applications div.inspira
   border: 1px solid black;
   padding: 15px;
   border-radius: 10px;
+  width: 30px;
+  height: 28px;
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus {

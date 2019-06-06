@@ -23,6 +23,8 @@ import { Jugador } from '../objects/jugador';
 import { JUGADORES } from '../objects/mock-jugador';
 import { CaracteristicasPersonaje } from '../objects/caracteristicasPersonaje';
 import { CARACTERISTICASPERSONAJES } from '../objects/mock-caracteristicasPersonaje';
+import { ALINEAMIENTOS } from '../objects/mock-alineamiento';
+import { Alineamiento } from '../objects/alineamiento';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +34,8 @@ export class DndService {
   jugadores = JUGADORES;
 
   personajes = PERSONAJES;
+
+  alineamientos = ALINEAMIENTOS;
 
   razas = RAZAS;
   rasgosRaza = RASGOSRAZA;
@@ -218,7 +222,11 @@ export class DndService {
   }
 
   getPersonajes(): Observable<Personaje[]> {
-    return of(PERSONAJES);
+    return of(this.personajes);
+  }
+
+  getAlineamientos(): Observable<Alineamiento[]>{
+    return of(this.alineamientos);
   }
 
   getRazas(): Observable<Raza[]> {

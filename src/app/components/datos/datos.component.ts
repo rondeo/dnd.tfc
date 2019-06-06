@@ -9,6 +9,7 @@ import { Personaje } from 'src/app/objects/personaje';
 import { Jugador } from 'src/app/objects/jugador';
 import { Clase } from 'src/app/objects/clase';
 import { Trasfondo } from 'src/app/objects/trasfondo';
+import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-datos',
@@ -39,6 +40,10 @@ export class DatosComponent implements OnInit {
 
   experiencia = '0';
 
+  arrayRazas: String[] = [];
+
+
+
   personajes: Personaje[];
 
   razas: Raza[];
@@ -66,6 +71,7 @@ export class DatosComponent implements OnInit {
     this.getPersonaje();
     this.obtenerClase();
     this.obtenerRaza();
+    this.llenarRazas();
   }
 
   getRazas() {
@@ -78,28 +84,28 @@ export class DatosComponent implements OnInit {
       .subscribe(subRazas => this.subRazas = subRazas);
   }
 
-  getClases(){
+  getClases() {
     this.dndService.getClases()
       .subscribe(clases => this.clases = clases);
   }
 
-  getJugadores(){
+  getJugadores() {
     this.dndService.getJugadores()
       .subscribe(jugadores => this.jugadores = jugadores);
   }
 
-  getTrasfondos(){
+  getTrasfondos() {
     this.dndService.getTrasfondos()
       .subscribe(trasfondos => this.trasfondos = trasfondos);
   }
 
-  
+
   getPersonaje() {
     const id = this.route.snapshot.paramMap.get('id');
     //console.log(this.route.snapshot.paramMap.get('id'))
-    if(id == null){
-      this.navegarHoja=true;
-      this.navegarPersonaje=false;
+    if (id == null) {
+      this.navegarHoja = true;
+      this.navegarPersonaje = false;
       this.dndService.setPersonajeElegido(0);
     } else {
       //console.log("Ha entrado aquí porque patata")
@@ -107,26 +113,26 @@ export class DatosComponent implements OnInit {
         .subscribe(personaje => this.personaje = personaje);
       this.getDatos(this.personaje);
       this.dndService.setPersonajeElegido(parseInt(id));
-      this.navegarHoja=false;
-      this.navegarPersonaje=true;
+      this.navegarHoja = false;
+      this.navegarPersonaje = true;
     }
 
   }
 
-  getDatos(personaje: Personaje){
+  getDatos(personaje: Personaje) {
 
     this.nombrePersonaje = (personaje.nombrePersonaje).toString();
     this.clasePersonaje = (this.clases.find(clase => clase.idClase === personaje.idClase).nombreClase).toString();
     this.trasfondoPersonaje = (this.trasfondos.find(trasfondo => trasfondo.idTrasfondo === personaje.idTrasfondo).nombreTrasfondo).toString();
-    this.nombreJugador = (this.jugadores.find(jugador=>jugador.idJugador === personaje.idJugador).nombreJugador).toString();
-    if(personaje.idSubraza === null || personaje.idSubraza === undefined ){
+    this.nombreJugador = (this.jugadores.find(jugador => jugador.idJugador === personaje.idJugador).nombreJugador).toString();
+    if (personaje.idSubraza === null || personaje.idSubraza === undefined) {
       this.razaPersonaje = (this.razas.find(raza => raza.idRaza === personaje.idRaza).nombreRaza).toString();
     } else {
       this.razaPersonaje = (this.subRazas.find(subRaza => subRaza.idSubraza === personaje.idSubraza).nombreSubraza).toString();
     }
     this.alineamientoPersonaje = (personaje.alineamiento).toString();
     this.experiencia = (personaje.experiencia).toString();
-    this.calcularNivel() ;
+    this.calcularNivel();
   }
 
 
@@ -184,20 +190,20 @@ export class DatosComponent implements OnInit {
 
     for (let i = 0; i < this.razas.length; i++) {
       for (let j = 0; j < this.subRazas.length; j++) {
-        if(this.razas[i].nombreRaza==this.razaPersonaje){
+        if (this.razas[i].nombreRaza == this.razaPersonaje) {
           this.dndService.setRazaElegida(this.razas[i].idRaza);
           //console.log(this.razaPersonaje + ' raza ' + this.razas[i].idRaza)
           return;
-        }else if(this.subRazas[j].nombreSubraza == this.razaPersonaje){
+        } else if (this.subRazas[j].nombreSubraza == this.razaPersonaje) {
           this.dndService.setRazaElegida(this.subRazas[j].idSubraza);
           //console.log(this.razaPersonaje + ' subraza ' + this.subRazas[j].idSubraza)
           return;
-        }else{
+        } else {
           this.limpiarRaza();
         }
-        
+
       }
-      
+
     }
 
     // this.razas.forEach(raza => {
@@ -217,17 +223,17 @@ export class DatosComponent implements OnInit {
     //     return;
     //   }
     // });
-    
+
   }
 
-  obtenerClase(){
+  obtenerClase() {
 
     for (let i = 0; i < this.clases.length; i++) {
-      if(this.clases[i].nombreClase == this.clasePersonaje){
+      if (this.clases[i].nombreClase == this.clasePersonaje) {
         this.dndService.setClaseElegida(this.clases[i].idClase);
         //console.log(this.clasePersonaje);
         return;
-      }else{
+      } else {
         this.limpiarClase();
       }
     }
@@ -241,16 +247,76 @@ export class DatosComponent implements OnInit {
     //     this.limpiarClase();
     //   }
     // });
-    
+
   }
 
-  limpiarClase(){
+  limpiarClase() {
     this.dndService.setClaseElegida(0);
   }
 
-  limpiarRaza(){
+  limpiarRaza() {
     this.dndService.setRazaElegida(0);
   }
 
+  llenarRazas() {
+
+    let bool = false;
+
+    let nombreArray = [];
+    let idRazaArray = [];
+    let idSubrazaArray = [];
+
+    // let idArray = [{
+    //   "raza": number;
+    //   "subraza": number;
+    // }
+    // ];
+
+    for (let i = 0; i < this.razas.length; i++) {
+      this.arrayRazas.push(this.razas[i].nombreRaza);
+      idRazaArray.push(this.razas[i].idRaza);
+      nombreArray.push(this.razas[i].nombreRaza);
+    }
+
+    for (let i = 0; i < this.subRazas.length; i++) {
+      this.arrayRazas.push(this.subRazas[i].nombreSubraza);
+      idSubrazaArray.push(this.subRazas[i].idRaza);
+
+      // for (let j = 0; j < this.razas.length; j++) {
+      //     this.arrayRazas.push(this.razas[j].nombreRaza);
+      //     // array.push(this.subRazas[j].idRaza);
+
+      // }
+    }
+
+    // for (let i = 0; i < array.length; i++) {
+    //   for (let j = 0; j < this.razas.length; j++) {
+    //     if(array[i] === this.razas[j].idRaza ){
+    //       this.arrayRazas.push(this.razas[j].nombreRaza);
+    //     }
+    //   }
+    // }
+
+    // for (let i = 0; i < this.arrayRazas.length; i++) {
+    //   for (let j = 0; j < array.length; j++) {
+
+    //   }
+
+    // }
+    for (let i = 0; i < this.arrayRazas.length; i++) {
+      for (let j = 0; j < idRazaArray.length; j++) {
+        for (let k = 0; k < idSubrazaArray.length; k++) {
+          if (idRazaArray[j] === idSubrazaArray[k] && nombreArray[j] === this.arrayRazas[i]) {
+            this.arrayRazas.splice(i, 1);
+          }
+        }
+      }
+    }
+
+
+    for (let i = 0; i < this.arrayRazas.length; i++) {
+      console.log(this.arrayRazas[i]);
+    }
+  }
 
 }

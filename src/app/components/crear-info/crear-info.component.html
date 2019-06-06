@@ -15,20 +15,26 @@
     <span>Alineamiento:
       <span class="required">*</span>
     </span>
-    <input #alignCharacter class="box" />
+    <!-- <input #alignCharacter class="box" /> -->
+    <!-- <select name="align" id="align" *ngFor="let alineamiento of alineamientos"> -->
+    <select #alignCharacter name="alignCharacter" id="alignCharacter">
+      <option value=""></option>
+      <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
+        {{alineamiento.nombreAlineamiento}}</option>
+    </select>
   </label>
   <br /><br />
   <label class="level">
     <span>Nivel:
       <span class="required">*</span>
     </span>
-    <input appOnlyNumbers #levelCharacter class="box" value="1"/>
+    <input appOnlyNumbers #levelCharacter class="box" value="1" />
   </label>
   <br /><br />
   <label>*Campo requerido</label>
   <div class="botones">
-    <button class="button"
-      (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
+    <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
+    <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
       routerLink="/creacion/raza">Confirmar</button>
   </div>
 </div>

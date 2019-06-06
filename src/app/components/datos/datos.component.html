@@ -8,7 +8,11 @@
         <li>
           <div class="classlevel">
             <div class="divclass">
-              <input name="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()"/>
+              <!-- <input name="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()"/> -->
+              <select name="class" id="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()">
+                <option value=""></option>
+                <option *ngFor="let clase of clases" value="{{clase.nombreClase}}">{{clase.nombreClase}}</option>
+              </select>
               <label for="class">Clase</label>
             </div>
             <div class="divlevel">

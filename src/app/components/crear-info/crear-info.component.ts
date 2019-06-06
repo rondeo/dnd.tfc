@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PERSONAJES } from 'src/app/objects/mock-personaje';
 import { Personaje } from 'src/app/objects/personaje';
 import { DndService } from 'src/app/services/dnd-service';
+import { Alineamiento } from 'src/app/objects/alineamiento';
 
 @Component({
   selector: 'app-crear-info',
@@ -12,9 +13,17 @@ export class CrearInfoComponent implements OnInit {
 
   personajes = PERSONAJES;
 
+  alineamientos: Alineamiento[];
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
+    this.getAlineamientos();
+  }
+
+  getAlineamientos() {
+    this.dndService.getAlineamientos()
+      .subscribe(alineamientos => this.alineamientos = alineamientos);
   }
 
   addCharacter(nombre: string, alineamiento: string, nivel: string) {
