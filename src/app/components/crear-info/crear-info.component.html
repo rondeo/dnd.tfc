@@ -8,7 +8,7 @@
     <span>Nombre:
       <span class="required">*</span>
     </span>
-    <input #nameCharacter class="box" />
+    <input #nameCharacter class="box" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
   </label>
   <br /><br />
   <label class="align">
@@ -18,7 +18,7 @@
     <!-- <input #alignCharacter class="box" /> -->
     <!-- <select name="align" id="align" *ngFor="let alineamiento of alineamientos"> -->
     <select #alignCharacter name="alignCharacter" id="alignCharacter">
-      <option value=""></option>
+      <!-- <option value=""></option> -->
       <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
         {{alineamiento.nombreAlineamiento}}</option>
     </select>
@@ -34,7 +34,7 @@
   <label>*Campo requerido</label>
   <div class="botones">
     <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
-    <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
+    <button *ngIf="mostrar" class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
       routerLink="/creacion/raza">Confirmar</button>
   </div>
 </div>

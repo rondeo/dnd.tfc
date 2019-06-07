@@ -60,7 +60,27 @@ export class CreacionComponent implements OnInit {
     this.trasfondo = this.dndService.getTrasfondoCreacion();
     this.stats = this.dndService.getStatsCreacion();
 
-    if(!this.id||!this.nombre||!this.alineamiento||!this.raza||!this.clase||!this.trasfondo||!this.stats[0].valor){
+    // if(!this.id){
+    //   alert("No has cre");
+    //   return ;
+    // } else 
+    if (!this.nombre){
+      alert("Falta por introducir el nombre");
+      return ;
+    } else if (!this.alineamiento){
+      alert("Falta por introducir el alineamiento");
+      return ;
+    } else if (!this.raza){
+      alert("Falta por introducir la raza");
+      return ;
+    } else if (!this.clase){
+      alert("Falta por introducir la clase");
+      return ;
+    } else if (!this.trasfondo){
+      alert("Falta por introducir el trasfondo");
+      return ;
+    } else if (!this.stats[0].valor){
+      alert("Faltan por introducir los stats");
       return ;
     }
 
@@ -84,7 +104,7 @@ export class CreacionComponent implements OnInit {
 
     
 
-    this.id = null;
+    // this.id = null;
     this.nombre = null;
     this.alineamiento = null;
     this.experiencia = null;
@@ -102,7 +122,7 @@ export class CreacionComponent implements OnInit {
       { id: 6, valor: null }
     ];
 
-    this.dndService.setIdCreacion(this.id);
+    // this.dndService.setIdCreacion(this.id);
     this.dndService.setNombreCreacion(this.nombre);
     this.dndService.setAlineamientoCreacion(this.alineamiento);
     this.dndService.setExpecienciaCreacion(this.experiencia);
@@ -115,6 +135,12 @@ export class CreacionComponent implements OnInit {
 
     //console.log("Todo done");
     this.personajeCreado = true;
+  }
+
+  verPersonaje(){
+    this.personajeCreado=false;
+    this.id = null;
+    this.dndService.setIdCreacion(this.id);
   }
 
 }
