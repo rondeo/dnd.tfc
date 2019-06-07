@@ -218,14 +218,13 @@ form.charsheet header section.misc ul li label {
 }
 
 form.charsheet header section.misc ul li input {
-  border: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid rgb(127, 127, 127);
+  border-bottom: 1px solid rgb(127, 127, 127);
   width: 95%;
 }
 
 form.charsheet header section.misc ul li .classlevel {
   display: flex;
-
   flex-direction: row;
 
 }

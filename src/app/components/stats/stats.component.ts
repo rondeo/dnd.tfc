@@ -57,11 +57,11 @@ export class StatsComponent implements OnInit {
 
   experiencia = '';
   competencia = 0;
-  percepcionPasiva = '';
+  percepcionPasiva:String = '';
 
   constructor(
     private dndService: DndService
-    ) { }
+  ) { }
 
   ngOnInit() {
     //this.resetStats();
@@ -79,14 +79,14 @@ export class StatsComponent implements OnInit {
 
   getCaracteristicasPersonaje() {
     // this.caracteristicasPersonaje = null;
-    
+
     const id = this.dndService.getPersonajeElegido();
     this.dndService.getCaracteristicasPersonajes()
       .subscribe(caracteristicasPersonaje => this.caracteristicasPersonaje = caracteristicasPersonaje);
     //console.log(id);
     for (let i = 0; i < this.caracteristicasPersonaje.length; i++) {
       for (let j = 0; j < this.arrayStat.length; j++) {
-        if(this.caracteristicasPersonaje[i].idPersonaje==id&&this.arrayStat[j].id==this.caracteristicasPersonaje[i].idCaracteristica){
+        if (this.caracteristicasPersonaje[i].idPersonaje == id && this.arrayStat[j].id == this.caracteristicasPersonaje[i].idCaracteristica) {
           //console.log(this.caracteristicasPersonaje[i].idPersonaje);
           this.arrayStat[j].valor = this.caracteristicasPersonaje[i].puntuacionCaracteristica;
           this.calcularMod(j);
@@ -230,7 +230,16 @@ export class StatsComponent implements OnInit {
   }
 
   calculoPercepcionPasiva() {
-    this.percepcionPasiva = '' + (10 + parseInt(this.arrayHab[11].valor));
+    if (this.arrayHab[11].valor !== '' ) {
+      let valor = 10 + parseInt(this.arrayHab[11].valor);
+      if(valor == NaN){
+        return this.percepcionPasiva = '';
+      }
+      this.percepcionPasiva = '' + valor;
+    }else {
+      this.percepcionPasiva = '';
+    }
+
   }
 
 }
