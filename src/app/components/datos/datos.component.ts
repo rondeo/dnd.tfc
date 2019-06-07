@@ -188,6 +188,10 @@ export class DatosComponent implements OnInit {
 
   obtenerRaza() {
 
+    // this.llenarRazas();
+
+    console.log(this.razaPersonaje);
+
     for (let i = 0; i < this.razas.length; i++) {
       for (let j = 0; j < this.subRazas.length; j++) {
         if (this.razas[i].nombreRaza == this.razaPersonaje) {
@@ -227,6 +231,8 @@ export class DatosComponent implements OnInit {
   }
 
   obtenerClase() {
+
+    console.log(this.clasePersonaje);
 
     for (let i = 0; i < this.clases.length; i++) {
       if (this.clases[i].nombreClase == this.clasePersonaje) {
@@ -313,9 +319,12 @@ export class DatosComponent implements OnInit {
       }
     }
 
+    this.arrayRazas.sort();
 
     for (let i = 0; i < this.arrayRazas.length; i++) {
-      console.log(this.arrayRazas[i]);
+      
+      return this.arrayRazas[i];
+      
     }
   }
 

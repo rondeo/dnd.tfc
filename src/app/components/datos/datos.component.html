@@ -35,7 +35,11 @@
         </li>
         <li>
           <div>
-            <input name="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()"/>
+            <!-- <input name="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()"/> -->
+            <select name="race" id="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()">
+              <option value=""></option>
+              <option *ngFor="let raza of arrayRazas" value="{{raza}}">{{raza}}</option>
+            </select>
             <label for="race">Raza</label>
           </div>
         </li>
