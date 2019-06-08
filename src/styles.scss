@@ -9,7 +9,7 @@ table thead th {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #00557F));
   background: -moz-linear-gradient(center top, #000000 5%, #000000 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
-  background-color: #607D8B;
+  background-color: rgb(0, 0, 0);
   color: #FFFFFF;
   font-size: 15px;
   font-weight: bold;
@@ -57,7 +57,7 @@ nav a {
 
 nav a:visited,
 a:link {
-  color: #607d8b;
+  color: #394c55;
 }
 
 nav a:hover {
@@ -68,10 +68,6 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
-
-
-
-
 
 body {
   font-family: 'Lato', sans-serif !important; // #1
@@ -154,9 +150,9 @@ form.charsheet ul li {
   display: block;
 }
 
-form.charsheet ::placeholder {
-  color: #bbb;
-}
+// form.charsheet ::placeholder {
+//   color: #bbb;
+// }
 
 form.charsheet label {
   text-transform: uppercase;
@@ -222,14 +218,13 @@ form.charsheet header section.misc ul li label {
 }
 
 form.charsheet header section.misc ul li input {
-  border: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid rgb(127, 127, 127);
+  border-bottom: 1px solid rgb(127, 127, 127);
   width: 95%;
 }
 
 form.charsheet header section.misc ul li .classlevel {
   display: flex;
-
   flex-direction: row;
 
 }
@@ -412,7 +407,7 @@ form.charsheet main>section section.attributes div.attr-applications div.list-se
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.list-section ul li label span.skill {
-  color: #bbb;
+  color: rgb(117, 117, 117);
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.list-section ul li input[type="text"] {
@@ -529,7 +524,7 @@ form.charsheet main section.combat>div.hp>div.regular>div.max {
 form.charsheet main section.combat>div.hp>div.regular>div.max label {
   font-size: 10px;
   text-transform: none;
-  color: #bbb;
+  color: rgb(53, 53, 53);
 }
 
 form.charsheet main section.combat>div.hp>div.regular>div.max input {
@@ -613,7 +608,7 @@ form.charsheet main section.combat>div.hitdice>div>div.total {
 
 form.charsheet main section.combat>div.hitdice>div>div.total label {
   font-size: 10px;
-  color: #bbb;
+  color: rgb(80, 80, 80);
   margin: 0.25em;
   text-transform: none;
 }
@@ -723,6 +718,11 @@ form.charsheet main section.attacksandspellcasting>div>table {
 }
 
 form.charsheet main section.attacksandspellcasting>div>table th {
+  font-size: 10px;
+  color: #ddd;
+}
+
+form.charsheet main section.attacksandspellcasting>div>table th>label {
   font-size: 10px;
   color: #ddd;
 }

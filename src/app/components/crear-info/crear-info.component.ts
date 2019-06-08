@@ -11,6 +11,10 @@ import { Alineamiento } from 'src/app/objects/alineamiento';
 })
 export class CrearInfoComponent implements OnInit {
 
+  nombrePersonaje = '';
+
+  mostrar = false;
+
   personajes = PERSONAJES;
 
   alineamientos: Alineamiento[];
@@ -57,6 +61,7 @@ export class CrearInfoComponent implements OnInit {
     //console.log('Implementado Id: ' + this.dndService.getIdCreacion() + ', Nombre: ' + this.dndService.getNombreCreacion() + ', alineamiento: ' + this.dndService.getAlineamientoCreacion() + ', experiencia: ' + this.dndService.getExperienciaCreacion());
     console.log("Info creada");
 
+    this.mostrar = false;
   }
 
   genID(personajes: Personaje[]): number {
@@ -128,6 +133,10 @@ export class CrearInfoComponent implements OnInit {
       default:
         break;
     }
+  }
+
+  mostrarConfirmar(){
+    this.mostrar = true;
   }
 
 }

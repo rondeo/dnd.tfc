@@ -1,7 +1,7 @@
 
-<input name="raza" [ngModel]="razaElegida()" (change)="mostrarCosas()" hidden />
+<input name="raza" id="raceClass" [ngModel]="razaElegida()" (change)="mostrarCosas()" hidden />
 
-<p>Escribe en la parte superior una raza y una clase</p>
+<label for="raceClass">Escribe en la parte superior una raza y una clase</label>
 
 <div *ngIf="razaMostrar>0" >
   <table class="table table-hover text-center">
