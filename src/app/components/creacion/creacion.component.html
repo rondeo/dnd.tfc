@@ -12,6 +12,6 @@
 <router-outlet></router-outlet>
 <br/><br/>
 <!-- <button routerLink="personajeCreado ? ../personaje/{{id}} : []" (click)="confirmarCreacion()">¡Crear personaje!</button> -->
-<button (click)="confirmarCreacion()">¡Crear personaje!</button>
-<br/>
-<button *ngIf="personajeCreado" routerLink="/personaje/{{id}}/datos" (click)="verPersonaje()">Ver tu nuevo personaje</button>
+<button class="creacion" (click)="confirmarCreacion()">¡Crear personaje!</button>
+
+<button class="creacion" *ngIf="personajeCreado" routerLink="/personaje/{{id}}/datos" (click)="verPersonaje()">Ver tu nuevo personaje</button>

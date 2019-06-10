@@ -6,39 +6,40 @@
 <button (click)="seleccionPuntos()">Puntos</button>
 <button (click)="seleccionRandom()">Random</button>
 
+<div class="tableCrearionStats">
+  <table class="table table-hover text-center">
+    <thead class="thead-dark">
+      <tr>
+        <th>Caracteristica</th>
+        <th>Puntos</th>
+        <th *ngIf="!mostrarRandom">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="rows" *ngFor="let caracteristica of caracteristicas; let i = index">
+        <td>{{caracteristica.nombreCaracteristica}}</td>
 
-<table class="table table-hover text-center">
-  <thead class="thead-dark">
-    <tr>
-      <th>Caracteristica</th>
-      <th>Puntos</th>
-      <th *ngIf="!mostrarRandom">Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let caracteristica of caracteristicas; let i = index">
-      <td>{{caracteristica.nombreCaracteristica}}</td>
+        <td *ngIf="mostrarArray">{{puntosArray[i].array}}</td>
+        <td *ngIf="mostrarArray">
+          <button (click)="arriba(puntosArray[i].id)">&uarr;</button>
+          <button (click)="abajo(puntosArray[i].id)">&darr;</button>
+        </td>
 
-      <td *ngIf="mostrarArray">{{puntosArray[i].array}}</td>
-      <td *ngIf="mostrarArray">
-        <button (click)="arriba(puntosArray[i].id)">&uarr;</button>
-        <button (click)="abajo(puntosArray[i].id)">&darr;</button>
-      </td>
+        <td *ngIf="mostrarPuntos">{{puntosArray[i].pointBuy}}</td>
+        <td *ngIf="mostrarPuntos">
+          <button (click)="sumar(puntosArray[i].id)">+</button>
+          <button (click)="restar(puntosArray[i].id)">-</button>
+        </td>
 
-      <td *ngIf="mostrarPuntos">{{puntosArray[i].pointBuy}}</td>
-      <td *ngIf="mostrarPuntos">
-        <button (click)="sumar(puntosArray[i].id)">+</button>
-        <button (click)="restar(puntosArray[i].id)">-</button>
-      </td>
+        <td *ngIf="mostrarRandom">{{puntosArray[i].random}}</td>
 
-      <td *ngIf="mostrarRandom">{{puntosArray[i].random}}</td>
-
-    </tr>
-    <!-- <tr *ngFor="let puntos of puntosArray">
+      </tr>
+      <!-- <tr *ngFor="let puntos of puntosArray">
       <td>{{puntos.array}}</td>
     </tr> -->
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>
 <br />
 
 <label *ngIf="mostrarPuntos">{{totalPuntos}}/27</label>
