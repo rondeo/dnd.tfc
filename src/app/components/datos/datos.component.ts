@@ -190,7 +190,7 @@ export class DatosComponent implements OnInit {
 
     // this.llenarRazas();
 
-    console.log(this.razaPersonaje);
+    // console.log(this.razaPersonaje);
 
     for (let i = 0; i < this.razas.length; i++) {
       for (let j = 0; j < this.subRazas.length; j++) {
@@ -203,6 +203,7 @@ export class DatosComponent implements OnInit {
           //console.log(this.razaPersonaje + ' subraza ' + this.subRazas[j].idSubraza)
           return;
         } else {
+          // console.log("Se limpia la raza");
           this.limpiarRaza();
         }
 

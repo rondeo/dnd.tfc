@@ -230,14 +230,18 @@ export class StatsComponent implements OnInit {
   }
 
   calculoPercepcionPasiva() {
-    if (this.arrayHab[11].valor !== '' ) {
-      let valor = 10 + parseInt(this.arrayHab[11].valor);
-      if(valor == NaN){
+    // if (this.arrayHab[11].valor !== '' || this.arrayHab[11].valor == NaN) {
+    if (this.arrayHab[11].valor !== '') {
+      let valor =10 + parseInt(this.arrayHab[11].valor);
+      if(this.arrayHab[11].valor === undefined){
+        // console.log("Entra en el if, se devuelve el valor "+valor);
         return this.percepcionPasiva = '';
       }
-      this.percepcionPasiva = '' + valor;
+      // console.log("No entra en el if, se devuelve el valor "+this.arrayHab[11].valor);
+      return this.percepcionPasiva = '' + valor;
     }else {
-      this.percepcionPasiva = '';
+      // console.log("No entra siquiera, se devuelve el valor "+this.arrayHab[11].valor);
+      return this.percepcionPasiva = '';
     }
 
   }

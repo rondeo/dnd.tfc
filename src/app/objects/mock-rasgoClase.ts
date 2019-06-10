@@ -16,6 +16,20 @@ export let RASGOSCLASE: RasgoClase[] = [
         descripcionRasgoClase: "Te las paro de pecho, pringao"
     },
     {
+        idRasgoClase: 121,
+        nombreRasgoClase: "Ataque temerario",
+        idClase: 1,
+        nivelClase: 2,
+        descripcionRasgoClase: "Te rajo, pero con los ojos cerrados, que me da asco la sangre"
+    },
+    {
+        idRasgoClase: 122,
+        nombreRasgoClase: "Sentir el peligro",
+        idClase: 1,
+        nivelClase: 2,
+        descripcionRasgoClase: "Ese me está mirando mal. Vamos a darnos de ostias"
+    },
+    {
         idRasgoClase: 211,
         nombreRasgoClase: "Lanzamiento de conjuros",
         idClase: 2,

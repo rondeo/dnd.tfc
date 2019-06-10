@@ -853,3 +853,31 @@ form.charsheet main section.features div textarea {
   padding: 5px;
   height: 43em;
 }
+
+form.charsheet .tableRasgos {
+  width: 800px;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 49% 49%;
+  grid-template-rows: auto auto;
+  grid-column-gap: 2%;
+}
+
+form.charsheet .tableRasgos #tableRasgosRaza{
+  width: 100%;
+  height: auto;
+}
+
+form.charsheet .tableRasgos #tableRasgosClase{
+  width: 100%;
+  height: auto;
+}
+
+form.charsheet .tableRasgos .nameRasgo{
+  width: 30%;
+  height: auto;
+}

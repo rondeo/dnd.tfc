@@ -39,6 +39,10 @@ export class RasgosComponent implements OnInit {
 
   idClase = 0;
 
+  experiencia = '';
+
+  nivel = 0;
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
@@ -52,6 +56,9 @@ export class RasgosComponent implements OnInit {
     this.claseMostrar = 0;
     this.subRaza = null;
     this.rasgosSubraza = null;
+    this.raza = null;
+    this.rasgosRaza = null;
+    this.experiencia = this.dndService.getExperiencia();
 
 
     this.idRaza = this.dndService.getRazaElegida();
@@ -68,21 +75,22 @@ export class RasgosComponent implements OnInit {
       if (this.subRaza != null) {
         this.subRazaMostrar = this.subRaza.idSubraza;
         this.razaMostrar = this.subRaza.idRaza;
-      } else {
+      } else{
         this.razaMostrar = this.idRaza;
-      }
+      } 
 
     }
 
+    this.calcularNivel();
+
+    // console.log(this.nivel);
+
     if (this.idClase != null && this.idClase != undefined && this.idClase != 0) {
       this.claseMostrar = this.idClase;
-
     }
 
     this.obtenerRasgos();
 
-    // this.dndService.setRazaElegida(0);
-    // this.dndService.setClaseElegida(0);
   }
 
   personajeElegido() {
@@ -120,7 +128,8 @@ export class RasgosComponent implements OnInit {
       this.getRasgosSubraza(this.subRazaMostrar);
     }
     if (this.claseMostrar != null && this.claseMostrar != undefined && this.claseMostrar != 0) {
-      this.getRasgosClase(this.claseMostrar);
+      this.getRasgosClaseNivel(this.claseMostrar, this.nivel);
+      // console.log(this.rasgosClase);
     }
   }
 
@@ -161,13 +170,63 @@ export class RasgosComponent implements OnInit {
       .subscribe(rasgo => this.rasgosSubraza = rasgo);
   }
 
-  getRasgosClase(id: number) {
-    this.dndService.getRasgosClase(id)
+  getRasgosClaseNivel(id: number, nivel: number) {
+    this.dndService.getRasgosClaseNivel(id, nivel)
       .subscribe(rasgo => this.rasgosClase = rasgo);
   }
 
   mostrarCosas() {
 
+  }
+
+  calcularNivel() {
+    let exp;
+    exp = parseInt(this.experiencia);
+
+    if (exp >= 0 && exp < 300) {
+      this.nivel = 1;
+    } else if (exp >= 300 && exp < 900) {
+      this.nivel = 2;
+    } else if (exp >= 900 && exp < 2700) {
+      this.nivel = 3;
+    } else if (exp >= 2700 && exp < 6500) {
+      this.nivel = 4;
+    } else if (exp >= 6500 && exp < 14000) {
+      this.nivel = 5;
+    } else if (exp >= 14000 && exp < 23000) {
+      this.nivel = 6;
+    } else if (exp >= 23000 && exp < 34000) {
+      this.nivel = 7;
+    } else if (exp >= 34000 && exp < 48000) {
+      this.nivel = 8;
+    } else if (exp >= 48000 && exp < 64000) {
+      this.nivel = 9;
+    } else if (exp >= 64000 && exp < 85000) {
+      this.nivel = 10;
+    } else if (exp >= 85000 && exp < 100000) {
+      this.nivel = 11;
+    } else if (exp >= 100000 && exp < 120000) {
+      this.nivel = 12;
+    } else if (exp >= 120000 && exp < 140000) {
+      this.nivel = 13;
+    } else if (exp >= 140000 && exp < 165000) {
+      this.nivel = 14;
+    } else if (exp >= 165000 && exp < 195000) {
+      this.nivel = 15;
+    } else if (exp >= 195000 && exp < 225000) {
+      this.nivel = 16;
+    } else if (exp >= 225000 && exp < 265000) {
+      this.nivel = 17;
+    } else if (exp >= 265000 && exp < 305000) {
+      this.nivel = 18;
+    } else if (exp >= 305000 && exp < 355000) {
+      this.nivel = 19;
+    } else if (exp >= 355000) {
+      this.experiencia = '355000';
+      this.nivel = 20;
+    }
+    this.dndService.setExperiencia(this.experiencia);
+    return this.nivel;
   }
 
 }

@@ -1,48 +1,54 @@
-
 <input name="raza" id="raceClass" [ngModel]="razaElegida()" (change)="mostrarCosas()" hidden />
 
-<label for="raceClass">Escribe en la parte superior una raza y una clase</label>
+<label for="raceClass">Elije en la parte superior una raza y una clase</label>
 
-<div *ngIf="razaMostrar>0" >
-  <table class="table table-hover text-center">
-    <thead class="thead-dark">
-      <tr>
-        <th colspan="2">Rasgos raciales</th>
-      </tr>
-      <tr>
-        <th>Nombre rasgo</th>
-        <th>Descripcion rasgo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let rasgoRaza of rasgosRaza">
-        <td>{{rasgoRaza.nombreRasgoRaza}}</td>
-        <td>{{rasgoRaza.descripcionRasgoRaza}}</td>
-      </tr>
-      <tr *ngFor="let rasgoSubraza of rasgosSubraza">
-        <td>{{rasgoSubraza.nombreRasgoSubraza}}</td>
-        <td>{{rasgoSubraza.descripcionRasgoSubraza}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-<div *ngIf="claseMostrar>0">
-  <table class="table table-hover text-center">
-    <thead class="thead-dark">
-      <tr>
-        <th colspan="2">Rasgos de clase</th>
-      </tr>
-      <tr>
-        <th>Nombre rasgo</th>
-        <th>Descripcion</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let rasgoClase of rasgosClase">
+<div class="tableRasgos">
+  <div id="tableRasgosRaza">
+    <p>Rasgos raciales</p>
+    <div *ngIf="razaMostrar>0">
+      <table class="table table-hover text-center">
+        <thead class="thead-dark">
+          <!-- <tr>
+        <th class="topRasgo" colspan="2">Rasgos raciales</th>
+      </tr> -->
+          <tr>
+            <th class="nameRasgo">Nombre</th>
+            <th class="descriptionRasgo">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rasgoRaza of rasgosRaza">
+            <td>{{rasgoRaza.nombreRasgoRaza}}</td>
+            <td>{{rasgoRaza.descripcionRasgoRaza}}</td>
+          </tr>
+          <tr *ngFor="let rasgoSubraza of rasgosSubraza">
+            <td>{{rasgoSubraza.nombreRasgoSubraza}}</td>
+            <td>{{rasgoSubraza.descripcionRasgoSubraza}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div id="tableRasgosClase">
+    <p>Rasgos de clase</p>
+    <div *ngIf="claseMostrar>0">
+      <table class="table table-hover text-center">
+        <thead class="thead-dark">
+          <!-- <tr>
+        <th class="topRasgo" colspan="2">Rasgos de clase</th>
+      </tr> -->
+          <tr>
+            <th class="nameRasgo">Nombre</th>
+            <th class="descriptionRasgo">Descripción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let rasgoClase of rasgosClase">
             <td>{{rasgoClase.nombreRasgoClase}}</td>
             <td>{{rasgoClase.descripcionRasgoClase}}</td>
           </tr>
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

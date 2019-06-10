@@ -285,6 +285,18 @@ export class DndService {
     }
   }
 
+  getRasgosClaseNivel(id: number, nivel: number): Observable<RasgoClase[]> {
+    let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id && rasgos.nivelClase <= nivel);
+    // finded.filter(rasgos => rasgos.nivelClase <= nivel );
+    console.log("Encontrado " + nivel);
+    console.log(finded);
+    for (let i of this.clases) {
+      if (i.idClase === id) {
+        return of(finded);
+      }
+    }
+  }
+
   getTrasfondos(): Observable<Trasfondo[]> {
     return of(this.trasfondos);
   }
