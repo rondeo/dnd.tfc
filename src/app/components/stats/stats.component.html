@@ -221,7 +221,7 @@
 
     <div class="passive-perception box">
       <div class="label-container">
-        <label for="passiveperception">Sabiduría (Percepción) Pasiva </label>
+        <label for="passiveperception"><a class="show">Sabiduría (Percepción) Pasiva<span class="hidden">Capacidad de darse cuenta de su entorno sin chequeo de habilidad</span></a></label>
       </div>
       <input name="passiveperception" id="passiveperception" [(ngModel)]="percepcionPasiva" disabled />
     </div>
@@ -235,31 +235,32 @@
     <section class="combat">
       <div class="armorclass">
         <div>
-          <label for="ac">Clase de Armadura</label>
-          <input name="ac" id="ac" type="text" />
+          <label for="ac"><a class="show">Clase de armadura
+            <span class="hidden">Monedas de platino, 1 equivale a 10 de oro</span></a></label>
+          <input name="ac" id="ac" type="text" [(ngModel)]="claseArmadura" disabled/>
         </div>
       </div>
       <div class="initiative">
         <div>
           <label for="initiative">Iniciativa</label>
-          <input name="initiative" id="initiative" type="text" />
+          <input name="initiative" id="initiative" type="text" [(ngModel)]="iniciativa" disabled/>
         </div>
       </div>
       <div class="speed">
         <div>
           <label for="speed">Velocidad</label>
-          <input name="speed" id="speed" type="text" />
+          <input name="speed" id="speed" type="text" [(ngModel)]="velocidad" disabled/>
         </div>
       </div>
       <div class="hp">
         <div class="regular">
           <div class="max">
             <label for="maxhp">Puntos de golpe máximos</label>
-            <input name="maxhp" id="maxhp" type="text" />
+            <input name="maxhp" id="maxhp" type="text" [(ngModel)]="vidaMaxima" disabled/>
           </div>
           <div class="current">
             <label for="currenthp">Puntos de golpe actuales</label>
-            <input name="currenthp" id="currenthp" type="text" />
+            <input name="currenthp" id="currenthp" [(ngModel)]="vidaRestante" type="text" />
           </div>
         </div>
         <div class="temporary">
@@ -270,12 +271,12 @@
       <div class="hitdice">
         <div>
           <div class="total">
-            <label onclick="totalhd_clicked()" for="totalhd">Total</label>
-            <input name="totalhd" id="totalhd" type="text" />
+            <label for="totalhd">Total</label>
+            <input name="totalhd" id="totalhd" type="text" [(ngModel)]="hitDice" disabled/>
           </div>
           <div class="remaining">
             <label for="remaininghd">Dados de golpe</label>
-            <input name="remaininghd" id="remaininghd" type="text" />
+            <input name="remaininghd" id="remaininghd" [(ngModel)]="hitDiceRestantes" type="text" />
           </div>
         </div>
       </div>

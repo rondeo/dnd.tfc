@@ -101,6 +101,10 @@ input[type="checkbox"] {
     cursor: pointer;
 }
 
+input[type="checkbox"]:checked {
+    background-color: black;
+}
+
 div.box {
     margin-top: 10px;
 }
@@ -213,6 +217,10 @@ form.charsheet header section.misc ul li input {
     border: 1px solid rgb(127, 127, 127);
     border-bottom: 1px solid rgb(127, 127, 127);
     width: 95%;
+}
+
+form.charsheet header section.misc ul li div select {
+    width: 98%;
 }
 
 form.charsheet header section.misc ul li .classlevel {
@@ -344,12 +352,12 @@ form.charsheet main>section section.attributes div.attr-applications div.inspira
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.inspiration input {
-    appearance: none;
+    -webkit-appearance: none;
     border: 1px solid black;
     padding: 15px;
     border-radius: 10px;
     width: 30px;
-    height: 28px;
+    height: 30px;
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus {
@@ -413,7 +421,7 @@ form.charsheet main>section section.attributes div.attr-applications div.list-se
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.list-section ul li input[type="checkbox"] {
-    appearance: none;
+    -webkit-appearance: none;
     width: 10px;
     height: 10px;
     border: 1px solid black;
@@ -493,6 +501,7 @@ form.charsheet main section.combat>div.speed>div input {
     border: 1px solid black;
     text-align: center;
     font-size: 30px;
+    color: black;
 }
 
 form.charsheet main section.combat>div.hp {
@@ -677,7 +686,7 @@ form.charsheet main section.combat>div.deathsaves>div div.bubbles {
 }
 
 form.charsheet main section.combat>div.deathsaves>div div.bubbles input[type="checkbox"] {
-    appearance: none;
+    -webkit-appearance: none;
     width: 10px;
     height: 10px;
     border: 1px solid black;
@@ -911,7 +920,7 @@ a.show {
 
 a.show:hover {
     position: relative;
-    z-index: 0;
+    z-index: 1;
 }
 
 a.show span.hidden {
@@ -958,12 +967,17 @@ a.show:hover span.hidden {
 }
 
 .gridCrearion div .name{
-    width: 20%;
+    width: 15%;
     height: auto;
 }
 
 .gridCrearion div .choice{
     width: 10%;
+    height: auto;
+}
+
+.gridCrearion div .movement{
+    width: 16%;
     height: auto;
 }
 

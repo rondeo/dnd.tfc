@@ -8,6 +8,7 @@
         <tr>
           <th class="name">Raza</th>
           <th>Descripción</th>
+          <th class="movement">Velocidad</th>
           <th class="choice">Elegir</th>
         </tr>
       </thead>
@@ -15,6 +16,7 @@
         <tr *ngFor="let raza of razas" ng-click="mostrar = !mostrar">
           <td>{{raza.nombreRaza}}</td>
           <td>{{raza.descripcionRaza}}</td>
+          <td>{{raza.velocidad}} pies</td>
           <td>
             <button (click)=" getSubrazas(raza.idRaza); getRasgosRaza(raza.idRaza)">
               Elegir

@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/creacion/info', pathMatch: 'full' },
   {
     path: 'creacion', component: CreacionComponent, children: [
+      { path: '', redirectTo: 'info', pathMatch: 'full'},
       { path: 'info', component: CrearInfoComponent},
       { path: 'raza', component: CrearRazaComponent },
       { path: 'clase', component: CrearClaseComponent },
@@ -26,7 +27,7 @@ const routes: Routes = [
   //{ path: 'personaje/:id', component: DatosComponent, children: [
   {
     path: 'hoja', component: DatosComponent, children: [
-      { path: 'hoja', redirectTo: 'hoja/datos', pathMatch: 'full'},
+      { path: '', redirectTo: 'datos', pathMatch: 'full'},
       { path: 'datos', component: StatsComponent },
       // { path: 'magia', component: MagiaComponent },
       { path: 'rasgos', component: RasgosComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   },
   {
     path: 'personaje/:id', component: DatosComponent, children: [
+      { path: '', redirectTo: 'datos', pathMatch: 'full'},
       { path: 'datos', component: StatsComponent },
       // { path: 'magia', component: MagiaComponent },
       { path: 'rasgos', component: RasgosComponent },

@@ -10,7 +10,7 @@ export let PERSONAJES: Personaje[] = [
         idSubraza: 11,
         idJugador: 2,
         idClase: 1,
-        idTrasfondo: 1,
+        idTrasfondo: 1
     },
     {
         idPersonaje: 2,
@@ -21,6 +21,6 @@ export let PERSONAJES: Personaje[] = [
         idSubraza: null,
         idJugador: 2,
         idClase: 2,
-        idTrasfondo: 1,
+        idTrasfondo: 2
     }
 ]

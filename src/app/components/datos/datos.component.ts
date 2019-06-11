@@ -10,6 +10,7 @@ import { Jugador } from 'src/app/objects/jugador';
 import { Clase } from 'src/app/objects/clase';
 import { Trasfondo } from 'src/app/objects/trasfondo';
 import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
+import { Alineamiento } from 'src/app/objects/alineamiento';
 
 @Component({
   selector: 'app-datos',
@@ -56,6 +57,8 @@ export class DatosComponent implements OnInit {
 
   trasfondos: Trasfondo[];
 
+  alineamientos: Alineamiento[];
+
   constructor(
     private route: ActivatedRoute,
     private dndService: DndService,
@@ -72,6 +75,7 @@ export class DatosComponent implements OnInit {
     this.obtenerClase();
     this.obtenerRaza();
     this.llenarRazas();
+    this.getAlineamientos();
   }
 
   getRazas() {
@@ -99,6 +103,10 @@ export class DatosComponent implements OnInit {
       .subscribe(trasfondos => this.trasfondos = trasfondos);
   }
 
+  getAlineamientos(){
+    this.dndService.getAlineamientos()
+      .subscribe(alineamientos => this.alineamientos = alineamientos);
+  }
 
   getPersonaje() {
     const id = this.route.snapshot.paramMap.get('id');
@@ -233,7 +241,7 @@ export class DatosComponent implements OnInit {
 
   obtenerClase() {
 
-    console.log(this.clasePersonaje);
+    // console.log(this.clasePersonaje);
 
     for (let i = 0; i < this.clases.length; i++) {
       if (this.clases[i].nombreClase == this.clasePersonaje) {
