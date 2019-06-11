@@ -80,6 +80,10 @@ export class StatsComponent implements OnInit {
   vidaRestante = '';
   claseElegida: number;
   razaElegida: number;
+  personalidad = '';
+  ideales = '';
+  vinculos = '';
+  defectos = '';
 
   constructor(
     private dndService: DndService
@@ -125,6 +129,25 @@ export class StatsComponent implements OnInit {
 
       this.getRaza(this.personaje.idRaza);
       this.getClase(this.personaje.idClase);
+
+      if (this.personaje.personalidad !== undefined) {
+        this.personalidad = (this.personaje.personalidad).toString();
+      }
+
+      if (this.personaje.ideales !== undefined) {
+        this.ideales = (this.personaje.ideales).toString();
+      }
+
+      if (this.personaje.vinculos !== undefined) {
+        this.vinculos = (this.personaje.vinculos).toString();
+      }
+
+      if (this.personaje.defectos !== undefined) {
+        this.defectos = (this.personaje.defectos).toString();
+      }
+
+
+
 
       this.velocidad = (this.raza.velocidad).toString();
       // this.hitDice = (this.nivel).toString() + 'd' + (this.clase.hitDice).toString();

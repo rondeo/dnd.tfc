@@ -62,21 +62,21 @@ export class DndService {
 
   idCreacion: number;
 
-  nombreCreacion: String;
+  nombreCreacion = null;
 
-  alineamientoCreacion: String;
+  alineamientoCreacion = null;
 
   experienciaCreacion = 0;
 
-  razaCreacion: number;
+  razaCreacion = null;
 
   subRazaCreacion = null;
 
-  jugadorCreacion: number;
+  jugadorCreacion = null;
 
-  claseCreacion: number;
+  claseCreacion = null;
 
-  trasfondoCreacion: number;
+  trasfondoCreacion = null;
 
   statsCreacion: any[] = [
     { "id": 1, "valor": '' },
@@ -87,6 +87,17 @@ export class DndService {
     { "id": 6, "valor": '' }
   ];
 
+  personalidadCreacion = null;
+  
+  idealesCreacion = null;
+  
+  vinculosCreacion = null;
+  
+  defectosCreacion = null;
+
+  mensajeCreacion = null;
+  
+  
   getIdCreacion() {
     return this.idCreacion;
   }
@@ -165,6 +176,38 @@ export class DndService {
 
   setStatsCreacion(value) {
     this.statsCreacion = value;
+  }
+
+  getPersonalidadCreacion() {
+    return this.personalidadCreacion;
+  }
+
+  setPersonalidadCreacion(value) {
+    this.personalidadCreacion = value;
+  }
+
+  getIdealesCreacion() {
+    return this.idealesCreacion;
+  }
+
+  setIdealesCreacion(value) {
+    this.idealesCreacion = value;
+  }
+
+  getVinculosCreacion() {
+    return this.vinculosCreacion;
+  }
+
+  setVinculosCreacion(value) {
+    this.vinculosCreacion = value;
+  }
+
+  getDefectosCreacion() {
+    return this.defectosCreacion;
+  }
+
+  setDefectosCreacion(value) {
+    this.defectosCreacion = value;
   }
 
   setPersonajeElegido(value) {
@@ -327,6 +370,41 @@ export class DndService {
       "idPersonaje": personaje,
       "puntuacionCaracteristica": stat
     })
+  }
+
+  getMensajeCreacion(){
+    
+
+    return this.mensajeCreacion;
+
+  }
+
+  setMensajeCreacion(){
+    this.mensajeCreacion = 'Actualmente te falta por introducir: ';
+    if(this.nombreCreacion == null){
+      this.mensajeCreacion += 'información, ';
+    }
+
+    if(this.razaCreacion == null){
+      this.mensajeCreacion += 'raza, ';
+    }
+
+    if(this.claseCreacion == null){
+      this.mensajeCreacion += 'clase, ';
+    }
+
+    if(this.trasfondoCreacion == null){
+      this.mensajeCreacion += 'trasfondo, ';
+    }
+
+    if(this.statsCreacion[0].valor == ''){
+      this.mensajeCreacion += 'stats';
+    }
+
+    if(this.nombreCreacion !== null && this.razaCreacion !== null && this.claseCreacion !== null 
+      && this.trasfondoCreacion !== null && this.statsCreacion[0].valor !== ''){
+      this.mensajeCreacion = 'Perfecto, ya lo tienes todo, puedes crear tu personaje'
+    }
   }
 
 }

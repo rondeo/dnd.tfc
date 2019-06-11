@@ -25,4 +25,10 @@ export let RASGOSSUBRAZA: RasgoSubraza[] = [
         idSubraza: 22,
         descripcionRasgoSubraza: 'Definitivamente, se aparean con los árboles'
     },
+    {
+        idRasgoSubraza: 231,
+        nombreRasgoSubraza: 'Sensibilidad a la luz solar',
+        idSubraza: 23,
+        descripcionRasgoSubraza: 'Tienen la piel oscura, pero se queman. Porque sí'
+    }
 ]

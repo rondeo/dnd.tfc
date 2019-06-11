@@ -235,8 +235,7 @@
     <section class="combat">
       <div class="armorclass">
         <div>
-          <label for="ac"><a class="show">Clase de armadura
-            <span class="hidden">Monedas de platino, 1 equivale a 10 de oro</span></a></label>
+          <label for="ac">Clase de armadura</label>
           <input name="ac" id="ac" type="text" [(ngModel)]="claseArmadura" disabled/>
         </div>
       </div>
@@ -404,19 +403,19 @@
     <section class="flavor">
       <div class="personality">
         <label for="personality">Rasgos de personalidad</label>
-        <textarea name="personality" id="personality"></textarea>
+        <textarea name="personality" id="personality">{{personalidad}}</textarea>
       </div>
       <div class="ideals">
         <label for="ideals">Ideales</label>
-        <textarea name="ideals" id="ideals"></textarea>
+        <textarea name="ideals" id="ideals">{{ideales}}</textarea>
       </div>
       <div class="bonds">
         <label for="bonds">Vínculos</label>
-        <textarea name="bonds" id="bonds"></textarea>
+        <textarea name="bonds" id="bonds">{{vinculos}}</textarea>
       </div>
       <div class="flaws">
         <label for="flaws">Defectos</label>
-        <textarea name="flaws" id="flaws"></textarea>
+        <textarea name="flaws" id="flaws">{{defectos}}</textarea>
       </div>
     </section>
     <section class="features">

@@ -60,5 +60,35 @@ export let CARACTERISTICASPERSONAJES: CaracteristicasPersonaje[] = [
         idCaracteristica: 6,
         idPersonaje: 2,
         puntuacionCaracteristica: '18'
+    },
+    {
+        idCaracteristica: 1,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
+    },
+    {
+        idCaracteristica: 2,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
+    },
+    {
+        idCaracteristica: 3,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
+    },
+    {
+        idCaracteristica: 4,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
+    },
+    {
+        idCaracteristica: 5,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
+    },
+    {
+        idCaracteristica: 6,
+        idPersonaje: 3,
+        puntuacionCaracteristica: '20'
     }
 ]

@@ -41,6 +41,7 @@ export class CrearClaseComponent implements OnInit {
     this.dndService.setClaseCreacion(idClase);
     
     //console.log("Clase elegida " + this.dndService.getClaseCreacion());
+    this.dndService.setMensajeCreacion();
     console.log("Clase elegida");
   }
 

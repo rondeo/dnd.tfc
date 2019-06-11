@@ -5,6 +5,23 @@ input {
     background: white;
 }
 
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0,.125);
+    max-width: 200px;
+}
+
+.list-group-item a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+
 table thead th {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #000000), color-stop(1, #00557F));
     background: -moz-linear-gradient(center top, #000000 5%, #000000 100%);
@@ -356,8 +373,8 @@ form.charsheet main>section section.attributes div.attr-applications div.inspira
     border: 1px solid black;
     padding: 15px;
     border-radius: 10px;
-    width: 30px;
-    height: 30px;
+    // width: 30px;
+    // height: 30px;
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus {
@@ -979,6 +996,15 @@ a.show:hover span.hidden {
 .gridCrearion div .movement{
     width: 16%;
     height: auto;
+}
+
+.gridPersonality{
+    width: 100%;
+    align-content: center;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-column-gap: 1%;
+    margin-bottom: 1em;
 }
 
 .tableCrearionStats table{

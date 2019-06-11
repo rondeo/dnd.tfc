@@ -8,4 +8,8 @@ export class Personaje{
     idJugador: number;
     idClase: number;
     idTrasfondo: number;
+    personalidad: String;
+    ideales: String;
+    vinculos: String;
+    defectos: String;
 }

@@ -41,14 +41,50 @@
       </a>
     </label>
   </div>
-  <!-- <br /><br /> -->
-
   <label>*Campo requerido</label>
-  <div class="botones">
-    <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
-    <button *ngIf="mostrar" class="button"
-      (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
-      routerLink="/creacion/raza">Confirmar</button>
+</div>
+
+<p>
+  Ahora vamos a definir la personalidad de tu personaje.<br>No tienes por qué hacerlo ahora, puede ser luego, pero es
+  recomendable.
+</p>
+
+<div class="gridPersonality">
+  <div class="personalityInfo">
+    <label class="personality">
+      Rasgos de personalidad:
+      <br>
+      <textarea #personalityCharacter ></textarea>
+    </label>
   </div>
+  <div class="idealsInfo">
+    <label class="ideals">
+      Ideales:
+      <br>
+      <textarea #idealsCharacter ></textarea>
+    </label>
+  </div>
+  <div class="bondsInfo">
+    <label class="bonds">
+      Vínculos:
+      <br>
+      <textarea #bondsCharacter ></textarea>
+    </label>
+  </div>
+  <div class="flawsInfo">
+    <label class="flaws">
+      Defectos:
+      <br>
+      <textarea #flawsCharacter ></textarea>
+    </label>
+  </div>
+</div>
+<br /><br />
+
+<div class="botones">
+  <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
+  <button *ngIf="mostrar" class="button"
+    (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value, personalityCharacter.value, idealsCharacter.value, bondsCharacter.value, flawsCharacter.value)"
+    routerLink="/creacion/raza">Confirmar</button>
 </div>
 <!-- </div> -->
