@@ -11,7 +11,7 @@
             <div class="divclass">
               <!-- <input name="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()"/> -->
               <select name="class" id="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()">
-                <option value=""></option>
+                <option value="">--Elije--</option>
                 <option *ngFor="let clase of clases" value="{{clase.nombreClase}}">{{clase.nombreClase}}</option>
               </select>
               <label for="class">Clase</label>
@@ -24,7 +24,11 @@
         </li>
         <li>
           <div>
-            <input name="background" id="background" [(ngModel)]="trasfondoPersonaje"/>
+            <!-- <input name="background" id="background" [(ngModel)]="trasfondoPersonaje"/> -->
+            <select name="background" id="background" [(ngModel)]="trasfondoPersonaje">
+              <option value="">--Elije--</option>
+              <option *ngFor="let trasfondo of trasfondos" value="{{trasfondo.nombreTrasfondo}}">{{trasfondo.nombreTrasfondo}}</option>
+            </select>
             <label for="background" >Trasfondo</label>
           </div>
         </li>
@@ -38,7 +42,7 @@
           <div>
             <!-- <input name="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()"/> -->
             <select name="race" id="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()">
-              <option value=""></option>
+              <option value="">--Elije--</option>
               <option *ngFor="let raza of arrayRazas" value="{{raza}}">{{raza}}</option>
             </select>
             <label for="race">Raza</label>
@@ -46,7 +50,11 @@
         </li>
         <li>
           <div>
-            <input name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje"/>
+            <!-- <input name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje"/> -->
+            <select name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje">
+              <option value="">--Elije--</option>
+              <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">{{alineamiento.nombreAlineamiento}}</option>
+            </select>
             <label for="alignment" >Alineamiento</label>
           </div>
         </li>
@@ -62,13 +70,13 @@
 
   <nav *ngIf="navegarPersonaje">
     <a routerLink="/personaje/{{personaje.idPersonaje}}/datos">Datos</a>
-    <a routerLink="/personaje/{{personaje.idPersonaje}}/magia">Magia</a>
+    <!-- <a routerLink="/personaje/{{personaje.idPersonaje}}/magia">Magia</a> -->
     <a routerLink="/personaje/{{personaje.idPersonaje}}/rasgos">Rasgos</a>
   </nav>
 
   <nav *ngIf="navegarHoja">
     <a routerLink="/hoja/datos">Datos</a>
-    <a routerLink="/hoja/magia">Magia</a>
+    <!-- <a routerLink="/hoja/magia">Magia</a> -->
     <a routerLink="/hoja/rasgos">Rasgos</a>
   </nav>
 

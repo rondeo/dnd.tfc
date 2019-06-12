@@ -3,39 +3,95 @@
 </p>
 
 <!-- <div class="mx-auto mat-elevation-z24 m-5 p-5 rounded"> -->
-<div class="grid">
-  <label class="name">
-    <span>Nombre:
-      <span class="required">*</span>
-    </span>
-    <input #nameCharacter class="box" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
-  </label>
-  <br /><br />
-  <label class="align">
-    <span>Alineamiento:
-      <span class="required">*</span>
-    </span>
-    <!-- <input #alignCharacter class="box" /> -->
-    <!-- <select name="align" id="align" *ngFor="let alineamiento of alineamientos"> -->
-    <select #alignCharacter name="alignCharacter" id="alignCharacter">
-      <!-- <option value=""></option> -->
-      <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
-        {{alineamiento.nombreAlineamiento}}</option>
-    </select>
-  </label>
-  <br /><br />
-  <label class="level">
-    <span>Nivel:
-      <span class="required">*</span>
-    </span>
-    <input appOnlyNumbers #levelCharacter class="box" value="1" />
-  </label>
-  <br /><br />
-  <label>*Campo requerido</label>
-  <div class="botones">
-    <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
-    <button *ngIf="mostrar" class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)"
-      routerLink="/creacion/raza">Confirmar</button>
+<div class="gridInfo">
+  <div class="nameInfo">
+    <label class="name">
+      <span>Nombre:
+        <span class="required">*</span>
+      </span>
+    </label>
+      <br>
+      <input #nameCharacter class="box" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
+    
   </div>
+  <!-- <br /><br /> -->
+  <div class="levelInfo">
+    <label class="level">
+      <span>Nivel:
+        <span class="required">*</span>
+      </span></label>
+      <br>
+      <input appOnlyNumbers #levelCharacter class="box" value="1" />
+    
+    <br /><br />
+  </div>
+  <div class="alignInfo">
+    <label class="align"><a class="show">
+        <span>Alineamiento:
+          <span class="required">*</span>
+        </span><span class="hidden">Determina el comportamiento de tu personaje
+          <br><br>
+          Legal es que respeta las normas, caótico es que hace lo que quiere
+          <br><br>
+          Bueno es que tiende al bien común, malvado es que tiende al beneficio propio</span>
+        </a>
+      </label>
+        <br>
+        <select #alignCharacter name="alignCharacter" id="alignCharacter">
+          <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
+            {{alineamiento.nombreAlineamiento}}</option>
+        </select>
+      
+    
+  </div>
+  <label>*Campo requerido</label>
+</div>
+
+<p>
+  Ahora vamos a definir la personalidad de tu personaje.<br>No tienes por qué hacerlo ahora, puede ser luego, pero es
+  recomendable.
+</p>
+
+<div class="gridPersonality">
+  <div class="personalityInfo">
+    <label class="personality">
+      Rasgos de personalidad:
+    </label>
+      <br>
+      <textarea #personalityCharacter ></textarea>
+    
+  </div>
+  <div class="idealsInfo">
+    <label class="ideals">
+      Ideales:
+    </label>
+      <br>
+      <textarea #idealsCharacter ></textarea>
+    
+  </div>
+  <div class="bondsInfo">
+    <label class="bonds">
+      Vínculos:
+    </label>
+      <br>
+      <textarea #bondsCharacter ></textarea>
+    
+  </div>
+  <div class="flawsInfo">
+    <label class="flaws">
+      Defectos:
+    </label>
+      <br>
+      <textarea #flawsCharacter ></textarea>
+    
+  </div>
+</div>
+<br /><br />
+
+<div class="botones">
+  <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
+  <button *ngIf="mostrar" class="button"
+    (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value, personalityCharacter.value, idealsCharacter.value, bondsCharacter.value, flawsCharacter.value)"
+    routerLink="/creacion/raza">Confirmar</button>
 </div>
 <!-- </div> -->

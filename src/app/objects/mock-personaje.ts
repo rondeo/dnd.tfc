@@ -11,6 +11,10 @@ export let PERSONAJES: Personaje[] = [
         idJugador: 2,
         idClase: 1,
         idTrasfondo: 1,
+        personalidad: '',
+        ideales: '',
+        vinculos: '',
+        defectos: ''
     },
     {
         idPersonaje: 2,
@@ -21,6 +25,25 @@ export let PERSONAJES: Personaje[] = [
         idSubraza: null,
         idJugador: 2,
         idClase: 2,
-        idTrasfondo: 1,
+        idTrasfondo: 2,
+        personalidad: '',
+        ideales: '',
+        vinculos: '',
+        defectos: ''
+    },
+    {
+        idPersonaje: 3,
+        nombrePersonaje: "Mr. Perfecto",
+        experiencia: 355000,
+        alineamiento: 'Legal bueno',
+        idRaza: 4,
+        idSubraza: null,
+        idJugador: 1,
+        idClase: 11,
+        idTrasfondo: 2,
+        personalidad: 'Mi personalidad es trementamente perfecta',
+        ideales: 'Mis ideales también son perfectos',
+        vinculos: 'Mis vínculos son, para sopresa de muchos, perfectos',
+        defectos: 'No tengo ninguno, por supuesto, soy perfecto'
     }
 ]

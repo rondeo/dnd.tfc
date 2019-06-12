@@ -1,6 +1,10 @@
-<p>
-  ¡Vamos a crear un personaje paso a paso!
-</p>
+<label for="message">
+  <!-- <p> -->
+    ¡Vamos a crear un personaje paso a paso! <br>
+    {{mensaje}}
+  <!-- </p> -->
+</label>
+<input id="message" [ngModel]="getMensaje()" (ngModelChange)="getMensaje()" disabled hidden />
 
 <nav>
   <a routerLink="/creacion/info">Información</a>
@@ -10,8 +14,9 @@
   <a routerLink="/creacion/stats">Stats</a>
 </nav>
 <router-outlet></router-outlet>
-<br/><br/>
+<br /><br />
 <!-- <button routerLink="personajeCreado ? ../personaje/{{id}} : []" (click)="confirmarCreacion()">¡Crear personaje!</button> -->
-<button (click)="confirmarCreacion()">¡Crear personaje!</button>
-<br/>
-<button *ngIf="personajeCreado" routerLink="/personaje/{{id}}/datos" (click)="verPersonaje()">Ver tu nuevo personaje</button>
+<button class="creacion" (click)="confirmarCreacion()">¡Crear personaje!</button>
+
+<button class="creacion" *ngIf="personajeCreado" routerLink="/personaje/{{id}}/datos" (click)="verPersonaje()">
+  Ver tu nuevo personaje</button>
