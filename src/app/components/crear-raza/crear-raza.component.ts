@@ -88,6 +88,7 @@ export class CrearRazaComponent implements OnInit {
 
     this.dndService.setRazaCreacion(idRaza);
     this.dndService.setSubRazaCreacion(idSubraza);
+    this.dndService.setMensajeCreacion();
 
     // console.log ("Crear Raza " + this.dndService.getRazaCreacion() +" y subraza " + this.dndService.getSubRazaCreacion());
     console.log("Raza elegida");

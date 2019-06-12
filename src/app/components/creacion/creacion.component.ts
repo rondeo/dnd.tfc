@@ -11,6 +11,8 @@ export class CreacionComponent implements OnInit {
 
   personajeCreado = false;
 
+  mensaje = '';
+
   id = null;
 
   nombre = null;
@@ -38,10 +40,20 @@ export class CreacionComponent implements OnInit {
     { id: 6, valor: null }
   ];
 
+  personalidad = null;
+
+  ideales = null;
+
+  vinculos = null;
+
+  defectos = null;
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
     this.personajeCreado = false;
+    this.dndService.setMensajeCreacion();
+    this.mensaje = this.dndService.getMensajeCreacion();
   }
 
   confirmarCreacion(){
@@ -55,10 +67,14 @@ export class CreacionComponent implements OnInit {
     this.experiencia = this.dndService.getExperienciaCreacion();
     this.raza = this.dndService.getRazaCreacion();
     this.subraza = this.dndService.getSubRazaCreacion();
-    this.jugador = this.dndService.getJugadorCreacion();
+    this.jugador = this.dndService.getJugadorSesion();
     this.clase=this.dndService.getClaseCreacion();
     this.trasfondo = this.dndService.getTrasfondoCreacion();
     this.stats = this.dndService.getStatsCreacion();
+    this.personalidad = this.dndService.getPersonalidadCreacion();
+    this.ideales = this.dndService.getIdealesCreacion();
+    this.vinculos = this.dndService.getVinculosCreacion();
+    this.defectos = this.dndService.getDefectosCreacion();
 
     // if(!this.id){
     //   alert("No has cre");
@@ -89,7 +105,8 @@ export class CreacionComponent implements OnInit {
     array = {
       idPersonaje: this.id, nombrePersonaje: this.nombre, experiencia: this.experiencia,
       alineamiento: this.alineamiento, idRaza: this.raza, idSubraza: this.subraza,
-      idJugador: 1, idClase: this.clase, idTrasfondo: this.trasfondo
+      idJugador: this.jugador, idClase: this.clase, idTrasfondo: this.trasfondo, personalidad: this.personalidad,
+      ideales: this.ideales, vinculos: this.vinculos, defectos: this.defectos
     }
 
     this.dndService.crearPersonaje(array);
@@ -121,6 +138,10 @@ export class CreacionComponent implements OnInit {
       { id: 5, valor: null },
       { id: 6, valor: null }
     ];
+    this.personalidad = '';
+    this.ideales = '';
+    this.vinculos = '';
+    this.defectos = '';
 
     // this.dndService.setIdCreacion(this.id);
     this.dndService.setNombreCreacion(this.nombre);
@@ -128,10 +149,13 @@ export class CreacionComponent implements OnInit {
     this.dndService.setExpecienciaCreacion(this.experiencia);
     this.dndService.setRazaCreacion(this.raza);
     this.dndService.setSubRazaCreacion(this.subraza);
-    this.dndService.setJugadorCreacion(this.jugador);
     this.dndService.setClaseCreacion(this.clase);
     this.dndService.setTrasfondoCreacion(this.trasfondo);
     this.dndService.setStatsCreacion(this.stats);
+    this.dndService.setPersonalidadCreacion(this.personalidad);
+    this.dndService.setIdealesCreacion(this.ideales);
+    this.dndService.setVinculosCreacion(this.vinculos);
+    this.dndService.setDefectosCreacion(this.defectos);
 
     //console.log("Todo done");
     this.personajeCreado = true;
@@ -141,6 +165,10 @@ export class CreacionComponent implements OnInit {
     this.personajeCreado=false;
     this.id = null;
     this.dndService.setIdCreacion(this.id);
+  }
+
+  getMensaje(){
+    this.mensaje = this.dndService.getMensajeCreacion();
   }
 
 }

@@ -1,0 +1,26 @@
+<p>
+  Crear un nuevo usuario:
+</p>
+
+<div class="gridRegister">
+  <label for="nameNewUser" class="nombre">
+      <span>Nombre
+        <span class="required">*</span>
+      </span> 
+      <input #nameUser class="box" id="nameNewUser" />
+  </label>
+  <br/><br/>
+  <label for="passwordNewUser" class="contra">
+      <span>Contraseña
+        <span class="required">*</span>
+      </span> 
+      <input #passwordUser type="password" class="box" id="passwordNewUser" />
+  </label>
+  <br/><br/>
+  <label>*Campo requerido</label>
+  <div  class="botones">
+    <button class="button" (click)="add(nameUser.value, passwordUser.value)">Ingresar</button>
+    <button class="button" (click)="goBack()">Volver</button>
+  </div>
+  <p *ngIf="mostrar">Usuario creado correctamente</p>
+</div>

@@ -1,51 +1,54 @@
 <p>
   Responde a la pregunta, ¿de qué trabaja tu personaje?
 </p>
-
-<table class="table table-hover text-center">
-  <thead class="thead-dark">
-    <tr>
-      <th>Clase</th>
-      <th>Dados de golpe</th>
-      <th>Descripción</th>
-      <th>Elegir</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let clase of clases" ng-click="mostrar = !mostrar">
-      <td>{{clase.nombreClase}}</td>
-      <td>d{{clase.hitDice}}</td>
-      <td>{{clase.descripcionClase}}</td>
-      <td>
-        <button (click)="getRasgosClase(clase.idClase)">
-          Elegir
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div *ngIf="mostrar">
+<div class="gridCrearion">
+  <div>
     <table class="table table-hover text-center">
       <thead class="thead-dark">
-          <tr>
-            <th>Rasgo</th>
-            <th>Nivel</th>
-            <th>Descripción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let rasgo of rasgoClase">
-            <td>{{rasgo.nombreRasgoClase}}</td>
-            <td>{{rasgo.nivelClase}}</td>
-            <td>{{rasgo.descripcionRasgoClase}}</td>
-          </tr>
-        </tbody>
+        <tr>
+          <th class="name">Clase</th>
+          <th>Dados de golpe</th>
+          <th>Descripción</th>
+          <th class="choice">Elegir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let clase of clases" ng-click="mostrar = !mostrar">
+          <td>{{clase.nombreClase}}</td>
+          <td>d{{clase.hitDice}}</td>
+          <td>{{clase.descripcionClase}}</td>
+          <td>
+            <button (click)="getRasgosClase(clase.idClase)">
+              Elegir
+            </button>
+          </td>
+        </tr>
+      </tbody>
     </table>
-    <button routerLink="/creacion/trasfondo" (click)="asignarClase(claseCreacion)">
-      Confirmar
-    </button>
+  </div>
+  <div *ngIf="mostrar">
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th class="name">Rasgo</th>
+          <th class="choice">Nivel</th>
+          <th>Descripción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let rasgo of rasgoClase">
+          <td>{{rasgo.nombreRasgoClase}}</td>
+          <td>{{rasgo.nivelClase}}</td>
+          <td>{{rasgo.descripcionRasgoClase}}</td>
+        </tr>
+      </tbody>
+    </table>
+
     <!-- <button (click)="asignarClase(claseCreacion)">
       Confirmar
     </button> -->
   </div>
+</div>
+<button *ngIf="mostrar" routerLink="/usuario/creacion/trasfondo" (click)="asignarClase(claseCreacion)">
+  Confirmar
+</button>

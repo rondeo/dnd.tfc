@@ -1,0 +1,22 @@
+<div class="gridRegister">
+
+  <label for="user" class="nombre">
+    <span>Usuario</span>
+    <input #user class="box" id="user" />
+  </label>
+
+  <br /><br />
+
+  <label for="password">
+    <span>Contraseña</span>
+    <input #password type="password" class="box" id="password" />
+  </label>
+
+  <br /><br />
+  <label><a routerLink="/register">Haz click aquí para crear un nuevo usuario</a></label>
+  <br /><br />
+  <p *ngIf="mensajeLogin !== ''">{{mensajeLogin}}</p>
+  <div class="botones">
+  <button class="button" (click)="iniciarSesion(user.value, password.value)">Entrar</button>
+  </div>
+</div>

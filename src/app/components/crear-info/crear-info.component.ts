@@ -30,12 +30,17 @@ export class CrearInfoComponent implements OnInit {
       .subscribe(alineamientos => this.alineamientos = alineamientos);
   }
 
-  addCharacter(nombre: string, alineamiento: string, nivel: string) {
+  addCharacter(nombre: string, alineamiento: string, nivel: string, personalidad: string, ideales: string, vinculos: string, defectos: string) {
     let id = this.genID(this.personajes);
     //let expActual;
     nombre = nombre.trim();
     alineamiento = alineamiento.trim();
     nivel = nivel.trim();
+    personalidad = personalidad.trim();
+    ideales = ideales.trim();
+    vinculos = vinculos.trim();
+    defectos = defectos.trim();
+    
     //expActual = parseInt(nivel);
 
     if (!nombre) {
@@ -50,16 +55,20 @@ export class CrearInfoComponent implements OnInit {
       return;
     }
     //console.log('Id: ' + id + ', Nombre: ' + nombre + ', alineamiento: ' + alineamiento + ', nivel: ' + nivel);
+    // console.log(personalidad);
 
     this.dndService.setIdCreacion(id);
     this.dndService.setNombreCreacion(nombre);
     this.dndService.setAlineamientoCreacion(alineamiento);
     this.dndService.setExpecienciaCreacion(this.convertNivelExperiencia(parseInt(nivel)));
-
-
+    this.dndService.setPersonalidadCreacion(personalidad);
+    this.dndService.setIdealesCreacion(ideales);
+    this.dndService.setVinculosCreacion(vinculos);
+    this.dndService.setDefectosCreacion(defectos);
 
     //console.log('Implementado Id: ' + this.dndService.getIdCreacion() + ', Nombre: ' + this.dndService.getNombreCreacion() + ', alineamiento: ' + this.dndService.getAlineamientoCreacion() + ', experiencia: ' + this.dndService.getExperienciaCreacion());
     console.log("Info creada");
+    this.dndService.setMensajeCreacion();
 
     this.mostrar = false;
   }

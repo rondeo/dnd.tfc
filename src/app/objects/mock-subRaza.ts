@@ -24,5 +24,11 @@ export let SUBRAZAS: SubRaza[] = [
         nombreSubraza: "Elfo de los bosques",
         idRaza: 2,
         descripcionSubraza: "Legolas, pero incluso más verde"
+    },
+    {
+        idSubraza: 23,
+        nombreSubraza: "Drow (elfo oscuro)",
+        idRaza: 2,
+        descripcionSubraza: "Legolas, pero negro y edgy"
     }
 ]

@@ -21,6 +21,9 @@ import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { ExperienceLimitDirective } from './directives/experience-limit.directive';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { CrearInfoComponent } from './components/crear-info/crear-info.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { CrearInfoComponent } from './components/crear-info/crear-info.component
     OnlyNumbersDirective,
     ExperienceLimitDirective,
     PersonajesComponent,
-    CrearInfoComponent
+    CrearInfoComponent,
+    LoginComponent,
+    RegisterComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,

@@ -1,7 +1,7 @@
 <ul class="personajes" >
-  <li *ngFor="let personaje of personajes">
-    <a routerLink="/personaje/{{personaje.idPersonaje}}">
-    <span>{{personaje.idPersonaje}}</span> {{personaje.nombrePersonaje}}
+  <li  class="list-group-item" *ngFor="let personaje of personajes">
+    <a routerLink="/usuario/personaje/{{personaje.idPersonaje}}">
+    {{personaje.nombrePersonaje}}
   </a>
   </li>
 </ul>

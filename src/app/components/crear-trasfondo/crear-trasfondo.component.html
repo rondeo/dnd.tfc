@@ -1,30 +1,32 @@
 <p>
   Responde a la pregunta, ¿cuál es el pasado de tu personaje?
 </p>
-
-<table class="table table-hover text-center">
-  <thead class="thead-dark">
-    <tr>
-      <th>Trasfondo</th>
-      <th>Descripción</th>
-      <th>Elegir</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let trasfondo of trasfondos">
-      <td>{{trasfondo.nombreTrasfondo}}</td>
-      <td>{{trasfondo.descripcionTrasfondo}}</td>
-      <td>
-        <button (click)="siguiente(trasfondo.idTrasfondo)">
-          Elegir
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
+<div class="gridCrearion">
+  <div>
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th class="name">Trasfondo</th>
+          <th>Descripción</th>
+          <th class="choice">Elegir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let trasfondo of trasfondos">
+          <td>{{trasfondo.nombreTrasfondo}}</td>
+          <td>{{trasfondo.descripcionTrasfondo}}</td>
+          <td>
+            <button (click)="siguiente(trasfondo.idTrasfondo)">
+              Elegir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 <div *ngIf="mostrar">
-  <button routerLink="/creacion/stats" (click)="asignarTrasfondo(trasfondoCreacion)">
+  <button routerLink="/usuario/creacion/stats" (click)="asignarTrasfondo(trasfondoCreacion)">
     Confirmar
   </button>
   <!-- <button (click)="asignarTrasfondo(trasfondoCreacion)">

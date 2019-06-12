@@ -1,33 +1,37 @@
 <p>
   Responde a la pregunta: ¿Quién es tu personaje?
 </p>
-
-<table class="table table-hover text-center">
-  <thead class="thead-dark">
-    <tr>
-      <th>Raza</th>
-      <th>Descripción</th>
-      <th>Elegir</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let raza of razas" ng-click="mostrar = !mostrar">
-      <td>{{raza.nombreRaza}}</td>
-      <td>{{raza.descripcionRaza}}</td>
-      <td>
-        <button (click)=" getSubrazas(raza.idRaza); getRasgosRaza(raza.idRaza)">
-          Elegir
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<div *ngIf="mostrar">
-  <table class="table table-hover text-center">
-    <thead class="thead-dark">
+<div class="gridCrearion">
+  <div>
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
         <tr>
-          <th>Rasgo</th>
+          <th class="name">Raza</th>
+          <th>Descripción</th>
+          <th class="movement">Velocidad</th>
+          <th class="choice">Elegir</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let raza of razas" ng-click="mostrar = !mostrar">
+          <td>{{raza.nombreRaza}}</td>
+          <td>{{raza.descripcionRaza}}</td>
+          <td>{{raza.velocidad}} pies</td>
+          <td>
+            <button (click)=" getSubrazas(raza.idRaza); getRasgosRaza(raza.idRaza)">
+              Elegir
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="mostrar">
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th class="name">Rasgo</th>
           <th>Descripción</th>
         </tr>
       </thead>
@@ -37,21 +41,23 @@
           <td>{{rasgo.descripcionRasgoRaza}}</td>
         </tr>
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>
 
-<div *ngIf="mostrarSubraza">
-  <table class="table table-hover text-center">
-    <thead class="thead-dark">
+  <!-- <br> -->
+
+  <div *ngIf="mostrarSubraza">
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
         <tr>
-          <th>Rasgo</th>
+          <th class="name">Subraza</th>
           <th>Descripción</th>
-          <th>Elegir</th>
+          <th class="choice">Elegir</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let subraza of subrazas">
-          <td>{{subraza.nombreSubraza}}</td>
+          <td class="name">{{subraza.nombreSubraza}}</td>
           <td>{{subraza.descripcionSubraza}}</td>
           <td>
             <button (click)="getRasgosSubraza(subraza.idSubraza)">
@@ -60,14 +66,14 @@
           </td>
         </tr>
       </tbody>
-  </table>
-</div>
+    </table>
+  </div>
 
-<div *ngIf="mostrarRasgoSubraza">
-  <table class="table table-hover text-center">
-    <thead class="thead-dark">
+  <div *ngIf="mostrarRasgoSubraza">
+    <table class="table table-hover text-center">
+      <thead class="thead-dark">
         <tr>
-          <th>Rasgo</th>
+          <th class="name">Rasgo</th>
           <th>Descripción</th>
         </tr>
       </thead>
@@ -77,11 +83,11 @@
           <td>{{rasgo.descripcionRasgoSubraza}}</td>
         </tr>
       </tbody>
-  </table>
+    </table>
+  </div>
 </div>
-
 <div *ngIf="elegido">
-  <button routerLink="/creacion/clase" (click)="asignarRaza(razaCreacion, subRazaCreacion)">
+  <button routerLink="/usuario/creacion/clase" (click)="asignarRaza(razaCreacion, subRazaCreacion)">
     Confirmar
   </button>
 </div>

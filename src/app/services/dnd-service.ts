@@ -52,6 +52,8 @@ export class DndService {
 
   caracteristicasPersonaje = CARACTERISTICASPERSONAJES;
 
+  jugadorSesion = 0;
+  
   experiencia = '0';
 
   razaElegida = 0;
@@ -62,21 +64,21 @@ export class DndService {
 
   idCreacion: number;
 
-  nombreCreacion: String;
+  nombreCreacion = null;
 
-  alineamientoCreacion: String;
+  alineamientoCreacion = null;
 
   experienciaCreacion = 0;
 
-  razaCreacion: number;
+  razaCreacion = null;
 
   subRazaCreacion = null;
 
-  jugadorCreacion: number;
+  jugadorCreacion = null;
 
-  claseCreacion: number;
+  claseCreacion = null;
 
-  trasfondoCreacion: number;
+  trasfondoCreacion = null;
 
   statsCreacion: any[] = [
     { "id": 1, "valor": '' },
@@ -87,6 +89,17 @@ export class DndService {
     { "id": 6, "valor": '' }
   ];
 
+  personalidadCreacion = null;
+  
+  idealesCreacion = null;
+  
+  vinculosCreacion = null;
+  
+  defectosCreacion = null;
+
+  mensajeCreacion = null;
+  
+  
   getIdCreacion() {
     return this.idCreacion;
   }
@@ -167,6 +180,38 @@ export class DndService {
     this.statsCreacion = value;
   }
 
+  getPersonalidadCreacion() {
+    return this.personalidadCreacion;
+  }
+
+  setPersonalidadCreacion(value) {
+    this.personalidadCreacion = value;
+  }
+
+  getIdealesCreacion() {
+    return this.idealesCreacion;
+  }
+
+  setIdealesCreacion(value) {
+    this.idealesCreacion = value;
+  }
+
+  getVinculosCreacion() {
+    return this.vinculosCreacion;
+  }
+
+  setVinculosCreacion(value) {
+    this.vinculosCreacion = value;
+  }
+
+  getDefectosCreacion() {
+    return this.defectosCreacion;
+  }
+
+  setDefectosCreacion(value) {
+    this.defectosCreacion = value;
+  }
+
   setPersonajeElegido(value) {
     this.personajeElegido = value;
   }
@@ -204,6 +249,10 @@ export class DndService {
   }
 
   constructor() { }
+
+  getJugador(id: number): Observable<Jugador>{
+    return of(JUGADORES.find(jugador => jugador.idJugador === id));
+  }
 
   getPersonaje(id: number): Observable<Personaje> {
     return of(PERSONAJES.find(personaje => personaje.idPersonaje === id));
@@ -267,6 +316,19 @@ export class DndService {
     }
   }
 
+  getPersonajesJugador(id: Number): Observable<Personaje[]>{
+    let finded = PERSONAJES.filter(personaje => personaje.idJugador === id);
+
+    for (let i of this.personajes) {
+      if(id === 1){
+        return of(this.personajes);
+      }else if(id === i.idJugador){
+        return of(finded);
+      }
+    }
+    return of();
+  }
+
   getClases(): Observable<Clase[]> {
     return of(this.clases);
   }
@@ -278,6 +340,18 @@ export class DndService {
   getRasgosClase(id: Number): Observable<RasgoClase[]> {
     let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id);
 
+    for (let i of this.clases) {
+      if (i.idClase === id) {
+        return of(finded);
+      }
+    }
+  }
+
+  getRasgosClaseNivel(id: number, nivel: number): Observable<RasgoClase[]> {
+    let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id && rasgos.nivelClase <= nivel);
+    // finded.filter(rasgos => rasgos.nivelClase <= nivel );
+    console.log("Encontrado " + nivel);
+    console.log(finded);
     for (let i of this.clases) {
       if (i.idClase === id) {
         return of(finded);
@@ -315,6 +389,53 @@ export class DndService {
       "idPersonaje": personaje,
       "puntuacionCaracteristica": stat
     })
+  }
+
+  getMensajeCreacion(){
+    
+
+    return this.mensajeCreacion;
+
+  }
+
+  setMensajeCreacion(){
+    this.mensajeCreacion = 'Actualmente te falta por introducir: ';
+    if(this.nombreCreacion == null){
+      this.mensajeCreacion += 'información, ';
+    }
+
+    if(this.razaCreacion == null){
+      this.mensajeCreacion += 'raza, ';
+    }
+
+    if(this.claseCreacion == null){
+      this.mensajeCreacion += 'clase, ';
+    }
+
+    if(this.trasfondoCreacion == null){
+      this.mensajeCreacion += 'trasfondo, ';
+    }
+
+    if(this.statsCreacion[0].valor == null){
+      this.mensajeCreacion += 'stats';
+    }
+
+    if(this.nombreCreacion !== null && this.razaCreacion !== null && this.claseCreacion !== null 
+      && this.trasfondoCreacion !== null && this.statsCreacion[0].valor !== ''){
+      this.mensajeCreacion = 'Perfecto, ya lo tienes todo, puedes crear tu personaje'
+    }
+  }
+
+  getJugadorSesion(){
+    return this.jugadorSesion;
+  }
+
+  setJugadorSesion(value){
+    this.jugadorSesion = value;
+  }
+
+  crearJugador(jugador: Jugador): Observable<any>{
+    return of(this.jugadores.push(jugador));
   }
 
 }
