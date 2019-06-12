@@ -7,7 +7,7 @@ pages:
 
   stage: deploy
   script:
-  - npm install -g @angular/cli@6.2.1
+  - npm install -g @angular/cli
   - npm install
   - ng build
   - mv dist/fossilizer/* public/
