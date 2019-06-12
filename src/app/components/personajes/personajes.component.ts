@@ -11,6 +11,8 @@ export class PersonajesComponent implements OnInit {
 
   personajes: Personaje[];
 
+  jugadorSesion: number;
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
@@ -18,7 +20,9 @@ export class PersonajesComponent implements OnInit {
   }
 
   getPersonajes(){
-    this.dndService.getPersonajesUsuario(this.dndService.getJugadorSesion())
+    this.jugadorSesion = this.dndService.getJugadorSesion();
+
+    this.dndService.getPersonajesJugador(this.jugadorSesion)
       .subscribe(personajes => this.personajes = personajes);
   }
 

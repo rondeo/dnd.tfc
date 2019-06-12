@@ -316,14 +316,17 @@ export class DndService {
     }
   }
 
-  getPersonajesUsuario(id: Number): Observable<Personaje[]>{
+  getPersonajesJugador(id: Number): Observable<Personaje[]>{
     let finded = PERSONAJES.filter(personaje => personaje.idJugador === id);
 
     for (let i of this.personajes) {
-      if(id === i.idJugador){
+      if(id === 1){
+        return of(this.personajes);
+      }else if(id === i.idJugador){
         return of(finded);
       }
     }
+    return of();
   }
 
   getClases(): Observable<Clase[]> {
