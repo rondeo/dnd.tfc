@@ -7,16 +7,16 @@
 <input id="message" [ngModel]="getMensaje()" (ngModelChange)="getMensaje()" disabled hidden />
 
 <nav>
-  <a routerLink="/creacion/info">Información</a>
-  <a routerLink="/creacion/raza">Raza</a>
-  <a routerLink="/creacion/clase">Clase</a>
-  <a routerLink="/creacion/trasfondo">Trasfondo</a>
-  <a routerLink="/creacion/stats">Stats</a>
+  <a routerLink="/usuario/creacion/info">Información</a>
+  <a routerLink="/usuario/creacion/raza">Raza</a>
+  <a routerLink="/usuario/creacion/clase">Clase</a>
+  <a routerLink="/usuario/creacion/trasfondo">Trasfondo</a>
+  <a routerLink="/usuario/creacion/stats">Stats</a>
 </nav>
 <router-outlet></router-outlet>
 <br /><br />
 <!-- <button routerLink="personajeCreado ? ../personaje/{{id}} : []" (click)="confirmarCreacion()">¡Crear personaje!</button> -->
 <button class="creacion" (click)="confirmarCreacion()">¡Crear personaje!</button>
 
-<button class="creacion" *ngIf="personajeCreado" routerLink="/personaje/{{id}}/datos" (click)="verPersonaje()">
+<button class="creacion" *ngIf="personajeCreado" routerLink="/usuario/personaje/{{id}}/datos" (click)="verPersonaje()">
   Ver tu nuevo personaje</button>

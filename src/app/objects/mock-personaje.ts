@@ -38,7 +38,7 @@ export let PERSONAJES: Personaje[] = [
         alineamiento: 'Legal bueno',
         idRaza: 4,
         idSubraza: null,
-        idJugador: 1,
+        idJugador: 3,
         idClase: 11,
         idTrasfondo: 2,
         personalidad: 'Mi personalidad es trementamente perfecta',

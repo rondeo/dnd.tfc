@@ -1,0 +1,15 @@
+<div class="gridUser">
+  <div>
+    <p>Bienvenido, {{jugador.nombreJugador}}</p>
+  </div>
+  <div>
+    <button class="closeSesion" routerLink="">Cerrar sesión</button>
+  </div>
+</div>
+
+<nav>
+  <a routerLink="/usuario/creacion">Creacion</a>
+  <a routerLink="/usuario/hoja">Hoja en blanco</a>
+  <a routerLink="/usuario/listaPersonajes">Lista de personajes</a>
+</nav>
+<router-outlet></router-outlet>

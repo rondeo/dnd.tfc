@@ -5,28 +5,28 @@
 <!-- <div class="mx-auto mat-elevation-z24 m-5 p-5 rounded"> -->
 <div class="gridInfo">
   <div class="nameInfo">
-    <label class="name">
+    <label for="name" class="name">
       <span>Nombre:
         <span class="required">*</span>
       </span>
     </label>
       <br>
-      <input #nameCharacter class="box" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
+      <input #nameCharacter class="box" id="name" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
     
   </div>
   <!-- <br /><br /> -->
   <div class="levelInfo">
-    <label class="level">
+    <label for="level" class="level">
       <span>Nivel:
         <span class="required">*</span>
       </span></label>
       <br>
-      <input appOnlyNumbers #levelCharacter class="box" value="1" />
+      <input appOnlyNumbers #levelCharacter id="level" class="box" value="1" />
     
     <br /><br />
   </div>
   <div class="alignInfo">
-    <label class="align"><a class="show">
+    <label for="alignCharacter" class="align"><a class="show">
         <span>Alineamiento:
           <span class="required">*</span>
         </span><span class="hidden">Determina el comportamiento de tu personaje
@@ -54,35 +54,35 @@
 
 <div class="gridPersonality">
   <div class="personalityInfo">
-    <label class="personality">
+    <label for="personality" class="personality">
       Rasgos de personalidad:
     </label>
       <br>
-      <textarea #personalityCharacter ></textarea>
+      <textarea #personalityCharacter id="personality" ></textarea>
     
   </div>
   <div class="idealsInfo">
-    <label class="ideals">
+    <label for="ideals" class="ideals">
       Ideales:
     </label>
       <br>
-      <textarea #idealsCharacter ></textarea>
+      <textarea #idealsCharacter id="ideals" ></textarea>
     
   </div>
   <div class="bondsInfo">
-    <label class="bonds">
+    <label for="bonds" class="bonds">
       Vínculos:
     </label>
       <br>
-      <textarea #bondsCharacter ></textarea>
+      <textarea #bondsCharacter id="bonds" ></textarea>
     
   </div>
   <div class="flawsInfo">
-    <label class="flaws">
+    <label for="flaws" class="flaws">
       Defectos:
     </label>
       <br>
-      <textarea #flawsCharacter ></textarea>
+      <textarea #flawsCharacter id="flaws" ></textarea>
     
   </div>
 </div>
@@ -92,6 +92,6 @@
   <!-- <button class="button" (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value)" >Confirmar</button> -->
   <button *ngIf="mostrar" class="button"
     (click)="addCharacter(nameCharacter.value, alignCharacter.value, levelCharacter.value, personalityCharacter.value, idealsCharacter.value, bondsCharacter.value, flawsCharacter.value)"
-    routerLink="/creacion/raza">Confirmar</button>
+    routerLink="/usuario/creacion/raza">Confirmar</button>
 </div>
 <!-- </div> -->
