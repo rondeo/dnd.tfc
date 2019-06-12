@@ -18,7 +18,7 @@ export class PersonajesComponent implements OnInit {
   }
 
   getPersonajes(){
-    this.dndService.getPersonajes()
+    this.dndService.getPersonajesUsuario(this.dndService.getJugadorSesion())
       .subscribe(personajes => this.personajes = personajes);
   }
 

@@ -52,6 +52,8 @@ export class DndService {
 
   caracteristicasPersonaje = CARACTERISTICASPERSONAJES;
 
+  jugadorSesion = 0;
+  
   experiencia = '0';
 
   razaElegida = 0;
@@ -248,6 +250,10 @@ export class DndService {
 
   constructor() { }
 
+  getJugador(id: number): Observable<Jugador>{
+    return of(JUGADORES.find(jugador => jugador.idJugador === id));
+  }
+
   getPersonaje(id: number): Observable<Personaje> {
     return of(PERSONAJES.find(personaje => personaje.idPersonaje === id));
   }
@@ -305,6 +311,16 @@ export class DndService {
 
     for (let i of this.subRazas) {
       if (i.idSubraza === id) {
+        return of(finded);
+      }
+    }
+  }
+
+  getPersonajesUsuario(id: Number): Observable<Personaje[]>{
+    let finded = PERSONAJES.filter(personaje => personaje.idJugador === id);
+
+    for (let i of this.personajes) {
+      if(id === i.idJugador){
         return of(finded);
       }
     }
@@ -397,7 +413,7 @@ export class DndService {
       this.mensajeCreacion += 'trasfondo, ';
     }
 
-    if(this.statsCreacion[0].valor == ''){
+    if(this.statsCreacion[0].valor == null){
       this.mensajeCreacion += 'stats';
     }
 
@@ -405,6 +421,18 @@ export class DndService {
       && this.trasfondoCreacion !== null && this.statsCreacion[0].valor !== ''){
       this.mensajeCreacion = 'Perfecto, ya lo tienes todo, puedes crear tu personaje'
     }
+  }
+
+  getJugadorSesion(){
+    return this.jugadorSesion;
+  }
+
+  setJugadorSesion(value){
+    this.jugadorSesion = value;
+  }
+
+  crearJugador(jugador: Jugador): Observable<any>{
+    return of(this.jugadores.push(jugador));
   }
 
 }

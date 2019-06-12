@@ -22,6 +22,8 @@ import { ExperienceLimitDirective } from './directives/experience-limit.directiv
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { CrearInfoComponent } from './components/crear-info/crear-info.component';
 import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { LoginComponent } from './components/login/login.component';
     ExperienceLimitDirective,
     PersonajesComponent,
     CrearInfoComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,

@@ -67,7 +67,7 @@ export class CreacionComponent implements OnInit {
     this.experiencia = this.dndService.getExperienciaCreacion();
     this.raza = this.dndService.getRazaCreacion();
     this.subraza = this.dndService.getSubRazaCreacion();
-    this.jugador = this.dndService.getJugadorCreacion();
+    this.jugador = this.dndService.getJugadorSesion();
     this.clase=this.dndService.getClaseCreacion();
     this.trasfondo = this.dndService.getTrasfondoCreacion();
     this.stats = this.dndService.getStatsCreacion();
@@ -105,7 +105,7 @@ export class CreacionComponent implements OnInit {
     array = {
       idPersonaje: this.id, nombrePersonaje: this.nombre, experiencia: this.experiencia,
       alineamiento: this.alineamiento, idRaza: this.raza, idSubraza: this.subraza,
-      idJugador: 1, idClase: this.clase, idTrasfondo: this.trasfondo, personalidad: this.personalidad,
+      idJugador: this.jugador, idClase: this.clase, idTrasfondo: this.trasfondo, personalidad: this.personalidad,
       ideales: this.ideales, vinculos: this.vinculos, defectos: this.defectos
     }
 
@@ -149,7 +149,6 @@ export class CreacionComponent implements OnInit {
     this.dndService.setExpecienciaCreacion(this.experiencia);
     this.dndService.setRazaCreacion(this.raza);
     this.dndService.setSubRazaCreacion(this.subraza);
-    this.dndService.setJugadorCreacion(this.jugador);
     this.dndService.setClaseCreacion(this.clase);
     this.dndService.setTrasfondoCreacion(this.trasfondo);
     this.dndService.setStatsCreacion(this.stats);

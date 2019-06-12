@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreacionComponent } from './components/creacion/creacion.component';
 import { DatosComponent } from './components/datos/datos.component';
@@ -11,45 +11,55 @@ import { MagiaComponent } from './components/magia/magia.component';
 import { RasgosComponent } from './components/rasgos/rasgos.component';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { CrearInfoComponent } from './components/crear-info/crear-info.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/creacion/info', pathMatch: 'full' },
+  // { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
-    path: 'creacion', component: CreacionComponent, children: [
-      { path: '', redirectTo: 'info', pathMatch: 'full'},
-      { path: 'info', component: CrearInfoComponent},
-      { path: 'raza', component: CrearRazaComponent },
-      { path: 'clase', component: CrearClaseComponent },
-      { path: 'trasfondo', component: CrearTrasfondoComponent },
-      { path: 'stats', component: CrearStatsComponent }
-    ]
-  },
-  //{ path: 'personaje/:id', component: DatosComponent, children: [
-  {
-    path: 'hoja', component: DatosComponent, children: [
-      { path: '', redirectTo: 'datos', pathMatch: 'full'},
-      { path: 'datos', component: StatsComponent },
-      // { path: 'magia', component: MagiaComponent },
-      { path: 'rasgos', component: RasgosComponent },
-      //{ path: ':id', component: DatosComponent}
-    ]
-  },
-  {
-    path: 'listaPersonajes', component: PersonajesComponent
-  },
-  {
-    path: 'personaje/:id', component: DatosComponent, children: [
-      { path: '', redirectTo: 'datos', pathMatch: 'full'},
-      { path: 'datos', component: StatsComponent },
-      // { path: 'magia', component: MagiaComponent },
-      { path: 'rasgos', component: RasgosComponent },
-      //{ path: ':id', component: DatosComponent}
+    path: 'usuario', component: UsuarioComponent, children: [
+      {
+        path: 'creacion', component: CreacionComponent, children: [
+          { path: '', redirectTo: 'info', pathMatch: 'full' },
+          { path: 'info', component: CrearInfoComponent },
+          { path: 'raza', component: CrearRazaComponent },
+          { path: 'clase', component: CrearClaseComponent },
+          { path: 'trasfondo', component: CrearTrasfondoComponent },
+          { path: 'stats', component: CrearStatsComponent }
+        ]
+      },
+      //{ path: 'personaje/:id', component: DatosComponent, children: [
+      {
+        path: 'hoja', component: DatosComponent, children: [
+          { path: '', redirectTo: 'datos', pathMatch: 'full' },
+          { path: 'datos', component: StatsComponent },
+          // { path: 'magia', component: MagiaComponent },
+          { path: 'rasgos', component: RasgosComponent },
+          //{ path: ':id', component: DatosComponent}
+        ]
+      },
+      {
+        path: 'listaPersonajes', component: PersonajesComponent
+      },
+      {
+        path: 'personaje/:id', component: DatosComponent, children: [
+          { path: '', redirectTo: 'datos', pathMatch: 'full' },
+          { path: 'datos', component: StatsComponent },
+          // { path: 'magia', component: MagiaComponent },
+          { path: 'rasgos', component: RasgosComponent },
+          //{ path: ':id', component: DatosComponent}
+        ]
+      }
     ]
   }
 ];
 
+
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
