@@ -9,19 +9,20 @@
       <span>Nombre:
         <span class="required">*</span>
       </span>
+    </label>
       <br>
       <input #nameCharacter class="box" [(ngModel)]="nombrePersonaje" (ngModelChange)="mostrarConfirmar()" />
-    </label>
+    
   </div>
   <!-- <br /><br /> -->
   <div class="levelInfo">
     <label class="level">
       <span>Nivel:
         <span class="required">*</span>
-      </span>
+      </span></label>
       <br>
       <input appOnlyNumbers #levelCharacter class="box" value="1" />
-    </label>
+    
     <br /><br />
   </div>
   <div class="alignInfo">
@@ -33,13 +34,15 @@
           Legal es que respeta las normas, caótico es que hace lo que quiere
           <br><br>
           Bueno es que tiende al bien común, malvado es que tiende al beneficio propio</span>
+        </a>
+      </label>
         <br>
         <select #alignCharacter name="alignCharacter" id="alignCharacter">
           <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
             {{alineamiento.nombreAlineamiento}}</option>
         </select>
-      </a>
-    </label>
+      
+    
   </div>
   <label>*Campo requerido</label>
 </div>
@@ -53,30 +56,34 @@
   <div class="personalityInfo">
     <label class="personality">
       Rasgos de personalidad:
+    </label>
       <br>
       <textarea #personalityCharacter ></textarea>
-    </label>
+    
   </div>
   <div class="idealsInfo">
     <label class="ideals">
       Ideales:
+    </label>
       <br>
       <textarea #idealsCharacter ></textarea>
-    </label>
+    
   </div>
   <div class="bondsInfo">
     <label class="bonds">
       Vínculos:
+    </label>
       <br>
       <textarea #bondsCharacter ></textarea>
-    </label>
+    
   </div>
   <div class="flawsInfo">
     <label class="flaws">
       Defectos:
+    </label>
       <br>
       <textarea #flawsCharacter ></textarea>
-    </label>
+    
   </div>
 </div>
 <br /><br />

@@ -11,7 +11,7 @@
             <div class="divclass">
               <!-- <input name="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()"/> -->
               <select name="class" id="class" [(ngModel)]="clasePersonaje" (ngModelChange)="obtenerClase()">
-                <option value=""></option>
+                <option value="">--Elije--</option>
                 <option *ngFor="let clase of clases" value="{{clase.nombreClase}}">{{clase.nombreClase}}</option>
               </select>
               <label for="class">Clase</label>
@@ -26,7 +26,7 @@
           <div>
             <!-- <input name="background" id="background" [(ngModel)]="trasfondoPersonaje"/> -->
             <select name="background" id="background" [(ngModel)]="trasfondoPersonaje">
-              <option value=""></option>
+              <option value="">--Elije--</option>
               <option *ngFor="let trasfondo of trasfondos" value="{{trasfondo.nombreTrasfondo}}">{{trasfondo.nombreTrasfondo}}</option>
             </select>
             <label for="background" >Trasfondo</label>
@@ -42,7 +42,7 @@
           <div>
             <!-- <input name="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()"/> -->
             <select name="race" id="race" [(ngModel)]="razaPersonaje" (ngModelChange)="obtenerRaza()">
-              <option value=""></option>
+              <option value="">--Elije--</option>
               <option *ngFor="let raza of arrayRazas" value="{{raza}}">{{raza}}</option>
             </select>
             <label for="race">Raza</label>
@@ -52,7 +52,7 @@
           <div>
             <!-- <input name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje"/> -->
             <select name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje">
-              <option value=""></option>
+              <option value="">--Elije--</option>
               <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">{{alineamiento.nombreAlineamiento}}</option>
             </select>
             <label for="alignment" >Alineamiento</label>
