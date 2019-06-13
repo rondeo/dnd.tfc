@@ -5,6 +5,12 @@ input {
     background: white;
 }
 
+// div.login{
+//     border: 2px black;
+//     margin: 0 auto;
+//     text-align: center;
+// }
+
 .list-group-item {
     position: relative;
     display: block;
@@ -123,11 +129,12 @@ input[type="checkbox"]:checked {
     background-color: black;
 }
 
-div.box {
+.loginBoxbox {
     margin-top: 10px;
 }
 
 form.charsheet {
+    // font-family: 'Calibri';
     width: 800px;
     right: 0;
     left: 0;
@@ -276,8 +283,9 @@ form.charsheet main {
 form.charsheet main div.label-container {
     position: relative;
     width: 100%;
-    height: 18px;
-    margin-top: 6px;
+    height: 17px;
+    margin-top: 8px;
+    margin-left: -4px;
     border: 1px solid black;
     border-left: 0;
     text-align: center;
@@ -286,7 +294,7 @@ form.charsheet main div.label-container {
 form.charsheet main div.label-container>label {
     position: absolute;
     left: 0;
-    top: 1px;
+    top: 0px;
     transform: translate(0%, 50%);
     width: 100%;
     font-size: 8px;
@@ -370,12 +378,21 @@ form.charsheet main>section section.attributes div.attr-applications div.inspira
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.inspiration input {
-    -webkit-appearance: none;
-    border: 1px solid black;
-    padding: 15px;
-    border-radius: 10px;
+    // -webkit-appearance: none;
+    // border: 1px solid black;
+    // padding: 15px;
+    // border-radius: 10px;
     // width: 30px;
     // height: 30px;
+    -webkit-appearance: none;
+    background: white;
+    width: 42px;
+    height: 31px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 10px;
+    // margin-top: -0.5px;
+    z-index: 1;
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus {
@@ -387,10 +404,11 @@ form.charsheet main>section section.attributes div.attr-applications div.profici
 form.charsheet main>section section.attributes div.attr-applications div.proficiencybonus input {
     background: white;
     width: 30px;
-    height: 28px;
+    height: 30px;
     border: 1px solid black;
     text-align: center;
     border-radius: 10px;
+    z-index: 1;
 }
 
 form.charsheet main>section section.attributes div.attr-applications div.list-section {
@@ -1028,13 +1046,13 @@ a.show:hover span.hidden {
     box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
-	border: 1px solid #C2C2C2;
+	// border: 1px solid #C2C2C2;
 	box-shadow: 1px 1px 4px #EBEBEB;
-	-moz-box-shadow: 1px 1px 4px #EBEBEB;
-	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
-	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
+	// -moz-box-shadow: 1px 1px 4px #EBEBEB;
+	// -webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	// border-radius: 3px;
+	// -webkit-border-radius: 3px;
+	// -moz-border-radius: 3px;
 	padding: 7px;
 	outline: none;
 }

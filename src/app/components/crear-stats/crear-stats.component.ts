@@ -168,7 +168,7 @@ export class CrearStatsComponent implements OnInit {
     // this.puntosArray[5].random = this.randomizado(8, 18);
 
     for (let i = 0; i < this.puntosArray.length; i++) {
-      this.puntosArray[i].random = this.randomizado(8, 18);;
+      this.puntosArray[i].random = this.randomizado(8, 15);;
       
     }
     this.setearStatsRandom();

@@ -1,22 +1,24 @@
-<div class="gridRegister">
+<div class="login">
+  <div class="gridRegister">
 
-  <label for="user" class="nombre">
-    <span>Usuario</span>
-    <input #user class="box" id="user" />
-  </label>
+    <label for="user" class="nombre">
+      <span>Usuario</span>
+      <input #user class="loginBox" id="user" />
+    </label>
 
-  <br /><br />
+    <br /><br />
 
-  <label for="password">
-    <span>Contraseña</span>
-    <input #password type="password" class="box" id="password" />
-  </label>
+    <label for="password">
+      <span>Contraseña</span>
+      <input #password type="password" class="loginBox" id="password" />
+    </label>
 
-  <br /><br />
-  <label><a routerLink="/register">Haz click aquí para crear un nuevo usuario</a></label>
-  <br /><br />
-  <p *ngIf="mensajeLogin !== ''">{{mensajeLogin}}</p>
-  <div class="botones">
-  <button class="button" (click)="iniciarSesion(user.value, password.value)">Entrar</button>
+    <br /><br />
+    <label><a routerLink="/register">Haz click aquí para crear un nuevo usuario</a></label>
+    <br /><br />
+    <p *ngIf="mensajeLogin !== ''">{{mensajeLogin}}</p>
+    <div class="botones">
+      <button class="button" (click)="iniciarSesion(user.value, password.value)">Entrar</button>
+    </div>
   </div>
 </div>
