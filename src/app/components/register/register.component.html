@@ -1,24 +1,24 @@
-<p>
-  Crear un nuevo usuario:
-</p>
-
 <div class="gridRegister">
+  <p>
+    Crear un nuevo usuario:
+  </p>
+  <br />
   <label for="nameNewUser" class="nombre">
-      <span>Nombre
-        <span class="required">*</span>
-      </span> 
-      <input #nameUser class="box" id="nameNewUser" />
+    <span>Nombre
+      <span class="required">*</span>
+    </span>
+    <input #nameUser class="loginBox" id="nameNewUser" />
   </label>
-  <br/><br/>
+  <br /><br />
   <label for="passwordNewUser" class="contra">
-      <span>Contraseña
-        <span class="required">*</span>
-      </span> 
-      <input #passwordUser type="password" class="box" id="passwordNewUser" />
+    <span>Contraseña
+      <span class="required">*</span>
+    </span>
+    <input #passwordUser type="password" class="loginBox" id="passwordNewUser" />
   </label>
-  <br/><br/>
+  <br /><br />
   <label>*Campo requerido</label>
-  <div  class="botones">
+  <div class="botones">
     <button class="button" (click)="add(nameUser.value, passwordUser.value)">Ingresar</button>
     <button class="button" (click)="goBack()">Volver</button>
   </div>

@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'dnd-tfc';
+  title = 'Dramones & mazmorras';
 
   reload(){
     location.reload();

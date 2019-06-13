@@ -13,17 +13,26 @@ export class PersonajesComponent implements OnInit {
 
   jugadorSesion: number;
 
+  mostrar = false;
+
   constructor(private dndService: DndService) { }
 
   ngOnInit() {
     this.getPersonajes();
   }
 
-  getPersonajes(){
+  getPersonajes() {
     this.jugadorSesion = this.dndService.getJugadorSesion();
 
     this.dndService.getPersonajesJugador(this.jugadorSesion)
       .subscribe(personajes => this.personajes = personajes);
+
+    if (this.personajes == null || this.personajes == undefined) {
+      this.mostrar = true;
+    } else {
+      this.mostrar = false;
+    }
   }
+
 
 }
