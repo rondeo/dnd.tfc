@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { DndService } from 'src/app/services/dnd-service';
-import { CaracteristicasPersonaje } from 'src/app/objects/caracteristicasPersonaje';
-import { Personaje } from 'src/app/objects/personaje';
-import { Raza } from 'src/app/objects/raza';
-import { Clase } from 'src/app/objects/clase';
-import { SubRaza } from 'src/app/objects/subRaza';
+import { DndService } from '../../services/dnd-service';
+import { CaracteristicasPersonaje } from '../../objects/caracteristicasPersonaje';
+import { Personaje } from '../../objects/personaje';
+import { Raza } from '../../objects/raza';
+import { Clase } from '../../objects/clase';
+import { SubRaza } from '../../objects/subRaza';
 
 @Component({
   selector: 'app-stats',

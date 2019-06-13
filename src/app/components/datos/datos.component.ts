@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { DndService } from 'src/app/services/dnd-service';
-import { Raza } from 'src/app/objects/raza';
-import { SubRaza } from 'src/app/objects/subRaza';
-import { Personaje } from 'src/app/objects/personaje';
-import { Jugador } from 'src/app/objects/jugador';
-import { Clase } from 'src/app/objects/clase';
-import { Trasfondo } from 'src/app/objects/trasfondo';
+import { DndService } from '../../services/dnd-service';
+import { Raza } from '../../objects/raza';
+import { SubRaza } from '../../objects/subRaza';
+import { Personaje } from '../../objects/personaje';
+import { Jugador } from '../../objects/jugador';
+import { Clase } from '../../objects/clase';
+import { Trasfondo } from '../../objects/trasfondo';
 import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
-import { Alineamiento } from 'src/app/objects/alineamiento';
+import { Alineamiento } from '../../objects/alineamiento';
 
 @Component({
   selector: 'app-datos',

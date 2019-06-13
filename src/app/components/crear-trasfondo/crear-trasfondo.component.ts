@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Trasfondo } from 'src/app/objects/trasfondo';
-import { DndService } from 'src/app/services/dnd-service';
+import { Trasfondo } from '../../objects/trasfondo';
+import { DndService } from '../../services/dnd-service';
 
 @Component({
   selector: 'app-crear-trasfondo',

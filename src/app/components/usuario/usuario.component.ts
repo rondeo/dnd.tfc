@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Jugador } from 'src/app/objects/jugador';
-import { DndService } from 'src/app/services/dnd-service';
+import { Jugador } from '../../objects/jugador';
+import { DndService } from '../../services/dnd-service';
 import { Router } from '@angular/router';
 
 @Component({

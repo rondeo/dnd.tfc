@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Raza } from 'src/app/objects/raza';
-import { DndService } from 'src/app/services/dnd-service';
-import { RasgoRaza } from 'src/app/objects/rasgoRaza';
-import { SubRaza } from 'src/app/objects/subRaza';
-import { RasgoSubraza } from 'src/app/objects/rasgoSubraza';
+import { Raza } from '../../objects/raza';
+import { DndService } from '../../services/dnd-service';
+import { RasgoRaza } from '../../objects/rasgoRaza';
+import { SubRaza } from '../../objects/subRaza';
+import { RasgoSubraza } from '../../objects/rasgoSubraza';
 
 @Component({
   selector: 'app-crear-raza',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Clase } from 'src/app/objects/clase';
-import { RasgoClase } from 'src/app/objects/rasgoClase';
-import { DndService } from 'src/app/services/dnd-service';
+import { Clase } from '../../objects/clase';
+import { RasgoClase } from '../../objects/rasgoClase';
+import { DndService } from '../../services/dnd-service';
 
 @Component({
   selector: 'app-crear-clase',

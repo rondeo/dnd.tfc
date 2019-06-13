@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { RasgoRaza } from 'src/app/objects/rasgoRaza';
-import { RasgoSubraza } from 'src/app/objects/rasgoSubraza';
-import { DndService } from 'src/app/services/dnd-service';
-import { Personaje } from 'src/app/objects/personaje';
-import { RasgoClase } from 'src/app/objects/rasgoClase';
-import { Raza } from 'src/app/objects/raza';
-import { SubRaza } from 'src/app/objects/subRaza';
-import { Clase } from 'src/app/objects/clase';
+import { RasgoRaza } from '../../objects/rasgoRaza';
+import { RasgoSubraza } from '../../objects/rasgoSubraza';
+import { DndService } from '../../services/dnd-service';
+import { Personaje } from '../../objects/personaje';
+import { RasgoClase } from '../../objects/rasgoClase';
+import { Raza } from '../../objects/raza';
+import { SubRaza } from '../../objects/subRaza';
+import { Clase } from '../../objects/clase';
 
 @Component({
   selector: 'app-rasgos',

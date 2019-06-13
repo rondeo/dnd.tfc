@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DndService } from 'src/app/services/dnd-service';
-import { Personaje } from 'src/app/objects/personaje';
+import { DndService } from '../../services/dnd-service';
+import { Personaje } from '../../objects/personaje';
 
 @Component({
   selector: 'app-creacion',

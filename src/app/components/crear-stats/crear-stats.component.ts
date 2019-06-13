@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Caracteristica } from 'src/app/objects/caracteristica';
-import { DndService } from 'src/app/services/dnd-service';
+import { Caracteristica } from '../../objects/caracteristica';
+import { DndService } from '../../services/dnd-service';
 
 @Component({
   selector: 'app-crear-stats',

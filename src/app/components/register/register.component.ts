@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
-import { Jugador } from 'src/app/objects/jugador';
-import { JUGADORES } from 'src/app/objects/mock-jugador';
-import { DndService } from 'src/app/services/dnd-service';
+import { Jugador } from '../../objects/jugador';
+import { JUGADORES } from '../../objects/mock-jugador';
+import { DndService } from '../../services/dnd-service';
 
 @Component({
   selector: 'app-register',
