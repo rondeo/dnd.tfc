@@ -6,6 +6,7 @@ import { Personaje } from '../../objects/personaje';
 import { Raza } from '../../objects/raza';
 import { Clase } from '../../objects/clase';
 import { SubRaza } from '../../objects/subRaza';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-stats',
@@ -146,9 +147,6 @@ export class StatsComponent implements OnInit {
         this.defectos = (this.personaje.defectos).toString();
       }
 
-
-
-
       this.velocidad = (this.raza.velocidad).toString();
       // this.hitDice = (this.nivel).toString() + 'd' + (this.clase.hitDice).toString();
       this.hitDice = 'd' + (this.clase.hitDice).toString();
@@ -158,6 +156,14 @@ export class StatsComponent implements OnInit {
       }
 
     }
+
+    // if (this.dndService.borrado) {
+    //   for (let i = 0; i < this.arrayStat.length; i++) {
+    //     this.arrayStat[i].valor = '';
+    //     this.calcularMod(i);
+    //   }
+    // }
+    // this.dndService.borrarNo();
 
   }
 
@@ -246,13 +252,20 @@ export class StatsComponent implements OnInit {
 
     this.calcularVidayDados();
 
-
+    // if (this.dndService.borrado) {
+    //   for (let i = 0; i < this.arrayStat.length; i++) {
+    //     this.arrayStat[i].valor = '';
+    //     // this.calcularMod(i);
+    //   }
+    // }
+    // this.dndService.borrarNo();
 
     return '+' + this.competencia;
 
   }
 
   calcularMod(i: number) {
+    // if (!this.dndService.borrado) {
     this.arrayMod[i] = this.calculo(this.arrayStat[i].valor);
     this.arraySalv[i].valor = this.arrayMod[i];
     this.arrayHab.forEach(element => {
@@ -262,7 +275,22 @@ export class StatsComponent implements OnInit {
     });
     this.calculoPercepcionPasiva();
     this.calculoClaseArmadura();
-    return this.calculo(this.arrayStat[i].valor);
+
+    // return this.calculo(this.arrayStat[i].valor);
+    // } else 
+    // if(this.dndService.borrado){
+    //   this.arrayMod[i] = '';
+    //   this.arraySalv[i].valor = '';
+    //   this.arrayHab.forEach(element => {
+    //     if (element.stat === i) {
+    //       element.valor = '';
+    //     }
+    //   });
+    //   this.percepcionPasiva = '';
+    //   this.claseArmadura = '';
+    //   this.iniciativa = '';
+    //   return this.dndService.borrarNo();
+    // }
   }
 
   calculo(numero: string) {
@@ -369,6 +397,9 @@ export class StatsComponent implements OnInit {
       }
       i++;
     });
+
+    this.borrarTodo();
+
   }
 
   calculoPercepcionPasiva() {
@@ -444,6 +475,8 @@ export class StatsComponent implements OnInit {
         this.velocidad = (this.raza.velocidad).toString();
       }
 
+    } else {
+      this.velocidad = null;
     }
 
     // console.log("aqui llega " +this.clase);
@@ -453,8 +486,20 @@ export class StatsComponent implements OnInit {
       this.hitDiceRestantes = (this.nivel).toString();
       this.calcularVida();
     } else {
-
+      this.hitDice = null;
+      this.hitDiceRestantes = null;
+      this.calcularVida();
     }
+  }
+
+  borrarTodo(){
+    if (this.dndService.borrado) {
+      for (let i = 0; i < this.arrayStat.length; i++) {
+        this.arrayStat[i].valor = '';
+        this.calcularMod(i);
+      }
+    }
+    this.dndService.borrarNo();
   }
 
 }

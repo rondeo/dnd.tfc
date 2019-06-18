@@ -9,7 +9,6 @@ import { Personaje } from '../../objects/personaje';
 import { Jugador } from '../../objects/jugador';
 import { Clase } from '../../objects/clase';
 import { Trasfondo } from '../../objects/trasfondo';
-import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 import { Alineamiento } from '../../objects/alineamiento';
 
 @Component({
@@ -29,21 +28,29 @@ export class DatosComponent implements OnInit {
 
   clasePersonaje = '';
 
+  claseCrear = null;
+
   trasfondoPersonaje = '';
+
+  trasfondoCrear = null;
 
   nombreJugador = '';
 
   razaPersonaje = '';
 
+  razaCrear = null;
+
+  subRazaCrear = null;
+
   alineamientoPersonaje = '';
+
+  alineamientoCrear = null;
 
   nivel = 1;
 
   experiencia = '0';
 
   arrayRazas: String[] = [];
-
-
 
   personajes: Personaje[];
 
@@ -71,6 +78,7 @@ export class DatosComponent implements OnInit {
     this.getClases();
     this.getJugadores();
     this.getTrasfondos();
+    this.getPersonajes();
     this.getPersonaje();
     this.obtenerClase();
     this.obtenerRaza();
@@ -98,12 +106,18 @@ export class DatosComponent implements OnInit {
       .subscribe(jugadores => this.jugadores = jugadores);
   }
 
+  getPersonajes() {
+    this.dndService.getPersonajes()
+      .subscribe(personajes => this.personajes = personajes);
+
+  }
+
   getTrasfondos() {
     this.dndService.getTrasfondos()
       .subscribe(trasfondos => this.trasfondos = trasfondos);
   }
 
-  getAlineamientos(){
+  getAlineamientos() {
     this.dndService.getAlineamientos()
       .subscribe(alineamientos => this.alineamientos = alineamientos);
   }
@@ -115,6 +129,9 @@ export class DatosComponent implements OnInit {
       this.navegarHoja = true;
       this.navegarPersonaje = false;
       this.dndService.setPersonajeElegido(0);
+      this.dndService.getPersonaje(this.dndService.getJugadorSesion());
+      this.dndService.getJugador(this.dndService.getJugadorSesion())
+        .subscribe(jugador => this.nombreJugador = jugador.nombreJugador.toString());
     } else {
       //console.log("Ha entrado aquí porque patata")
       this.dndService.getPersonaje(parseInt(id))
@@ -204,15 +221,20 @@ export class DatosComponent implements OnInit {
       for (let j = 0; j < this.subRazas.length; j++) {
         if (this.razas[i].nombreRaza == this.razaPersonaje) {
           this.dndService.setRazaElegida(this.razas[i].idRaza);
+          this.razaCrear = this.razas[i].idRaza;
           //console.log(this.razaPersonaje + ' raza ' + this.razas[i].idRaza)
           return;
         } else if (this.subRazas[j].nombreSubraza == this.razaPersonaje) {
           this.dndService.setRazaElegida(this.subRazas[j].idSubraza);
+          this.razaCrear = this.subRazas[j].idRaza;
+          this.subRazaCrear = this.subRazas[j].idSubraza;
           //console.log(this.razaPersonaje + ' subraza ' + this.subRazas[j].idSubraza)
           return;
         } else {
           // console.log("Se limpia la raza");
           this.limpiarRaza();
+          this.razaCrear = null;
+          this.subRazaCrear = null;
         }
 
       }
@@ -246,10 +268,12 @@ export class DatosComponent implements OnInit {
     for (let i = 0; i < this.clases.length; i++) {
       if (this.clases[i].nombreClase == this.clasePersonaje) {
         this.dndService.setClaseElegida(this.clases[i].idClase);
+        this.claseCrear = this.clases[i].idClase;
         //console.log(this.clasePersonaje);
         return;
       } else {
         this.limpiarClase();
+        this.claseCrear = null;
       }
     }
 
@@ -263,6 +287,20 @@ export class DatosComponent implements OnInit {
     //   }
     // });
 
+  }
+
+  obtenerTrasfondo() {
+    for (let i = 0; i < this.trasfondos.length; i++) {
+      if (this.trasfondos[i].nombreTrasfondo == this.trasfondoPersonaje) {
+        //console.log(this.clasePersonaje);
+        this.trasfondoCrear = this.trasfondos[i].idTrasfondo;
+        return;
+      } else {
+        this.limpiarClase();
+        this.trasfondoCrear = null;
+      }
+
+    }
   }
 
   limpiarClase() {
@@ -331,10 +369,74 @@ export class DatosComponent implements OnInit {
     this.arrayRazas.sort();
 
     for (let i = 0; i < this.arrayRazas.length; i++) {
-      
+
       return this.arrayRazas[i];
-      
+
     }
+  }
+
+  deleteAll() {
+    this.nombrePersonaje = '';
+
+    this.clasePersonaje = '';
+
+    this.limpiarClase();
+
+    this.trasfondoPersonaje = '';
+
+    this.razaPersonaje = '';
+
+    this.limpiarRaza();
+
+    this.alineamientoPersonaje = '';
+
+    this.experiencia = '0';
+
+    this.dndService.borrarSi();
+  }
+
+  crearPersonaje() {
+
+    let array: Personaje;
+
+    let id = this.genID(this.personajes);
+
+    if (this.nombrePersonaje === '') {
+      alert("Falta por introducir el nombre");
+      return;
+    } else if (this.alineamientoPersonaje === '') {
+      alert("Falta por introducir el alineamiento");
+      return;
+    } else if (this.razaPersonaje === '') {
+      alert("Falta por introducir la raza");
+      return;
+    } else if (this.clasePersonaje === '') {
+      alert("Falta por introducir la clase");
+      return;
+    } else if (this.trasfondoPersonaje === '') {
+      alert("Falta por introducir el trasfondo");
+      return;
+    }
+
+    let raza = this.dndService.getRazaElegida();
+
+    array = {
+      idPersonaje: id, nombrePersonaje: this.nombrePersonaje, experiencia: parseInt(this.experiencia),
+      alineamiento: this.alineamientoPersonaje, idRaza: this.razaCrear, idSubraza: this.subRazaCrear,
+      idJugador: this.dndService.getJugadorSesion(), idClase: this.claseCrear, idTrasfondo: this.trasfondoCrear, personalidad: null,
+      ideales: null, vinculos: null, defectos: null
+    }
+
+    this.dndService.crearPersonaje(array);
+
+    // console.log("done");
+
+    // console.log(this.personajes)
+
+  }
+
+  genID(personajes: Personaje[]): number {
+    return personajes.length > 0 ? Math.max(...personajes.map(personaje => personaje.idPersonaje)) + 1 : 1;
   }
 
 }

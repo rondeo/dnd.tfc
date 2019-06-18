@@ -18,6 +18,8 @@ input {
     background-color: #fff;
     border: 1px solid rgba(0,0,0,.125);
     max-width: 200px;
+    cursor: pointer;
+    cursor: hand;
 }
 
 .list-group-item a {
@@ -47,8 +49,6 @@ table tbody td {
     border-left: 1px solid #E1EEF4;
     font-size: 12px;
     font-weight: normal;
-    cursor: pointer;
-    cursor: hand;
 }
 
 table tbody .alt td {
@@ -240,7 +240,7 @@ form.charsheet header section.misc ul li label {
 form.charsheet header section.misc ul li input {
     border: 1px solid rgb(127, 127, 127);
     border-bottom: 1px solid rgb(127, 127, 127);
-    width: 95%;
+    width: 100%;
 }
 
 form.charsheet header section.misc ul li div select {
@@ -481,6 +481,7 @@ form.charsheet main>section div.passive-perception input {
     text-align: center;
     border: 1px solid black;
     border-radius: 10px;
+    z-index: 1;
 }
 
 form.charsheet main>section div.otherprofs textarea {
@@ -986,6 +987,12 @@ a.show:hover span.hidden {
     grid-column-gap: 1.5%;
 }
 
+.gridInfo select{
+    height: 2.3em;
+    width: 15em;
+    border-radius: 3px;
+}
+
 .gridCrearion{
     width: 80%;
     display: grid;
@@ -1045,20 +1052,6 @@ a.show:hover span.hidden {
 	padding-top: 8px;
 	padding-right: 5px;
 }
-.box {
-    box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	// border: 1px solid #C2C2C2;
-	box-shadow: 1px 1px 4px #EBEBEB;
-	// -moz-box-shadow: 1px 1px 4px #EBEBEB;
-	// -webkit-box-shadow: 1px 1px 4px #EBEBEB;
-	// border-radius: 3px;
-	// -webkit-border-radius: 3px;
-	// -moz-border-radius: 3px;
-	padding: 7px;
-	outline: none;
-}
 .gridRegister input{
 	border: none;
 	padding: 8px 15px 8px 15px;
@@ -1072,6 +1065,18 @@ a.show:hover span.hidden {
     height: 2em;
     font-size: 1em;
     padding-left: .4em;
+}
+
+
+.box {
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
 }
 
 span.required{
@@ -1125,8 +1130,8 @@ button:hover{
 
 .gridUser {
     display: grid;
-    grid-template-columns: 20% 15%;
-    grid-column-gap: 65%;
+    grid-template-columns: 25% 20%;
+    grid-column-gap: 58%;
 }
 
 .closeSesion {
@@ -1202,4 +1207,43 @@ button.creacion:hover{
 	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
 	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0061a7', endColorstr='#007dc1',GradientType=0);
 	background-color:#0061a7;
+}
+
+button.crearEnHoja {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #77d42a), color-stop(1, #5cb811));
+	background:-moz-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+	background:-webkit-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+	background:-o-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+	background:-ms-linear-gradient(top, #77d42a 5%, #5cb811 100%);
+	background:linear-gradient(to bottom, #77d42a 5%, #5cb811 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#77d42a', endColorstr='#5cb811',GradientType=0);
+	background-color:#77d42a;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #268a16;
+	display:inline-block;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+    text-shadow:0px 1px 0px #aade7c;
+    // margin-left: 20%;
+    // position: absolute;
+}
+button.crearEnHoja:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #5cb811), color-stop(1, #77d42a));
+	background:-moz-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-webkit-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-o-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:-ms-linear-gradient(top, #5cb811 5%, #77d42a 100%);
+	background:linear-gradient(to bottom, #5cb811 5%, #77d42a 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb811', endColorstr='#77d42a',GradientType=0);
+	background-color:#5cb811;
 }

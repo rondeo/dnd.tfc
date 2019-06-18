@@ -1,4 +1,24 @@
+<!-- <br><br>
+
+ -->
+
 <form class="charsheet">
+  <br>
+  <div class="gridUser">
+    <div *ngIf="navegarHoja">
+      <button class="crearEnHoja" (click)="crearPersonaje()">Guardar personaje</button>
+    </div>
+    <div *ngIf="navegarPersonaje">
+      <button class="crearEnHoja">Actualizar datos</button>
+    </div>
+    <div>
+      <button class="closeSesion" (click)="deleteAll()">Borrar todo</button>
+      <!-- <button class="closeSesion" routerLink="/usuario/hoja" >Borrar todo</button> -->
+    </div>
+  </div>
+
+  <br><br>
+
   <header>
     <section class="charname">
       <label for="charname">Nombre del personaje</label>
@@ -17,7 +37,7 @@
               <label for="class">Clase</label>
             </div>
             <div class="divlevel">
-              <input name="level" id="level" [ngModel]="calcularNivel()" disabled/>
+              <input name="level" id="level" [ngModel]="calcularNivel()" disabled />
               <label for="level">Nivel</label>
             </div>
           </div>
@@ -25,17 +45,18 @@
         <li>
           <div>
             <!-- <input name="background" id="background" [(ngModel)]="trasfondoPersonaje"/> -->
-            <select name="background" id="background" [(ngModel)]="trasfondoPersonaje">
+            <select name="background" id="background" [(ngModel)]="trasfondoPersonaje" (ngModelChange)="obtenerTrasfondo()">
               <option value="">--Elije--</option>
-              <option *ngFor="let trasfondo of trasfondos" value="{{trasfondo.nombreTrasfondo}}">{{trasfondo.nombreTrasfondo}}</option>
+              <option *ngFor="let trasfondo of trasfondos" value="{{trasfondo.nombreTrasfondo}}">
+                {{trasfondo.nombreTrasfondo}}</option>
             </select>
-            <label for="background" >Trasfondo</label>
+            <label for="background">Trasfondo</label>
           </div>
         </li>
         <li>
           <div>
-            <input name="playername" id="playername" [(ngModel)]="nombreJugador"/>
-            <label for="playername" >Nombre del Jugador</label>
+            <input name="playername" id="playername" [(ngModel)]="nombreJugador" disabled/>
+            <label for="playername">Nombre del Jugador</label>
           </div>
         </li>
         <li>
@@ -53,9 +74,10 @@
             <!-- <input name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje"/> -->
             <select name="alignment" id="alignment" [(ngModel)]="alineamientoPersonaje">
               <option value="">--Elije--</option>
-              <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">{{alineamiento.nombreAlineamiento}}</option>
+              <option *ngFor="let alineamiento of alineamientos" value="{{alineamiento.nombreAlineamiento}}">
+                {{alineamiento.nombreAlineamiento}}</option>
             </select>
-            <label for="alignment" >Alineamiento</label>
+            <label for="alignment">Alineamiento</label>
           </div>
         </li>
         <li>

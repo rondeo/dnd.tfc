@@ -1,8 +1,9 @@
-<ul class="personajes" >
-  <li  class="list-group-item" *ngFor="let personaje of personajes">
-    <a routerLink="/usuario/personaje/{{personaje.idPersonaje}}">
-    {{personaje.nombrePersonaje}}
-  </a>
+<ul class="personajes">
+  <li routerLink="/usuario/personaje/{{personaje.idPersonaje}}" class="list-group-item"
+    *ngFor="let personaje of personajes">
+    <a>
+      {{personaje.nombrePersonaje}}
+    </a>
   </li>
 </ul>
 

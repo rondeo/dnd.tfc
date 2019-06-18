@@ -19,7 +19,7 @@ export class CreacionComponent implements OnInit {
 
   alineamiento = null;
 
-  experiencia =null;
+  experiencia = null;
 
   raza = null;
 
@@ -52,11 +52,12 @@ export class CreacionComponent implements OnInit {
 
   ngOnInit() {
     this.personajeCreado = false;
+    this.vaciarTodo();
     this.dndService.setMensajeCreacion();
     this.mensaje = this.dndService.getMensajeCreacion();
   }
 
-  confirmarCreacion(){
+  confirmarCreacion() {
     //console.log("Esto aun no está preparado, lol")
 
     let array: Personaje;
@@ -68,7 +69,7 @@ export class CreacionComponent implements OnInit {
     this.raza = this.dndService.getRazaCreacion();
     this.subraza = this.dndService.getSubRazaCreacion();
     this.jugador = this.dndService.getJugadorSesion();
-    this.clase=this.dndService.getClaseCreacion();
+    this.clase = this.dndService.getClaseCreacion();
     this.trasfondo = this.dndService.getTrasfondoCreacion();
     this.stats = this.dndService.getStatsCreacion();
     this.personalidad = this.dndService.getPersonalidadCreacion();
@@ -80,24 +81,24 @@ export class CreacionComponent implements OnInit {
     //   alert("No has cre");
     //   return ;
     // } else 
-    if (!this.nombre){
+    if (!this.nombre) {
       alert("Falta por introducir el nombre");
-      return ;
-    } else if (!this.alineamiento){
+      return;
+    } else if (!this.alineamiento) {
       alert("Falta por introducir el alineamiento");
-      return ;
-    } else if (!this.raza){
+      return;
+    } else if (!this.raza) {
       alert("Falta por introducir la raza");
-      return ;
-    } else if (!this.clase){
+      return;
+    } else if (!this.clase) {
       alert("Falta por introducir la clase");
-      return ;
-    } else if (!this.trasfondo){
+      return;
+    } else if (!this.trasfondo) {
       alert("Falta por introducir el trasfondo");
-      return ;
-    } else if (!this.stats[0].valor){
+      return;
+    } else if (!this.stats[0].valor) {
       alert("Faltan por introducir los stats");
-      return ;
+      return;
     }
 
     //console.log(this.nombre);
@@ -111,7 +112,7 @@ export class CreacionComponent implements OnInit {
 
     this.dndService.crearPersonaje(array);
 
-    
+
 
     //this.dndService.asignarStatsPersonaje
 
@@ -119,16 +120,31 @@ export class CreacionComponent implements OnInit {
       this.dndService.asignarStatsPersonaje(this.stats[i].id, this.id, this.stats[i].valor);
     }
 
-    
+    this.personajeCreado = true;
 
-    // this.id = null;
+
+    this.vaciarTodo();
+
+  }
+
+  verPersonaje() {
+    this.personajeCreado = false;
+    this.id = null;
+    this.dndService.setIdCreacion(this.id);
+  }
+
+  getMensaje() {
+    this.mensaje = this.dndService.getMensajeCreacion();
+  }
+
+  vaciarTodo() {
     this.nombre = null;
     this.alineamiento = null;
     this.experiencia = null;
     this.raza = null;
     this.subraza = null;
     this.jugador = null;
-    this.clase=null;
+    this.clase = null;
     this.trasfondo = null;
     this.stats = [
       { id: 1, valor: null },
@@ -143,7 +159,6 @@ export class CreacionComponent implements OnInit {
     this.vinculos = '';
     this.defectos = '';
 
-    // this.dndService.setIdCreacion(this.id);
     this.dndService.setNombreCreacion(this.nombre);
     this.dndService.setAlineamientoCreacion(this.alineamiento);
     this.dndService.setExpecienciaCreacion(this.experiencia);
@@ -156,19 +171,6 @@ export class CreacionComponent implements OnInit {
     this.dndService.setIdealesCreacion(this.ideales);
     this.dndService.setVinculosCreacion(this.vinculos);
     this.dndService.setDefectosCreacion(this.defectos);
-
-    //console.log("Todo done");
-    this.personajeCreado = true;
-  }
-
-  verPersonaje(){
-    this.personajeCreado=false;
-    this.id = null;
-    this.dndService.setIdCreacion(this.id);
-  }
-
-  getMensaje(){
-    this.mensaje = this.dndService.getMensajeCreacion();
   }
 
 }

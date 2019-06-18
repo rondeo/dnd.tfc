@@ -14,7 +14,6 @@ import { Caracteristica } from '../objects/caracteristica';
 import { CARACTERISTICAS } from '../objects/mock-caracteristica';
 import { RASGOSSUBRAZA } from '../objects/mock-rasgoSubraza';
 import { SUBRAZAS } from '../objects/mock-subRaza';
-import { findReadVarNames } from '@angular/compiler/src/output/output_ast';
 import { SubRaza } from '../objects/subRaza';
 import { RasgoSubraza } from '../objects/rasgoSubraza';
 import { Personaje } from '../objects/personaje';
@@ -52,7 +51,7 @@ export class DndService {
 
   caracteristicasPersonaje = CARACTERISTICASPERSONAJES;
 
-  jugadorSesion = 0;
+  jugadorSesion = 1;
   
   experiencia = '0';
 
@@ -81,12 +80,12 @@ export class DndService {
   trasfondoCreacion = null;
 
   statsCreacion: any[] = [
-    { "id": 1, "valor": '' },
-    { "id": 2, "valor": '' },
-    { "id": 3, "valor": '' },
-    { "id": 4, "valor": '' },
-    { "id": 5, "valor": '' },
-    { "id": 6, "valor": '' }
+    { "id": 1, "valor": null },
+    { "id": 2, "valor": null },
+    { "id": 3, "valor": null },
+    { "id": 4, "valor": null },
+    { "id": 5, "valor": null },
+    { "id": 6, "valor": null }
   ];
 
   personalidadCreacion = null;
@@ -99,6 +98,7 @@ export class DndService {
 
   mensajeCreacion = null;
   
+  borrado = false;
   
   getIdCreacion() {
     return this.idCreacion;
@@ -350,8 +350,8 @@ export class DndService {
   getRasgosClaseNivel(id: number, nivel: number): Observable<RasgoClase[]> {
     let finded = RASGOSCLASE.filter(rasgos => rasgos.idClase === id && rasgos.nivelClase <= nivel);
     // finded.filter(rasgos => rasgos.nivelClase <= nivel );
-    console.log("Encontrado " + nivel);
-    console.log(finded);
+    // console.log("Encontrado " + nivel);
+    // console.log(finded);
     for (let i of this.clases) {
       if (i.idClase === id) {
         return of(finded);
@@ -393,7 +393,6 @@ export class DndService {
 
   getMensajeCreacion(){
     
-
     return this.mensajeCreacion;
 
   }
@@ -402,6 +401,7 @@ export class DndService {
     this.mensajeCreacion = 'Actualmente te falta por introducir: ';
     if(this.nombreCreacion == null){
       this.mensajeCreacion += 'información, ';
+
     }
 
     if(this.razaCreacion == null){
@@ -416,12 +416,13 @@ export class DndService {
       this.mensajeCreacion += 'trasfondo, ';
     }
 
-    if(this.statsCreacion[0].valor == null){
+    if(this.statsCreacion[0].valor === null){
       this.mensajeCreacion += 'stats';
     }
 
     if(this.nombreCreacion !== null && this.razaCreacion !== null && this.claseCreacion !== null 
-      && this.trasfondoCreacion !== null && this.statsCreacion[0].valor !== ''){
+      && this.trasfondoCreacion !== null && this.statsCreacion[0].valor !== null){
+        // console.log(this.statsCreacion)
       this.mensajeCreacion = 'Perfecto, ya lo tienes todo, puedes crear tu personaje'
     }
   }
@@ -435,7 +436,16 @@ export class DndService {
   }
 
   crearJugador(jugador: Jugador): Observable<any>{
+    localStorage.setItem("jugador", JSON.stringify( jugador));
     return of(this.jugadores.push(jugador));
+  }
+
+  borrarSi(){
+    this.borrado = true;
+  }
+
+  borrarNo(){
+    this.borrado = false;
   }
 
 }

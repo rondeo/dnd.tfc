@@ -120,6 +120,7 @@ export class CrearStatsComponent implements OnInit {
   ngOnInit() {
     this.getCaracteristicas();
     this.setearStatsArray();
+    // console.log(this.statsCreacion)
   }
 
   getCaracteristicas() {
