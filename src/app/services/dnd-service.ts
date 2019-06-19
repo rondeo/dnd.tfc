@@ -51,7 +51,7 @@ export class DndService {
 
   caracteristicasPersonaje = CARACTERISTICASPERSONAJES;
 
-  jugadorSesion = 1;
+  jugadorSesion = 0;
   
   experiencia = '0';
 
